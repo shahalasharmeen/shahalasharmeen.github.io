@@ -2,11 +2,10 @@
  * Interactive Animated Human Model Controller
  * Tailored for Sahla Sharmeen E.K Portfolio
  * Features:
- * - High-resolution transparent character model from image.png (assets/images/character-model.png)
- * - Three.js WebGL rendering with real-time dynamic lighting
+ * - High-resolution character model from image.png (assets/images/character-model.png)
+ * - Three.js WebGL rendering with natural true-color reproduction (zero washouts)
  * - Real-time smooth cursor tracking (3D perspective tilt & parallax lerp)
  * - Natural ambient floating & breathing oscillation
- * - Dynamic cosmic rim lighting reacting to mouse position
  * - Multi-stage GSAP ScrollTrigger choreography (Hero -> About -> Lift out of view for What I Do & Timeline)
  */
 
@@ -27,7 +26,7 @@
   const height = container.clientHeight || window.innerHeight;
   const aspect = width / height;
 
-  // Camera framing
+  // Camera framing the character centered in view
   const camera = new THREE.PerspectiveCamera(38, aspect, 0.1, 100);
   camera.position.set(0, 0, 2.5);
   camera.lookAt(0, 0, 0);
@@ -39,27 +38,7 @@
   });
   renderer.setSize(width, height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  if (renderer.outputEncoding !== undefined) {
-    renderer.outputEncoding = THREE.sRGBEncoding || 3001;
-  }
   container.appendChild(renderer.domElement);
-
-  // Dynamic atmospheric lighting
-  const ambLight = new THREE.AmbientLight(0xffffff, 1.15);
-  scene.add(ambLight);
-
-  const keyLight = new THREE.DirectionalLight(0xfff0fd, 1.3);
-  keyLight.position.set(1.5, 2.5, 2.0);
-  scene.add(keyLight);
-
-  const fillLight = new THREE.DirectionalLight(0xc2a4ff, 0.95);
-  fillLight.position.set(-2.0, 1.5, 1.5);
-  scene.add(fillLight);
-
-  // Dynamic mouse-following point light for interactive cosmic sheen
-  const pointLight = new THREE.PointLight(0xc2a4ff, 2.8, 6.0);
-  pointLight.position.set(0, 0.2, 1.4);
-  scene.add(pointLight);
 
   let characterMesh = null;
   const mouse = { x: 0, y: 0 };
@@ -78,12 +57,12 @@
     const planeWidth = planeHeight * charAspect;
 
     const geometry = new THREE.PlaneGeometry(planeWidth, planeHeight, 32, 32);
-    const material = new THREE.MeshStandardMaterial({
+
+    // MeshBasicMaterial preserves true, vivid colors, shadows, and subtle skin/outfit tones without washing out
+    const material = new THREE.MeshBasicMaterial({
       map: texture,
       transparent: true,
-      alphaTest: 0.01,
-      roughness: 0.35,
-      metalness: 0.1,
+      depthWrite: false,
       side: THREE.DoubleSide
     });
 
@@ -94,7 +73,7 @@
     // Reveal glowing rim once model is ready
     const rim = document.querySelector('.character-rim');
     if (rim) {
-      rim.style.opacity = '0.75';
+      rim.style.opacity = '0.65';
     }
 
     // ScrollTrigger choreography
@@ -145,27 +124,23 @@
 
     if (characterMesh) {
       // Interactive 3D perspective tilt tracking cursor
-      targetRotation.y = mouse.x * 0.25;
-      targetRotation.x = -mouse.y * 0.18;
+      targetRotation.y = mouse.x * 0.22;
+      targetRotation.x = -mouse.y * 0.14;
 
-      characterMesh.rotation.y = THREE.MathUtils.lerp(characterMesh.rotation.y, targetRotation.y, 0.06);
-      characterMesh.rotation.x = THREE.MathUtils.lerp(characterMesh.rotation.x, targetRotation.x, 0.06);
+      characterMesh.rotation.y = THREE.MathUtils.lerp(characterMesh.rotation.y, targetRotation.y, 0.08);
+      characterMesh.rotation.x = THREE.MathUtils.lerp(characterMesh.rotation.x, targetRotation.x, 0.08);
 
       // Natural breathing & floating motion
-      const floatY = Math.sin(time * 2.0) * 0.035;
-      const swayX = Math.cos(time * 1.3) * 0.012;
+      const floatY = Math.sin(time * 2.0) * 0.032;
+      const swayX = Math.cos(time * 1.3) * 0.01;
       characterMesh.position.y = -0.04 + floatY;
       if (!window.scrollY || window.scrollY < 80) {
         characterMesh.position.x = swayX;
       }
 
       // Subtle breathing scale pulse
-      const breath = 1.0 + Math.sin(time * 1.8) * 0.008;
+      const breath = 1.0 + Math.sin(time * 1.8) * 0.007;
       characterMesh.scale.set(breath, breath, 1);
-
-      // Dynamic point light tracking cursor for responsive highlights
-      pointLight.position.x = mouse.x * 1.8;
-      pointLight.position.y = mouse.y * 1.4 + 0.3;
     }
 
     renderer.render(scene, camera);

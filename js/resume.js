@@ -17,7 +17,7 @@ $(document).ready(function () {
     e.preventDefault();
     const atsText = `
 SAHLA SHARMEEN E.K
-Computer Science Engineering Student
+Computer Science Engineer
 Email: sahlasharmeen@email.com | Phone: +91 9946753050
 Location: Bendichal North, Kasaragod
 LinkedIn: https://linkedin.com/in/shahalasharmeen | GitHub: https://github.com/shahalasharmeen

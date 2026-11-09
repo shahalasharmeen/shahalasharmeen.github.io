@@ -259,7 +259,7 @@ Kasaragod, Kerala, India | Email: shahalasharmeen@gmail.com
 LinkedIn: https://linkedin.com/in/sahla-sharmeen | GitHub: https://github.com/shahalasharmeen
 
 PROFESSIONAL SUMMARY
-Computer Science & Engineering graduate (Class of 2024) from P.A. College of Engineering (CGPA: 8.9) with active development experience in IoT hardware, embedded systems, Python, C, Java, and modern web applications.
+Computer Science Engineer graduate (Class of 2024) from P.A. College of Engineering (CGPA: 8.9) with active development experience in IoT hardware, embedded systems, Python, C, Java, and modern web applications.
 
 EDUCATION
 - B.E in Computer Science & Engineering | P.A. College of Engineering, Mangalore (Class of 2024) | CGPA: 8.9
