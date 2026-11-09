@@ -24,8 +24,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Stylesheet with Cache Busting -->
-  <link rel="stylesheet" href="css/style.css?v=redoyan_20261109">
-  <link rel="stylesheet" href="css/print.css?v=redoyan_20261109" media="print">
+  <link rel="stylesheet" href="css/style.css?v=redoyan_20261109_v2">
+  <link rel="stylesheet" href="css/print.css?v=redoyan_20261109_v2" media="print">
 </head>
 <body>
 
@@ -76,13 +76,15 @@
           <h1>SAHLA<br><span>SHARMEEN</span></h1>
         </div>
 
-        <!-- Center Column (Desktop): Photo with Glowing Halo Rim -->
-        <div class="landing-image">
-          <div class="character-rim"></div>
-          <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen E.K" loading="eager" fetchpriority="high">
+        <!-- Center 3D Interactive Human Character (Desktop) -->
+        <div class="character-container">
+          <div class="character-model" id="character-model">
+            <div class="character-rim"></div>
+            <div class="character-hover"></div>
+          </div>
         </div>
 
-        <!-- Center Column (Mobile): Stacked Responsive Photo -->
+        <!-- Center Column (Mobile Fallback): Stacked Responsive Photo -->
         <div class="mobile-photo">
           <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen E.K" loading="eager" fetchpriority="high">
         </div>
@@ -102,7 +104,7 @@
       <div class="about-me">
         <h3 class="title">About Me</h3>
         <p class="para">
-          I am a Computer Science and Engineering student at P.A. College of Engineering, Mangalore (CGPA 8.9) with an ardent focus on embedded IoT systems, responsive web development, and human-centric UI/UX design. Driven by hands-on engineering, I transform ideas into tangible hardware prototypes and modern web applications.
+          I am a Computer Science and Engineering graduate from P.A. College of Engineering (Class of 2024, CGPA 8.9) with an ardent focus on embedded IoT systems, responsive web development, and human-centric UI/UX design. Driven by hands-on engineering, I transform ideas into tangible hardware prototypes and modern web applications.
         </p>
       </div>
     </section>
@@ -168,7 +170,7 @@
       </div>
     </section>
 
-    <!-- 4. Career & Experience Section (Glowing Vertical Timeline) -->
+    <!-- 4. Career & Experience Section (Glowing Animated Vertical Timeline) -->
     <section class="career-section" id="experience" aria-label="Education & Experience">
       <div class="career-container">
         <h2>My education <span>&amp;</span><br> experience</h2>
@@ -178,16 +180,16 @@
             <div class="career-dot"></div>
           </div>
 
-          <!-- Item 1: B.E CSE -->
+          <!-- Item 1: B.E CSE (Class of 2024) -->
           <div class="career-info-box">
             <div class="career-info-in">
               <div class="career-role">
                 <h4>B.E in Computer Science &amp; Engineering</h4>
                 <h5>P.A. College of Engineering, Mangalore (CGPA: 8.9)</h5>
               </div>
-              <h3>NOW</h3>
+              <h3>2024</h3>
             </div>
-            <p>Affiliated to Visvesvaraya Technological University (VTU). Specializing in Embedded IoT, Data Structures, Web Development, and Systems Engineering.</p>
+            <p>Bachelor of Engineering in Computer Science &amp; Engineering (Class of 2024), affiliated to VTU. Specializing in Embedded IoT, Data Structures, Web Development, and Systems Engineering.</p>
           </div>
 
           <!-- Item 2: Salesforce Project -->
@@ -379,8 +381,15 @@
       </div>
     </section>
 
-    <!-- 6. Tech Stack Pyramid Section -->
+    <!-- 6. Tech Stack Pyramid Section with Animated Background Video -->
     <section class="techstack-new" id="techstack" aria-label="Tech Stack">
+      <div class="techstack-video-container">
+        <video autoplay loop muted playsinline class="techstack-video">
+          <source src="video/video.webm" type="video/webm">
+        </video>
+        <div class="techstack-overlay"></div>
+      </div>
+
       <div class="techstack-content">
         <h2>Tech Stack</h2>
         
@@ -526,9 +535,19 @@
 
   </main>
 
+  <!-- Three.js 3D Engine & Draco Loaders -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+
+  <!-- GSAP & ScrollTrigger Animation Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
   <!-- jQuery & Global Script with Cache Busting -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="js/main.js?v=redoyan_20261109"></script>
+  <script src="js/character.js?v=redoyan_20261109_v2"></script>
+  <script src="js/main.js?v=redoyan_20261109_v2"></script>
 
 </body>
 </html>

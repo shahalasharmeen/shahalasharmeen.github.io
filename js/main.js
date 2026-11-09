@@ -7,6 +7,7 @@
  * - Interactive Project Live Search & Category Filtering
  * - Copy to Clipboard & Toast Notifications
  * - ATS Plaintext Resume Generator & Print Trigger
+ * - GSAP ScrollTrigger Vertical Career Timeline Animation
  */
 
 $(document).ready(function () {
@@ -128,6 +129,10 @@ $(document).ready(function () {
           updateActiveNav(filename);
           bindPageInteractions();
 
+          if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.refresh();
+          }
+
           setTimeout(function () {
             $main.removeClass('page-fading-out').addClass('page-fading-in');
             setTimeout(() => $main.removeClass('page-fading-in'), 150);
@@ -199,9 +204,46 @@ $(document).ready(function () {
     }
   });
 
-  // 6. Dynamic Bindings for Interactive Features
+  // 6. Dynamic Bindings for Interactive Features & Timeline
   function bindPageInteractions() {
     
+    // Timeline ScrollTrigger Animation (Redoyan signature)
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+
+      if ($('.career-section').length) {
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: '.career-section',
+            start: 'top 75%',
+            end: 'bottom 40%',
+            scrub: 1.2,
+            invalidateOnRefresh: true
+          }
+        });
+
+        tl.fromTo('.career-timeline', 
+          { maxHeight: '0%', opacity: 0 }, 
+          { maxHeight: '100%', opacity: 1, duration: 1, ease: 'none' }, 
+          0
+        )
+        .fromTo('.career-dot', 
+          { top: '0%' }, 
+          { top: '100%', duration: 1, ease: 'none' }, 
+          0
+        )
+        .fromTo('.career-info-box', 
+          { opacity: 0, y: 35 }, 
+          { opacity: 1, y: 0, stagger: 0.15, duration: 0.8, ease: 'power2.out' }, 
+          0.1
+        );
+      }
+    } else {
+      // Fallback if GSAP is not yet ready: reveal timeline items directly
+      $('.career-timeline').css({ 'max-height': '100%', 'opacity': 1 });
+      $('.career-info-box').css({ 'opacity': 1, 'transform': 'none' });
+    }
+
     // Copy button handlers
     $('.btn-copy').off('click').on('click', function (e) {
       e.preventDefault();
@@ -215,17 +257,17 @@ $(document).ready(function () {
       }
     });
 
-    // ATS Resume Plain Text copy
+    // ATS Resume Plain Text copy (Class of 2024 updated)
     $('#btn-copy-ats').off('click').on('click', function () {
       const atsText = `SAHLA SHARMEEN E.K
 Kasaragod, Kerala, India | Email: shahalasharmeen@gmail.com
 LinkedIn: https://linkedin.com/in/sahla-sharmeen | GitHub: https://github.com/shahalasharmeen
 
 PROFESSIONAL SUMMARY
-Computer Science & Engineering undergraduate student at P.A. College of Engineering (CGPA: 8.9) with active development experience in IoT hardware, embedded systems, Python, C, Java, and modern web applications.
+Computer Science & Engineering graduate (Class of 2024) from P.A. College of Engineering (CGPA: 8.9) with active development experience in IoT hardware, embedded systems, Python, C, Java, and modern web applications.
 
 EDUCATION
-- B.E in Computer Science & Engineering | P.A. College of Engineering, Mangalore (2024 - 2028) | CGPA: 8.9
+- B.E in Computer Science & Engineering | P.A. College of Engineering, Mangalore (Class of 2024) | CGPA: 8.9
 - Pre-University Course (PCMB) | GHSS Irikkur, Kannur (2022 - 2024) | 84.6%
 - Secondary School Leaving Certificate (SSLC) | TIHSS Naimarmoola, Kasaragod (2021 - 2022) | 96.8%
 

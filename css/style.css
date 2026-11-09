@@ -372,6 +372,65 @@ img {
   position: relative;
 }
 
+/* 3D Interactive Human Character Model (Redoyan Signature) */
+.character-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.character-model {
+  height: 80vh;
+  position: absolute;
+  max-width: 1920px;
+  max-height: 1080px;
+  transform: translate(-50%);
+  width: 100%;
+  left: 50%;
+  bottom: 0px;
+  pointer-events: auto;
+  z-index: 5;
+}
+
+.character-model canvas {
+  position: relative;
+  pointer-events: none;
+  z-index: 2;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.character-hover {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  top: 50%;
+  left: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 1025px) {
+  .character-model {
+    height: 100vh;
+    bottom: 0;
+    z-index: 6;
+    position: fixed;
+    pointer-events: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .character-model {
+    display: none !important;
+  }
+}
+
 .character-rim {
   position: absolute;
   width: 420px;
@@ -385,6 +444,7 @@ img {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0.65;
+  transition: opacity 1s ease;
 }
 
 /* Right Hero Info */
@@ -733,11 +793,13 @@ h2.landing-info-h2 {
   left: 220px;
   width: 2px;
   background: linear-gradient(180deg, var(--accentColor) 0%, rgba(194, 164, 255, 0.1) 100%);
+  max-height: 0%;
+  opacity: 0;
 }
 
 .career-dot {
   position: absolute;
-  top: 25px;
+  top: 0%;
   left: -5px;
   width: 12px;
   height: 12px;
@@ -754,6 +816,14 @@ h2.landing-info-h2 {
   position: relative;
   gap: 50px;
   padding: 10px 0;
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.career-info-box.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 .career-info-in {
@@ -1042,8 +1112,37 @@ h2.landing-info-h2 {
   position: relative;
   width: 100%;
   margin: 60px auto 140px;
-  padding: 60px 0;
+  padding: 80px 0;
+  overflow: hidden;
   background: radial-gradient(circle at center, rgba(194, 164, 255, 0.08) 0%, transparent 70%);
+}
+
+.techstack-video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.techstack-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+}
+
+.techstack-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(11, 8, 12, 0.3) 0%, rgba(11, 8, 12, 0.96) 80%);
+  z-index: 1;
 }
 
 .techstack-content {

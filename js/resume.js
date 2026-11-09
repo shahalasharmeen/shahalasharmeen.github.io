@@ -24,7 +24,7 @@ LinkedIn: https://linkedin.com/in/shahalasharmeen | GitHub: https://github.com/s
 
 EDUCATION:
 - Bachelor of Computer Science Engineering (CSE), PA College of Engineering
-  CGPA: 8.9 | Expected Graduation: 2028
+  CGPA: 8.9 | Class of 2024
 
 TECHNICAL SKILLS:
 - Languages & Core: Python, C, Java, Web Development, UI/UX Design, SQL, Operating Software
