@@ -31,9 +31,9 @@
   const aspect = width / height;
 
   // Camera framing the developer at her laptop (head, shoulders, chest, arms, laptop)
-  const camera = new THREE.PerspectiveCamera(38, aspect, 0.1, 100);
-  camera.position.set(0, 1.48, 1.40);
-  camera.lookAt(0, 1.34, 0.05);
+  const camera = new THREE.PerspectiveCamera(36, aspect, 0.1, 100);
+  camera.position.set(0, 1.45, 1.48);
+  camera.lookAt(0, 1.30, 0.04);
 
   const renderer = new THREE.WebGLRenderer({
     alpha: true,
@@ -43,31 +43,31 @@
   renderer.setSize(width, height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.08;
+  renderer.toneMappingExposure = 1.12;
   if (renderer.outputEncoding !== undefined) {
     renderer.outputEncoding = THREE.sRGBEncoding || 3001;
   }
   container.appendChild(renderer.domElement);
 
   // Atmospheric studio lighting
-  const ambLight = new THREE.AmbientLight(0xffffff, 1.2);
+  const ambLight = new THREE.AmbientLight(0xffffff, 1.25);
   scene.add(ambLight);
 
-  const keyLight = new THREE.DirectionalLight(0xfff5ea, 1.15);
+  const keyLight = new THREE.DirectionalLight(0xfff5ea, 1.2);
   keyLight.position.set(1.5, 2.5, 2.0);
   scene.add(keyLight);
 
-  const fillLight = new THREE.DirectionalLight(0xc2a4ff, 0.85);
+  const fillLight = new THREE.DirectionalLight(0xc2a4ff, 0.95);
   fillLight.position.set(-2.0, 1.5, 1.5);
   scene.add(fillLight);
 
-  const rimLight = new THREE.DirectionalLight(0xd8b4fe, 1.35);
+  const rimLight = new THREE.DirectionalLight(0xd8b4fe, 1.4);
   rimLight.position.set(0, 2.0, -1.5);
   scene.add(rimLight);
 
   // Soft purple screen glow emitted from the laptop toward face and hands
-  const laptopScreenLight = new THREE.PointLight(0xc2a4ff, 2.4, 1.6);
-  laptopScreenLight.position.set(0, 1.25, 0.28);
+  const laptopScreenLight = new THREE.PointLight(0xc2a4ff, 2.5, 1.6);
+  laptopScreenLight.position.set(0, 1.20, 0.28);
   scene.add(laptopScreenLight);
 
   // Create Sleek Developer Laptop Prop
@@ -109,20 +109,20 @@
   lidGroup.position.set(0, 0.006, -0.165); // Hinge location
   lidGroup.rotation.x = -Math.PI * 0.14; // Open at ~115 degrees
 
-  const lidGeo = new THREE.BoxGeometry(0.50, 0.32, 0.012);
+  const lidGeo = new THREE.BoxGeometry(0.50, 0.26, 0.012);
   const lidMesh = new THREE.Mesh(lidGeo, darkMetalMat);
-  lidMesh.position.set(0, 0.16, 0);
+  lidMesh.position.set(0, 0.13, 0);
   lidGroup.add(lidMesh);
 
   // 5. Glowing Emissive Screen Display
-  const screenGeo = new THREE.PlaneGeometry(0.46, 0.28);
+  const screenGeo = new THREE.PlaneGeometry(0.46, 0.22);
   const screenMat = new THREE.MeshBasicMaterial({
     color: 0xc2a4ff,
     transparent: true,
     opacity: 0.95
   });
   const screenMesh = new THREE.Mesh(screenGeo, screenMat);
-  screenMesh.position.set(0, 0.16, 0.007);
+  screenMesh.position.set(0, 0.13, 0.007);
   lidGroup.add(screenMesh);
 
   laptopGroup.add(lidGroup);
@@ -142,15 +142,15 @@
   let rightHand = null;
   let faceMesh = null;
 
-  // Base rotations for body parts in typing pose
+  // Base rotations for body parts in typing pose (ReadyPlayerMe skeleton)
   const baseRot = {
-    leftArm: { x: 0.72, y: 0.14, z: -0.22 },
-    rightArm: { x: 0.72, y: -0.14, z: 0.22 },
-    leftForeArm: { x: -0.35, y: 0.42, z: 0.06 },
-    rightForeArm: { x: -0.35, y: -0.42, z: -0.06 },
-    leftHand: { x: -0.10, y: 0.0, z: -0.14 },
-    rightHand: { x: -0.10, y: 0.0, z: 0.14 },
-    head: { x: 0.16, y: 0.0, z: 0.0 }
+    leftArm: { x: 0, y: -1.45, z: -1.45 },
+    rightArm: { x: 0, y: 1.45, z: 1.45 },
+    leftForeArm: { x: 1.25, y: 0, z: -0.40 },
+    rightForeArm: { x: 1.25, y: 0, z: 0.40 },
+    leftHand: { x: 0.15, y: 0, z: 0 },
+    rightHand: { x: 0.15, y: 0, z: 0 },
+    head: { x: 0.10, y: 0, z: 0 }
   };
 
   const mouse = { x: 0, y: 0 };
@@ -178,7 +178,6 @@
       gltfLoader.setMeshoptDecoder(MeshoptDecoder);
     }
 
-    // If DRACOLoader is available on page, hook it up
     if (typeof THREE.DRACOLoader !== 'undefined') {
       const dracoLoader = new THREE.DRACOLoader();
       dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/draco/');
@@ -211,7 +210,7 @@
             child.material.roughness = Math.max(child.material.roughness || 0.4, 0.35);
             child.material.needsUpdate = true;
           }
-          if (child.morphTargetDictionary && (child.name.includes('HighRes') || child.name.includes('Head') || !faceMesh)) {
+          if (child.morphTargetDictionary && (child.name.includes('Head') || !faceMesh)) {
             faceMesh = child;
           }
         }
@@ -314,38 +313,38 @@
     if (avatarScene) {
       // 1. Interactive Head & Neck Tracking (follows mouse)
       if (headBone && window.scrollY < 650) {
-        const targetHeadY = mouse.x * 0.32;
-        const targetHeadX = baseRot.head.x - mouse.y * 0.18;
+        const targetHeadY = mouse.x * 0.35;
+        const targetHeadX = baseRot.head.x - mouse.y * 0.20;
         headBone.rotation.y = THREE.MathUtils.lerp(headBone.rotation.y, targetHeadY, 0.06);
         headBone.rotation.x = THREE.MathUtils.lerp(headBone.rotation.x, targetHeadX, 0.06);
 
         if (neckBone) {
-          neckBone.rotation.y = THREE.MathUtils.lerp(neckBone.rotation.y, mouse.x * 0.14, 0.06);
+          neckBone.rotation.y = THREE.MathUtils.lerp(neckBone.rotation.y, mouse.x * 0.15, 0.06);
           neckBone.rotation.x = THREE.MathUtils.lerp(neckBone.rotation.x, -mouse.y * 0.08, 0.06);
         }
       }
 
       // 2. Natural Chest / Thoracic Breathing
       if (spineBone) {
-        spineBone.rotation.x = Math.sin(time * 1.8) * 0.012;
-        spineBone.rotation.z = Math.sin(time * 0.9) * 0.004;
+        spineBone.rotation.x = Math.sin(time * 1.8) * 0.014;
+        spineBone.rotation.z = Math.sin(time * 0.9) * 0.005;
       }
 
       // 3. Realistic Hands & Forearms Typing Motion at Laptop
       if (leftHand && rightHand) {
-        leftHand.rotation.x = baseRot.leftHand.x + Math.sin(time * 8.5) * 0.05;
-        leftHand.rotation.z = baseRot.leftHand.z + Math.cos(time * 7.5) * 0.035;
+        leftHand.rotation.x = baseRot.leftHand.x + Math.sin(time * 8.5) * 0.035;
+        leftHand.rotation.z = baseRot.leftHand.z + Math.cos(time * 7.5) * 0.02;
 
-        rightHand.rotation.x = baseRot.rightHand.x + Math.cos(time * 9.0) * 0.05;
-        rightHand.rotation.z = baseRot.rightHand.z + Math.sin(time * 8.0) * 0.035;
+        rightHand.rotation.x = baseRot.rightHand.x + Math.cos(time * 9.0) * 0.035;
+        rightHand.rotation.z = baseRot.rightHand.z + Math.sin(time * 8.0) * 0.02;
 
         if (leftForeArm && rightForeArm) {
-          leftForeArm.rotation.x = baseRot.leftForeArm.x + Math.sin(time * 4.2) * 0.015;
-          rightForeArm.rotation.x = baseRot.rightForeArm.x + Math.cos(time * 4.0) * 0.015;
+          leftForeArm.rotation.x = baseRot.leftForeArm.x + Math.sin(time * 4.2) * 0.012;
+          rightForeArm.rotation.x = baseRot.rightForeArm.x + Math.cos(time * 4.0) * 0.012;
         }
       }
 
-      // 4. Natural Periodic Eye Blinking
+      // 4. Natural Periodic Eye Blinking (ReadyPlayerMe targets)
       blinkTimer += delta;
       if (blinkTimer > 3.6 && !isBlinking) {
         isBlinking = true;
@@ -362,17 +361,16 @@
             blinkTimer = 0;
           }
         }
-        setMorphInfluence('h_expressions.ReyeClose_h', blinkWeight);
-        setMorphInfluence('h_expressions.LeyeClose_h', blinkWeight);
+        setMorphInfluence('eyeBlinkLeft', blinkWeight);
+        setMorphInfluence('eyeBlinkRight', blinkWeight);
       }
 
       // 5. Interactive Eyebrow & Smile Blend on Hover
       const targetHoverVal = isHovered ? 1.0 : 0.0;
       currentHover = THREE.MathUtils.lerp(currentHover, targetHoverVal, 0.08);
-      setMorphInfluence('h_expressions.RbrowUp_h', currentHover * 0.45);
-      setMorphInfluence('h_expressions.LbrowUp_h', currentHover * 0.45);
-      setMorphInfluence('h_expressions.RsmileClose_h', currentHover * 0.35);
-      setMorphInfluence('h_expressions.LsmileClose_h', currentHover * 0.35);
+      setMorphInfluence('browInnerUp', currentHover * 0.40);
+      setMorphInfluence('mouthSmileLeft', currentHover * 0.35);
+      setMorphInfluence('mouthSmileRight', currentHover * 0.35);
 
       // Subtle ambient hover sway
       const swayY = Math.sin(time * 1.5) * 0.008;
