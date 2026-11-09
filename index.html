@@ -8,29 +8,18 @@
   <meta name="author" content="Sahla Sharmeen E.K">
 
   <!-- Open Graph / Meta -->
-  <meta property="og:title" content="Sahla Sharmeen E.K | Resume & Bio-Data Portfolio">
-  <meta property="og:description" content="Explore the professional Resume and comprehensive Bio-data of Sahla Sharmeen E.K, Computer Science Engineering student.">
+  <meta property="og:title" content="Sahla Sharmeen E.K | Portfolio & Engineering Showcase">
+  <meta property="og:description" content="Explore the projects, career milestones, resume, and bio-data of Sahla Sharmeen E.K.">
   <meta property="og:type" content="website">
 
-  <title>Sahla Sharmeen E.K | Computer Science Engineering Student & Portfolio</title>
+  <title>Sahla Sharmeen E.K | Portfolio &amp; Engineering Showcase</title>
 
-  <!-- Synchronous theme loader (Prevents any split-second white flash) -->
-  <script>
-    (function () {
-      try {
-        var theme = localStorage.getItem('site-theme') || 
-          (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (e) {}
-    })();
-  </script>
+  <!-- Prevent FOUC / White Flash -->
   <style>
-    html { background-color: #f8fafc; }
-    html[data-theme="dark"] { background-color: #0a0f1d; color: #f8fafc; }
-    body { background-color: inherit; color: inherit; }
+    html, body { background-color: #0b080c; color: #eae5ec; }
   </style>
 
-  <!-- Google Fonts Preconnect & Stylesheet -->
+  <!-- Google Fonts & Stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
@@ -38,357 +27,476 @@
 </head>
 <body>
 
-  <!-- Navigation Header -->
+  <!-- Redoyan Glowing Cursor Follower -->
+  <div id="cursor-follower" class="cursor-main"></div>
+
+  <!-- Redoyan Fixed Header -->
   <header class="site-header">
     <div class="container nav-wrapper">
-      <a href="index.html" class="brand-logo" aria-label="Sahla Sharmeen E.K Home">
+      
+      <!-- Brand Title -->
+      <a href="index.html" class="navbar-brand" aria-label="Sahla Sharmeen Home">
         <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen" class="brand-avatar-mini">
-        <div class="brand-text">Sahla Sharmeen</div>
+        <span class="navbar-title">SAHLA SHARMEEN</span>
       </a>
 
-      <!-- Desktop & Mobile Navigation Links -->
+      <!-- Center Status Badge -->
+      <div class="navbar-connect">
+        <span class="status-dot"></span>
+        <span>Available for Internships &bull; Kasaragod, India</span>
+      </div>
+
+      <!-- Navigation Links with Redoyan Hover-Roll Effect -->
       <nav id="main-navigation" class="main-nav" aria-label="Primary Navigation">
         <ul class="nav-links">
           <li>
-            <a href="index.html" class="nav-link active">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-              Home
+            <a href="index.html" class="hover-link active">
+              <span class="hover-in">
+                <div>Home</div>
+                <div>Home</div>
+              </span>
             </a>
           </li>
           <li>
-            <a href="resume.html" class="nav-link">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-              Resume
+            <a href="resume.html" class="hover-link">
+              <span class="hover-in">
+                <div>Resume</div>
+                <div>Resume</div>
+              </span>
             </a>
           </li>
           <li>
-            <a href="biodata.html" class="nav-link">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-              Bio-Data
+            <a href="biodata.html" class="hover-link">
+              <span class="hover-in">
+                <div>Bio-Data</div>
+                <div>Bio-Data</div>
+              </span>
             </a>
           </li>
           <li>
-            <a href="projects.html" class="nav-link">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="m16 18 2 2 4-4"></path><path d="M21 10V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l2-1.14"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-              Projects
+            <a href="projects.html" class="hover-link">
+              <span class="hover-in">
+                <div>Projects</div>
+                <div>Projects</div>
+              </span>
             </a>
           </li>
           <li>
-            <a href="contact.html" class="nav-link">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-              Contact
+            <a href="contact.html" class="hover-link">
+              <span class="hover-in">
+                <div>Contact</div>
+                <div>Contact</div>
+              </span>
             </a>
           </li>
         </ul>
       </nav>
 
-      <!-- Action Utilities: Theme Toggle & Mobile Trigger -->
-      <div class="nav-actions">
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark color theme">
-          <svg class="theme-icon-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
-          <svg class="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
-        </button>
+      <!-- Mobile Menu Toggle Button -->
+      <button id="mobile-menu-btn" class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+      </button>
 
-        <button id="mobile-menu-btn" class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-          <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
-          <svg class="icon-close" style="display:none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
-        </button>
-      </div>
     </div>
   </header>
 
   <!-- Main Content Area -->
   <main id="main-content">
     
-    <!-- Hero Section -->
-    <section class="section" aria-label="Introduction & Hero">
+    <!-- 1. Hero Landing Section -->
+    <section class="hero-section" aria-label="Hero Introduction">
       <div class="container hero-grid">
-        <div class="hero-content">
-          <div class="hero-badge-wrap">
-            <span class="badge badge-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
-              Class of 2028 &bull; PA College of Engineering
-            </span>
-          </div>
-          
+        
+        <div>
+          <div class="hero-greeting">Computer Science Engineering Student</div>
           <h1 class="hero-title">
-            Hi, I'm <span class="gradient-text">Sahla Sharmeen E.K</span>
+            Sahla Sharmeen <span class="gradient-text">E.K</span>
           </h1>
-
           <div class="hero-role">
-            Computer Science Engineering Student &bull; UI/UX &amp; IoT Enthusiast
+            PA College of Engineering &bull; CGPA 8.9 &bull; Class of 2028
           </div>
-
-          <p class="hero-summary">
-            A passionate Computer Science Engineering student bridging technology and creativity. Experienced in Python, C, Web Development, and UI/UX design, alongside hands-on embedded IoT hardware projects like Arduino footstep power generation and autonomous RC systems.
+          <p class="hero-description">
+            Passionate about technology and creativity. Experienced in Python, C, Web Development, and UI/UX design, alongside embedded IoT prototyping like Arduino footstep power generation and autonomous systems.
           </p>
 
-          <div class="hero-cta-group">
+          <div class="hero-actions">
             <a href="resume.html" class="btn btn-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-              View Full Resume
+              View Full Resume &rarr;
             </a>
             <a href="biodata.html" class="btn btn-secondary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-              Explore Bio-Data
+              Personal Bio-Data
             </a>
             <a href="assets/Resume.pdf" download="Sahla_Sharmeen_Resume.pdf" class="btn btn-outline" target="_blank" rel="noopener">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
               Download PDF
             </a>
           </div>
 
-          <!-- Social Links -->
-          <ul class="hero-social-list" aria-label="Social and Professional Profiles">
+          <!-- Social Connect Icons -->
+          <ul class="hero-social-list" aria-label="Social Profiles">
             <li>
-              <a href="https://linkedin.com/in/shahalasharmeen" class="hero-social-link" target="_blank" rel="noopener" aria-label="LinkedIn Profile">
+              <a href="https://linkedin.com/in/shahalasharmeen" class="hero-social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
               </a>
             </li>
             <li>
-              <a href="https://github.com/shahalasharmeen" class="hero-social-link" target="_blank" rel="noopener" aria-label="GitHub Profile">
+              <a href="https://github.com/shahalasharmeen" class="hero-social-link" target="_blank" rel="noopener" aria-label="GitHub">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
               </a>
             </li>
             <li>
-              <a href="mailto:sahlasharmeen@email.com" class="hero-social-link" aria-label="Send Email">
+              <a href="mailto:sahlasharmeen@email.com" class="hero-social-link" aria-label="Email">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
               </a>
             </li>
             <li>
-              <a href="tel:+919946753050" class="hero-social-link" aria-label="Phone Call">
+              <a href="tel:+919946753050" class="hero-social-link" aria-label="Phone">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
               </a>
             </li>
           </ul>
         </div>
 
-        <!-- Visual Avatar Showcase with Passport Size Photo -->
-        <div class="hero-visual-card">
-          <figure class="hero-avatar-frame">
-            <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen E.K Portrait" class="hero-avatar-img">
+        <!-- Hero Portrait with Redoyan Neon Aura Frame -->
+        <div class="hero-visual">
+          <figure class="hero-photo-ring">
+            <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen E.K Portrait" class="hero-photo-img">
           </figure>
 
           <!-- Floating Metric 1 -->
-          <div class="hero-floating-stat top-left">
-            <div class="stat-icon-bubble">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
+          <div class="hero-metric-badge top-left">
+            <div style="color: var(--accentColor);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
             </div>
             <div>
-              <div class="stat-num">8.9 CGPA</div>
-              <div class="stat-label">Academic Excellence</div>
+              <div class="metric-num">8.9</div>
+              <div class="metric-lbl">CGPA Standing</div>
             </div>
           </div>
 
           <!-- Floating Metric 2 -->
-          <div class="hero-floating-stat bottom-right">
-            <div class="stat-icon-bubble success">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+          <div class="hero-metric-badge bottom-right">
+            <div style="color: var(--successColor);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
             </div>
             <div>
-              <div class="stat-num">7+ Projects</div>
-              <div class="stat-label">IoT, Web &amp; Software</div>
+              <div class="metric-num">7+</div>
+              <div class="metric-lbl">Engineering Projects</div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Quick Metrics Bar -->
-      <div class="container">
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <div class="num">8.9</div>
-            <div class="label">B.E CGPA Score</div>
-          </div>
-          <div class="metric-card">
-            <div class="num">7+</div>
-            <div class="label">Hardware &amp; Software Projects</div>
-          </div>
-          <div class="metric-card">
-            <div class="num">4</div>
-            <div class="label">Professional Certifications</div>
-          </div>
-          <div class="metric-card">
-            <div class="num">4</div>
-            <div class="label">Languages Spoken</div>
-          </div>
+      </div>
+    </section>
+
+    <!-- 2. About Section (Redoyan Large Display Statement) -->
+    <section class="section" aria-label="About Statement">
+      <div class="container about-me">
+        <span class="section-label">About Me</span>
+        <p class="large-statement">
+          A Computer Science Engineering student passionate about <span class="highlight">technology and creativity</span>, with hands-on experience across Python, C, web development, and UI/UX design. I bridge hardware engineering with aesthetic user experiences. Outside code, I express visual harmony through <span class="highlight">photography, painting, and baking</span>.
+        </p>
+
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <span class="badge">B.E Computer Science</span>
+          <span class="badge">PA College of Engineering</span>
+          <span class="badge">Bendichal North, Kasaragod</span>
+          <span class="badge">Multilingual (4 Languages)</span>
         </div>
       </div>
     </section>
 
-    <!-- Two Pillars Section: Resume vs Bio-Data -->
-    <section class="section section-alt" aria-label="Resume and Bio-data Portals">
+    <!-- 3. Tech Stack / Skills Section (Redoyan Glassmorphism Cards) -->
+    <section class="section" aria-label="Skills and Tech Stack">
       <div class="container">
-        <header class="section-header">
-          <span class="section-subtitle">Dedicated Portals</span>
-          <h2 class="section-title">Resume &amp; Bio-Data Overview</h2>
-          <p class="section-desc">Choose between the professional technical resume for industry and career opportunities, or the complete biographical document detailing personal background, values, and creative pursuits.</p>
-        </header>
+        <span class="section-label">Capabilities</span>
+        <h2 style="margin-bottom: 1rem;">Technical &amp; Analytical Stack</h2>
+        <p style="max-width: 600px; margin-bottom: 2rem;">
+          Core languages, system software, creative design tools, and analytical competencies honed through coursework and practical builds.
+        </p>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        <div class="techstack-grid">
           
-          <!-- Pillar 1: Resume -->
-          <article class="card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-              <span class="badge badge-primary">Technical &amp; Career</span>
-              <span class="mono" style="font-size: 0.8rem; color: var(--text-light);">ATS Ready</span>
+          <!-- Card 1 -->
+          <article class="techstack-card">
+            <div class="techstack-title">
+              <span style="color: var(--accentColor);">&#9670;</span> Languages &amp; Core
             </div>
-            <h3 class="card-title">Professional Resume</h3>
-            <p style="margin-bottom: 1.5rem;">
-              Curriculum Vitae tailored for technical recruiters and hiring managers. Features academic standing at PA College of Engineering, skills across Python, C, Java, UI/UX, and key engineering projects.
-            </p>
-            <ul style="list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.95rem;">
-              <li style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Formal Education &amp; 8.9 CGPA
-              </li>
-              <li style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Footstep Arduino &amp; Salesforce Tracker
-              </li>
-              <li style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Industry Certifications &amp; Workshops
-              </li>
-            </ul>
-            <a href="resume.html" class="btn btn-primary" style="width: 100%;">
-              Open Interactive Resume &rarr;
-            </a>
+            <p style="font-size: 0.9rem;">Foundational object-oriented and systems programming languages.</p>
+            <div class="techstack-tags">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">C</span>
+              <span class="tech-tag">Java</span>
+              <span class="tech-tag">SQL</span>
+              <span class="tech-tag">Operating Software</span>
+            </div>
           </article>
 
-          <!-- Pillar 2: Bio-Data -->
-          <article class="card">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-              <span class="badge badge-accent">Biographical Profile</span>
-              <span class="mono" style="font-size: 0.8rem; color: var(--text-light);">Personal Profile</span>
+          <!-- Card 2 -->
+          <article class="techstack-card">
+            <div class="techstack-title">
+              <span style="color: var(--accentColor);">&#9670;</span> Web &amp; UI/UX
             </div>
-            <h3 class="card-title">Comprehensive Bio-Data</h3>
-            <p style="margin-bottom: 1.5rem;">
-              Complete personal biographical record covering personal demographics, geographical origin (Kasaragod), multilingual proficiency (Malayalam, English, Hindi, Tamil), and creative hobbies.
-            </p>
-            <ul style="list-style: none; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.95rem;">
-              <li style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Detailed Demographics &amp; Contact
-              </li>
-              <li style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Creative Hobbies: Photography, Painting &amp; Baking
-              </li>
-              <li style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-muted);">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--brand-accent)" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                Printable Bio-data &amp; Declaration
-              </li>
-            </ul>
-            <a href="biodata.html" class="btn btn-secondary" style="width: 100%;">
-              Open Full Bio-Data &rarr;
-            </a>
+            <p style="font-size: 0.9rem;">Modern web application architecture and human-centered user interface design.</p>
+            <div class="techstack-tags">
+              <span class="tech-tag">Web Development</span>
+              <span class="tech-tag">HTML5 / CSS3</span>
+              <span class="tech-tag">JavaScript / jQuery</span>
+              <span class="tech-tag">UI/UX Design</span>
+              <span class="tech-tag">Responsive Layouts</span>
+            </div>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="techstack-card">
+            <div class="techstack-title">
+              <span style="color: var(--accentColor);">&#9670;</span> Tools &amp; Cloud
+            </div>
+            <p style="font-size: 0.9rem;">Cloud CRM automation, visual prototyping, and presentation tools.</p>
+            <div class="techstack-tags">
+              <span class="tech-tag">Salesforce</span>
+              <span class="tech-tag">Arduino IDE</span>
+              <span class="tech-tag">Scratch</span>
+              <span class="tech-tag">PowerPoint</span>
+              <span class="tech-tag">Git / GitHub</span>
+            </div>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="techstack-card">
+            <div class="techstack-title">
+              <span style="color: var(--accentColor);">&#9670;</span> Professional Skills
+            </div>
+            <p style="font-size: 0.9rem;">Analytical reasoning, leadership, and cross-functional team coordination.</p>
+            <div class="techstack-tags">
+              <span class="tech-tag">Statistics</span>
+              <span class="tech-tag">Problem Solving</span>
+              <span class="tech-tag">Team Leadership</span>
+              <span class="tech-tag">Communication</span>
+              <span class="tech-tag">Creative Arts</span>
+            </div>
           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- Featured Projects Preview -->
-    <section class="section" aria-label="Key Engineering Highlights">
+    <!-- 4. Career Milestones (Redoyan Glowing Vertical Timeline) -->
+    <section class="career-section" aria-label="Career & Education Timeline">
       <div class="container">
-        <header class="section-header">
-          <span class="section-subtitle">Portfolio Snapshot</span>
-          <h2 class="section-title">Highlighted Engineering Projects</h2>
-          <p class="section-desc">A selection of prototype solutions spanning embedded systems, cloud computing, and smart sensors.</p>
-        </header>
+        <span class="section-label" style="text-align: center;">Journey</span>
+        <h2 class="gradient-title">Education &amp; Milestones</h2>
 
-        <div class="projects-grid">
-          
-          <!-- Project 1 -->
-          <article class="card project-card">
-            <div>
-              <div class="project-header-top">
-                <span class="badge badge-primary">Arduino &amp; Hardware</span>
-                <span class="project-timeline">2024</span>
-              </div>
-              <h3 class="card-title">Footstep Power Generation Using Arduino</h3>
-              <p style="font-size: 0.95rem;">A prototype renewable energy engineering project exploring electrical power generation from footsteps using piezoelectric transducers and Arduino microcontrollers.</p>
-              <div class="project-tags-list">
-                <span class="project-tag">Arduino</span>
-                <span class="project-tag">Piezoelectric Sensors</span>
-                <span class="project-tag">Renewable Energy</span>
-                <span class="project-tag">IoT</span>
-              </div>
+        <div class="career-container">
+          <div class="career-timeline-line"></div>
+          <div class="career-dot"></div>
+
+          <!-- Milestone 1 -->
+          <div class="career-item">
+            <div class="career-item-left">
+              <div class="career-item-period">2024 - 2028</div>
+              <div class="career-item-title">Bachelor of Engineering (CSE)</div>
+              <div class="career-item-subtitle">PA College of Engineering &bull; CGPA: 8.9</div>
             </div>
-            <div class="project-footer">
-              <span style="font-size: 0.85rem; font-weight: 600; color: var(--brand-secondary);">Role: Team Member</span>
-              <a href="projects.html" class="btn btn-sm btn-outline">Explore &rarr;</a>
+            <div class="career-item-right">
+              <p class="career-item-desc">
+                Currently pursuing B.E in Computer Science Engineering with a strong 8.9 CGPA. Focusing on algorithms, systems programming, web technologies, and embedded IoT architectures.
+              </p>
+            </div>
+          </div>
+
+          <!-- Milestone 2 -->
+          <div class="career-item">
+            <div class="career-item-left">
+              <div class="career-item-period">2026</div>
+              <div class="career-item-title">Volunteer Program Tracker</div>
+              <div class="career-item-subtitle">Salesforce CRM &bull; Role: Leader</div>
+            </div>
+            <div class="career-item-right">
+              <p class="career-item-desc">
+                Led the design and architecture of a cloud CRM tracker on Salesforce, establishing custom data models, automated workflow rules, and tracking social impact participation metrics.
+              </p>
+            </div>
+          </div>
+
+          <!-- Milestone 3 -->
+          <div class="career-item">
+            <div class="career-item-left">
+              <div class="career-item-period">2024</div>
+              <div class="career-item-title">Footstep Power Generation</div>
+              <div class="career-item-subtitle">Arduino Hardware &bull; Role: Team Member</div>
+            </div>
+            <div class="career-item-right">
+              <p class="career-item-desc">
+                Collaborative prototype exploring kinetic energy harvesting from footfalls using piezoelectric transducers and Arduino microcontrollers to store power in rechargeable cells.
+              </p>
+            </div>
+          </div>
+
+          <!-- Milestone 4 -->
+          <div class="career-item">
+            <div class="career-item-left">
+              <div class="career-item-period">2024</div>
+              <div class="career-item-title">ComedKares RC Car Workshop</div>
+              <div class="career-item-subtitle">Applied Robotics &bull; Role: Leader</div>
+            </div>
+            <div class="career-item-right">
+              <p class="career-item-desc">
+                Led the assembly, motor driver interfacing, and telemetry programming for an Arduino-powered remote-controlled vehicle.
+              </p>
+            </div>
+          </div>
+
+          <!-- Milestone 5 -->
+          <div class="career-item">
+            <div class="career-item-left">
+              <div class="career-item-period">Certifications</div>
+              <div class="career-item-title">Industry Credentials</div>
+              <div class="career-item-subtitle">Salesforce, NPTEL, Cisco</div>
+            </div>
+            <div class="career-item-right">
+              <p class="career-item-desc">
+                Completed Salesforce Essentials &amp; CRM Foundations, NPTEL Artificial Intelligence for Economics, Cisco Networking Basics, and hands-on Game Development using Python.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Featured Projects Showcase (.myworks-grid - Redoyan Style) -->
+    <section class="section" aria-label="Featured Works">
+      <div class="container">
+        <span class="section-label">Selected Works</span>
+        <h2 style="margin-bottom: 2.5rem;">Featured Engineering Projects</h2>
+
+        <div class="myworks-grid">
+
+          <!-- Work 1 -->
+          <article class="myworks-card">
+            <div>
+              <span class="myworks-card-number">01</span>
+              <div class="myworks-card-category">Hardware / Clean Energy</div>
+              <h3 class="myworks-card-title">Footstep Power Generation Using Arduino</h3>
+              <p class="myworks-card-desc">
+                Kinetic power harvesting platform generating electricity from foot pressure via piezoelectric transducers, managed and monitored with an Arduino board.
+              </p>
+            </div>
+            <div class="myworks-card-tech">
+              Arduino Uno &bull; Piezoelectric Sensors &bull; Energy Harvesting &bull; C++
             </div>
           </article>
 
-          <!-- Project 2 -->
-          <article class="card project-card">
+          <!-- Work 2 -->
+          <article class="myworks-card">
             <div>
-              <div class="project-header-top">
-                <span class="badge badge-accent">Cloud &amp; CRM</span>
-                <span class="project-timeline">2026</span>
-              </div>
-              <h3 class="card-title">Volunteer Program Tracker Using Salesforce</h3>
-              <p style="font-size: 0.95rem;">A comprehensive cloud-based CRM solution developed on Salesforce to organize, coordinate, and track volunteer recruitment, event participation, and social impact metrics.</p>
-              <div class="project-tags-list">
-                <span class="project-tag">Salesforce</span>
-                <span class="project-tag">CRM Foundations</span>
-                <span class="project-tag">Cloud Database</span>
-                <span class="project-tag">Analytics</span>
-              </div>
+              <span class="myworks-card-number">02</span>
+              <div class="myworks-card-category">Cloud / CRM Architecture</div>
+              <h3 class="myworks-card-title">Volunteer Program Tracker Using Salesforce</h3>
+              <p class="myworks-card-desc">
+                A custom Salesforce solution built to organize volunteer coordination, track attendance and hours, and monitor social welfare metrics.
+              </p>
             </div>
-            <div class="project-footer">
-              <span style="font-size: 0.85rem; font-weight: 600; color: var(--brand-accent);">Role: Leader</span>
-              <a href="projects.html" class="btn btn-sm btn-outline">Explore &rarr;</a>
+            <div class="myworks-card-tech">
+              Salesforce Platform &bull; CRM Foundations &bull; Custom Objects &bull; Process Flows
             </div>
           </article>
 
-          <!-- Project 3 -->
-          <article class="card project-card">
+          <!-- Work 3 -->
+          <article class="myworks-card">
             <div>
-              <div class="project-header-top">
-                <span class="badge badge-success">Robotics &amp; Autonomous</span>
-                <span class="project-timeline">2024</span>
-              </div>
-              <h3 class="card-title">ComedKares RC Car Workshop</h3>
-              <p style="font-size: 0.95rem;">Hands-on engineering workshop focused on architecting, assembling, and programming an Arduino-powered remote controlled vehicle with custom motor drivers.</p>
-              <div class="project-tags-list">
-                <span class="project-tag">Embedded C</span>
-                <span class="project-tag">Arduino</span>
-                <span class="project-tag">Motor Controllers</span>
-                <span class="project-tag">RF / Bluetooth</span>
-              </div>
+              <span class="myworks-card-number">03</span>
+              <div class="myworks-card-category">Robotics &amp; Control</div>
+              <h3 class="myworks-card-title">ComedKares RC Car Using Arduino</h3>
+              <p class="myworks-card-desc">
+                Autonomous and RF-controlled vehicular robotics system with integrated motor driver circuits, telemetry receiver, and chassis mechanics.
+              </p>
             </div>
-            <div class="project-footer">
-              <span style="font-size: 0.85rem; font-weight: 600; color: var(--brand-success);">Role: Leader</span>
-              <a href="projects.html" class="btn btn-sm btn-outline">Explore &rarr;</a>
+            <div class="myworks-card-tech">
+              Arduino &bull; L298N Motor Drivers &bull; Embedded C &bull; Wireless RF
+            </div>
+          </article>
+
+          <!-- Work 4 -->
+          <article class="myworks-card">
+            <div>
+              <span class="myworks-card-number">04</span>
+              <div class="myworks-card-category">Biomedical / IoT Sensors</div>
+              <h3 class="myworks-card-title">Muscle Flex Detection (EMG Sensor)</h3>
+              <p class="myworks-card-desc">
+                Capturing biological muscle flexion electrical pulses with electromyography sensors to stream telemetry for assistive robotics applications.
+              </p>
+            </div>
+            <div class="myworks-card-tech">
+              EMG Electrodes &bull; Signal Conditioning &bull; Microcontroller &bull; IoT Telemetry
+            </div>
+          </article>
+
+          <!-- Work 5 -->
+          <article class="myworks-card">
+            <div>
+              <span class="myworks-card-number">05</span>
+              <div class="myworks-card-category">Web Platform / UI/UX</div>
+              <h3 class="myworks-card-title">Cooking Recipe Portal</h3>
+              <p class="myworks-card-desc">
+                Interactive web portal featuring dynamic recipe categorization, ingredient scaling calculators, and responsive mobile-first culinary directions.
+              </p>
+            </div>
+            <div class="myworks-card-tech">
+              HTML5 / CSS3 &bull; JavaScript &bull; jQuery &bull; Responsive UI/UX
+            </div>
+          </article>
+
+          <!-- Work 6 -->
+          <article class="myworks-card">
+            <div>
+              <span class="myworks-card-number">06</span>
+              <div class="myworks-card-category">Robotics / Aero</div>
+              <h3 class="myworks-card-title">Drone Using ESP32 Microcontroller</h3>
+              <p class="myworks-card-desc">
+                Autonomous flight controller quadcopter platform built with dual-core ESP32 MCU, reading IMU gyroscope data for real-time stabilization.
+              </p>
+            </div>
+            <div class="myworks-card-tech">
+              ESP32 &bull; MPU-6050 &bull; PID Flight Algorithms &bull; Wi-Fi Telemetry
             </div>
           </article>
 
         </div>
 
-        <div style="text-align: center; margin-top: 3rem;">
+        <div style="text-align: center; margin-top: 3.5rem;">
           <a href="projects.html" class="btn btn-secondary">
-            View All 7 Projects &amp; Additional Systems &rarr;
+            View All Projects &amp; Filters &rarr;
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Quick Contact Strip -->
-    <section class="section section-alt" aria-label="Quick Connect">
-      <div class="container text-center" style="max-width: 720px; margin: 0 auto;">
-        <h2 style="margin-bottom: 1rem;">Let's Collaborate &amp; Connect</h2>
-        <p style="margin-bottom: 2rem;">Interested in discussing technical internships, web projects, or collaborative engineering initiatives? Reach out today!</p>
-        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-          <a href="contact.html" class="btn btn-primary">
-            Send a Direct Message
-          </a>
-          <button class="btn btn-secondary btn-copy" data-copy-text="sahlasharmeen@email.com">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
-            Copy Email Address
-          </button>
+    <!-- 6. Contact Strip (Redoyan Style) -->
+    <section class="section" aria-label="Get In Touch">
+      <div class="container">
+        <div class="contact-flex">
+          <div class="contact-left">
+            <span class="section-label">Connect</span>
+            <h2 class="gradient-title" style="font-size: clamp(32px, 4.5vw, 52px); margin-bottom: 1.5rem;">Let's Create Together</h2>
+            <p style="margin-bottom: 2rem;">
+              Open for internship opportunities, engineering collaborations, and design projects. Feel free to send a note or connect on LinkedIn.
+            </p>
+            <div>
+              <a href="mailto:sahlasharmeen@email.com" class="contact-social-link">sahlasharmeen@email.com</a>
+              <br>
+              <a href="tel:+919946753050" class="contact-social-link">+91 9946753050</a>
+            </div>
+          </div>
+
+          <div class="contact-right" style="display: flex; flex-direction: column; justify-content: center; gap: 1rem;">
+            <a href="contact.html" class="btn btn-primary" style="padding: 1rem 2rem; font-size: 1.05rem;">
+              Open Contact Form &rarr;
+            </a>
+            <button class="btn btn-secondary btn-copy" data-copy-text="sahlasharmeen@email.com">
+              Copy Email Address
+            </button>
+          </div>
         </div>
       </div>
     </section>
@@ -397,34 +505,20 @@
 
   <!-- Site Footer -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="brand-logo">
-            <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen" class="brand-avatar-mini">
-            <div class="brand-text">Sahla Sharmeen</div>
-          </div>
-          <p style="margin-top: 0.5rem; font-size: 0.9rem; max-width: 360px;">
-            Computer Science Engineering Student, Developer, UI/UX Designer &bull; Kasaragod, Kerala.
-          </p>
-        </div>
-
-        <ul class="footer-links">
-          <li><a href="index.html" class="footer-link">Home</a></li>
-          <li><a href="resume.html" class="footer-link">Resume</a></li>
-          <li><a href="biodata.html" class="footer-link">Bio-Data</a></li>
-          <li><a href="projects.html" class="footer-link">Projects</a></li>
-          <li><a href="contact.html" class="footer-link">Contact</a></li>
-        </ul>
+    <div class="container footer-wrapper">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen" class="brand-avatar-mini" style="width: 32px; height: 32px;">
+        <span style="font-weight: 600; color: #fff;">Sahla Sharmeen E.K</span>
       </div>
 
-      <div class="footer-bottom">
-        <div>&copy; <span id="current-year">2026</span> Sahla Sharmeen E.K. Hosted on GitHub Pages.</div>
-        <div style="display: flex; gap: 1rem;">
-          <a href="https://linkedin.com/in/shahalasharmeen" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
-          <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener" class="footer-link">GitHub</a>
-          <a href="mailto:sahlasharmeen@email.com" class="footer-link">Email</a>
-        </div>
+      <div style="font-size: 0.9rem; color: var(--textMuted);">
+        &copy; <span id="current-year">2026</span> Sahla Sharmeen. Hosted on GitHub Pages.
+      </div>
+
+      <div style="display: flex; gap: 1.5rem; font-size: 0.9rem;">
+        <a href="https://linkedin.com/in/shahalasharmeen" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:sahlasharmeen@email.com">Email</a>
       </div>
     </div>
   </footer>

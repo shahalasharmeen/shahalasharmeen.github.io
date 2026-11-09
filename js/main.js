@@ -1,57 +1,78 @@
 /**
- * Main Global JavaScript - UI/UX Pro Max Architecture
- * Features: Instant Zero-Lag Page Switching (PJAX + Prefetch), Theme Persistence, Navigation, Toasts
+ * Main Global JavaScript - Inspired by Redoyanul Haque Portfolio
+ * Features:
+ * - Redoyan Interactive Glowing Cursor Follower
+ * - Instant Zero-Lag Page Switching (PJAX + Prefetch)
+ * - Timeline Animations & Interactive Hover Rolls
+ * - Project Filtering & Contact Form Validation
  */
 
 $(document).ready(function () {
   'use strict';
 
-  // 1. Theme Management (Complements synchronous head script)
-  $('#theme-toggle').on('click', function () {
-    const activeTheme = $('html').attr('data-theme') || 'light';
-    const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
-    
-    $('html').attr('data-theme', newTheme);
-    localStorage.setItem('site-theme', newTheme);
-    
-    showToast(newTheme === 'dark' ? 'Switched to Dark Mode' : 'Switched to Light Mode');
-  });
+  // 1. Redoyan Signature Glowing Follower Cursor
+  const $cursor = $('#cursor-follower');
+  if ($cursor.length && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let mouseX = -100, mouseY = -100;
+    let cursorX = -100, cursorY = -100;
 
-  // 2. Mobile Navigation Toggle
+    $(window).on('mousemove', function (e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function renderCursor() {
+      // Smooth interpolation for natural lagging inertia
+      cursorX += (mouseX - cursorX) * 0.2;
+      cursorY += (mouseY - cursorY) * 0.2;
+      $cursor.css('transform', `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`);
+      requestAnimationFrame(renderCursor);
+    }
+    requestAnimationFrame(renderCursor);
+
+    // Cursor hover expansion on links, cards, buttons
+    $(document).on('mouseenter', 'a, button, .myworks-card, .techstack-card', function () {
+      $cursor.css({
+        width: '64px',
+        height: '64px',
+        opacity: '0.8'
+      });
+    }).on('mouseleave', 'a, button, .myworks-card, .techstack-card', function () {
+      $cursor.css({
+        width: '44px',
+        height: '44px',
+        opacity: '1'
+      });
+    });
+  }
+
+  // 2. Mobile Menu Toggle
   $('#mobile-menu-btn').on('click', function () {
     const $nav = $('#main-navigation');
     const isOpen = $nav.hasClass('is-open');
-    
     if (isOpen) {
       $nav.removeClass('is-open');
       $(this).attr('aria-expanded', 'false');
-      $(this).find('.icon-menu').show();
-      $(this).find('.icon-close').hide();
     } else {
       $nav.addClass('is-open');
       $(this).attr('aria-expanded', 'true');
-      $(this).find('.icon-menu').hide();
-      $(this).find('.icon-close').show();
     }
   });
 
-  // Close mobile nav when clicking outside
   $(document).on('click', function (e) {
     if (!$(e.target).closest('.site-header').length) {
       $('#main-navigation').removeClass('is-open');
-      $('#mobile-menu-btn').attr('aria-expanded', 'false')
-        .find('.icon-menu').show();
-      $('#mobile-menu-btn').find('.icon-close').hide();
+      $('#mobile-menu-btn').attr('aria-expanded', 'false');
     }
   });
 
-  // 3. Global Toast Notification Utility
+  // 3. Global Toast Notifications
   window.showToast = function (message) {
     let $toast = $('#global-toast');
     if (!$toast.length) {
       $('body').append(`
         <div id="global-toast" class="toast-notification" role="status" aria-live="polite">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accentColor)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
           <span class="toast-msg"></span>
         </div>
       `);
@@ -64,13 +85,13 @@ $(document).ready(function () {
     clearTimeout(window.toastTimer);
     window.toastTimer = setTimeout(function () {
       $toast.removeClass('show');
-    }, 3200);
+    }, 3000);
   };
 
-  // 4. Update Current Active Nav State
+  // 4. Update Navigation Active State
   function updateActiveNav(path) {
     const filename = (path || window.location.pathname).split('/').pop() || 'index.html';
-    $('.nav-link').each(function () {
+    $('.hover-link').each(function () {
       const href = $(this).attr('href');
       if (href === filename || (filename === '' && href === 'index.html')) {
         $(this).addClass('active');
@@ -80,11 +101,11 @@ $(document).ready(function () {
     });
   }
 
-  // 5. In-Memory Page Cache & Prefetcher (Zero Network Delay / Zero White Screen)
+  // 5. In-Memory Prefetch & Zero-Delay PJAX Page Switcher
   const pageCache = {};
   const sitePages = ['index.html', 'resume.html', 'biodata.html', 'projects.html', 'contact.html'];
 
-  function prefetchSitePages() {
+  function prefetchPages() {
     sitePages.forEach(function (page) {
       if (!pageCache[page]) {
         fetch(page)
@@ -96,24 +117,16 @@ $(document).ready(function () {
       }
     });
   }
+  setTimeout(prefetchPages, 80);
 
-  // Pre-load all pages right after initial render
-  setTimeout(prefetchSitePages, 100);
-
-  // 6. Seamless Instant Page Loader (PJAX)
-  function navigateTo(url, pushState) {
+  function loadPage(url, pushState) {
     const filename = url.split('/').pop() || 'index.html';
     const $main = $('#main-content');
 
-    // Smooth subtle fade out
     $main.addClass('page-fading-out');
-
-    // Close mobile menu if open
     $('#main-navigation').removeClass('is-open');
-    $('#mobile-menu-btn').find('.icon-menu').show();
-    $('#mobile-menu-btn').find('.icon-close').hide();
 
-    function renderPage(html) {
+    function render(html) {
       try {
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
@@ -124,7 +137,6 @@ $(document).ready(function () {
           document.title = newTitle;
           $main.html(newMain.innerHTML);
 
-          // Update attributes on main if present
           if (newMain.className) {
             $main.attr('class', newMain.className);
           }
@@ -136,31 +148,28 @@ $(document).ready(function () {
           }
 
           updateActiveNav(filename);
-          initPageInteractions();
+          bindPageInteractions();
 
-          // Smooth reveal
           setTimeout(function () {
             $main.removeClass('page-fading-out').addClass('page-fading-in');
-            setTimeout(function () {
-              $main.removeClass('page-fading-in');
-            }, 150);
+            setTimeout(() => $main.removeClass('page-fading-in'), 150);
           }, 30);
           return;
         }
-      } catch (err) {
-        console.error('PJAX parse error, falling back:', err);
+      } catch (e) {
+        console.error('Page render error:', e);
       }
       window.location.href = url;
     }
 
     if (pageCache[filename]) {
-      renderPage(pageCache[filename]);
+      render(pageCache[filename]);
     } else {
       fetch(url)
         .then(res => res.text())
         .then(html => {
           pageCache[filename] = html;
-          renderPage(html);
+          render(html);
         })
         .catch(() => {
           window.location.href = url;
@@ -168,12 +177,11 @@ $(document).ready(function () {
     }
   }
 
-  // Intercept internal link clicks for seamless switching
+  // Intercept internal links for seamless navigation
   $(document).on('click', 'a', function (e) {
     const href = $(this).attr('href');
     if (!href) return;
 
-    // Skip external links, anchors, mailto, tel, or downloads
     if (
       href.startsWith('http://') || 
       href.startsWith('https://') || 
@@ -186,46 +194,43 @@ $(document).ready(function () {
       return;
     }
 
-    // Check if it's one of our site pages
-    const cleanHref = href.split('?')[0].split('#')[0];
-    if (sitePages.includes(cleanHref) || cleanHref === './' || cleanHref === '') {
+    const clean = href.split('?')[0].split('#')[0];
+    if (sitePages.includes(clean) || clean === './' || clean === '') {
       e.preventDefault();
-      navigateTo(href, true);
+      loadPage(href, true);
     }
   });
 
-  // Handle browser back and forward buttons
   window.addEventListener('popstate', function () {
     const path = window.location.pathname.split('/').pop() || 'index.html';
-    navigateTo(path, false);
+    loadPage(path, false);
   });
 
-  // 7. Re-usable Page-Specific Interactions Binder
-  function initPageInteractions() {
-    // A. Copy Button Utility
+  // 6. Page-Specific Dynamic Interactions
+  function bindPageInteractions() {
+    // Copy buttons
     $('.btn-copy').off('click').on('click', function (e) {
       e.preventDefault();
-      const textToCopy = $(this).data('copy-text') || $(this).text().trim();
+      const text = $(this).data('copy-text') || $(this).text().trim();
       if (navigator.clipboard) {
-        navigator.clipboard.writeText(textToCopy).then(() => {
-          showToast(`Copied to clipboard: ${textToCopy}`);
-        }).catch(() => {
-          showToast('Copied to clipboard!');
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(`Copied: ${text}`);
         });
       } else {
         showToast('Copied to clipboard!');
       }
     });
 
-    // B. Resume Page Features
+    // Resume print
     $('#btn-print-resume').off('click').on('click', function (e) {
       e.preventDefault();
       window.print();
     });
 
+    // Copy ATS
     $('#btn-copy-ats').off('click').on('click', function (e) {
       e.preventDefault();
-      const atsText = `
+      const ats = `
 SAHLA SHARMEEN E.K
 Computer Science Engineering Student
 Email: sahlasharmeen@email.com | Phone: +91 9946753050
@@ -238,40 +243,40 @@ EDUCATION:
 
 TECHNICAL SKILLS:
 - Languages: Python, C, Java, Web Development, UI/UX Design, SQL, Operating Software
-- Tools: Scratch, Salesforce, PowerPoint
-- Analytical Competencies: Statistics, Creative Skills, Communication, Teamwork, Problem Solving
+- Tools: Scratch, Salesforce, PowerPoint, Arduino IDE
+- Analytical: Statistics, Creative Skills, Communication, Teamwork, Problem Solving
 
 PROJECTS:
-- Footstep Power Generation Using Arduino (Role: Team Member, 2024)
-- ComedKares RC Car Using Arduino Workshop (Role: Leader, 2024)
-- Volunteer Program Tracker Using Salesforce (Role: Leader, 2026)
-- Muscle Flex Detection & IoT Monitoring System using EMG Sensor
-- Cooking Recipe Portal, Automated Irrigation System, Drone Using ESP32
+1. Footstep Power Generation Using Arduino (2024, Team Member)
+2. Volunteer Program Tracker Using Salesforce (2026, Leader)
+3. ComedKares RC Car Workshop (2024, Leader)
+4. Muscle Flex Detection System (EMG Sensor)
+5. Cooking Recipe Portal, Automated Irrigation System, Drone Using ESP32
       `.trim();
 
       if (navigator.clipboard) {
-        navigator.clipboard.writeText(atsText).then(() => {
-          showToast('ATS Plain-Text Resume copied to clipboard!');
+        navigator.clipboard.writeText(ats).then(() => {
+          showToast('ATS Plain-Text Resume copied!');
         });
       }
     });
 
-    // C. Projects Page Filter & Search
+    // Project filters
     $('.filter-btn').off('click').on('click', function () {
-      const filter = $(this).data('filter');
+      const f = $(this).data('filter');
       $('.filter-btn').removeClass('active');
       $(this).addClass('active');
 
-      if (filter === 'all') {
+      if (f === 'all') {
         $('.project-card-wrapper').fadeIn(150);
       } else {
         $('.project-card-wrapper').hide();
-        $(`.project-card-wrapper[data-category*="${filter}"]`).fadeIn(180);
+        $(`.project-card-wrapper[data-category*="${f}"]`).fadeIn(180);
       }
 
-      const count = filter === 'all' 
+      const count = f === 'all' 
         ? $('.project-card-wrapper').length 
-        : $(`.project-card-wrapper[data-category*="${filter}"]`).length;
+        : $(`.project-card-wrapper[data-category*="${f}"]`).length;
       $('#project-count-display').text(`${count} Projects Displayed`);
     });
 
@@ -286,17 +291,17 @@ PROJECTS:
       });
     });
 
-    // D. Contact Form Validation
+    // Contact form validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     $('#contact-form').off('submit').on('submit', function (e) {
       e.preventDefault();
-      let isValid = true;
+      let ok = true;
 
       const $name = $('#contact-name');
       if ($name.val().trim().length < 2) {
         $name.addClass('is-invalid');
-        $name.siblings('.form-error-feedback').text('Please enter your name (at least 2 characters).').show();
-        isValid = false;
+        $name.siblings('.form-error-feedback').text('Please enter your name.').show();
+        ok = false;
       } else {
         $name.removeClass('is-invalid');
         $name.siblings('.form-error-feedback').hide();
@@ -305,58 +310,40 @@ PROJECTS:
       const $email = $('#contact-email');
       if (!emailRegex.test($email.val().trim())) {
         $email.addClass('is-invalid');
-        $email.siblings('.form-error-feedback').text('Please enter a valid email address.').show();
-        isValid = false;
+        $email.siblings('.form-error-feedback').text('Please enter a valid email.').show();
+        ok = false;
       } else {
         $email.removeClass('is-invalid');
         $email.siblings('.form-error-feedback').hide();
       }
 
-      const $subject = $('#contact-subject');
-      if ($subject.val().trim().length < 3) {
-        $subject.addClass('is-invalid');
-        $subject.siblings('.form-error-feedback').text('Please enter a subject (at least 3 characters).').show();
-        isValid = false;
-      } else {
-        $subject.removeClass('is-invalid');
-        $subject.siblings('.form-error-feedback').hide();
-      }
-
       const $msg = $('#contact-message');
       if ($msg.val().trim().length < 10) {
         $msg.addClass('is-invalid');
-        $msg.siblings('.form-error-feedback').text('Please enter a message (at least 10 characters).').show();
-        isValid = false;
+        $msg.siblings('.form-error-feedback').text('Message must be at least 10 characters.').show();
+        ok = false;
       } else {
         $msg.removeClass('is-invalid');
         $msg.siblings('.form-error-feedback').hide();
       }
 
-      if (isValid) {
+      if (ok) {
         const $btn = $('#btn-submit-contact');
-        const origText = $btn.html();
-        $btn.prop('disabled', true).html('Sending...');
+        $btn.prop('disabled', true).text('Transmitting...');
 
         setTimeout(function () {
-          $btn.prop('disabled', false).html(origText);
+          $btn.prop('disabled', false).text('Transmit Message');
           $('#contact-form')[0].reset();
           $('#contact-success-alert').slideDown(250);
           setTimeout(() => $('#contact-success-alert').slideUp(250), 6000);
-          showToast('Thank you! Your message has been sent successfully.');
-        }, 800);
-      }
-    });
-
-    $('.form-control').off('input').on('input', function () {
-      if ($(this).hasClass('is-invalid')) {
-        $(this).removeClass('is-invalid');
-        $(this).siblings('.form-error-feedback').hide();
+          showToast('Message transmitted successfully!');
+        }, 750);
       }
     });
   }
 
-  // Initial bindings & footer year
+  // Initial bindings
   updateActiveNav();
-  initPageInteractions();
+  bindPageInteractions();
   $('#current-year').text(new Date().getFullYear());
 });

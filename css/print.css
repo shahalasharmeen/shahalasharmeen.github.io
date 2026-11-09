@@ -1,23 +1,19 @@
 /* ==========================================================================
    Print Stylesheet - Optimized for Physical Printing & PDF Export
-   Targets Resume and Bio-data pages
    ========================================================================== */
 
 @media print {
-  /* Hide interactive elements, navigation, theme toggles, and footers */
   .site-header,
   .site-footer,
-  .nav-actions,
+  .cursor-main,
   .resume-actions-bar,
   .btn,
-  .theme-toggle-btn,
   .mobile-nav-toggle,
   .toast-notification,
   .filter-btn-group {
     display: none !important;
   }
 
-  /* Reset layout and backgrounds */
   *,
   *::before,
   *::after {
@@ -41,6 +37,7 @@
     max-width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
+    width: 100% !important;
   }
 
   .section {
@@ -53,6 +50,7 @@
     box-shadow: none !important;
     padding: 0 !important;
     margin: 0 !important;
+    background: #ffffff !important;
   }
 
   .resume-header,
@@ -60,12 +58,6 @@
     border-bottom: 2pt solid #000000 !important;
     padding-bottom: 12pt !important;
     margin-bottom: 16pt !important;
-  }
-
-  .resume-candidate-name,
-  .biodata-main-heading {
-    font-size: 20pt !important;
-    color: #000000 !important;
   }
 
   .resume-section-heading {
@@ -78,28 +70,6 @@
     font-weight: bold !important;
   }
 
-  .resume-item {
-    page-break-inside: avoid;
-    margin-bottom: 10pt !important;
-  }
-
-  .resume-item-title {
-    font-size: 11pt !important;
-    font-weight: bold !important;
-  }
-
-  .resume-item-subtitle {
-    font-size: 10pt !important;
-    color: #222222 !important;
-  }
-
-  .resume-item-meta {
-    border: 1pt solid #888888 !important;
-    padding: 1pt 4pt !important;
-    font-size: 9pt !important;
-  }
-
-  /* Tables */
   .biodata-table {
     border: 1pt solid #333333 !important;
     margin-top: 8pt !important;
@@ -118,45 +88,22 @@
     font-weight: bold !important;
   }
 
-  /* Demographic list */
   .bio-details-grid {
     border: 1pt solid #888888 !important;
     background: #ffffff !important;
     page-break-inside: avoid;
   }
 
-  .skill-tag {
+  .tech-tag, .badge {
     border: 1pt solid #777777 !important;
     padding: 1pt 5pt !important;
     font-size: 8.5pt !important;
     display: inline-block !important;
-  }
-
-  .badge {
-    border: 1pt solid #444444 !important;
     color: #000000 !important;
   }
 
-  /* Links */
   a {
     text-decoration: none !important;
     color: #000000 !important;
-  }
-
-  a[href^="http"]:after {
-    content: " (" attr(href) ")";
-    font-size: 8pt;
-    color: #555555;
-  }
-
-  /* Don't show URL for anchors or internal links */
-  a[href^="#"]:after,
-  a[href^="javascript:"]:after {
-    content: "";
-  }
-
-  .biodata-sign-row {
-    page-break-inside: avoid;
-    margin-top: 24pt !important;
   }
 }
