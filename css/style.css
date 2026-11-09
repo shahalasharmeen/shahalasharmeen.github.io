@@ -230,23 +230,208 @@ img {
   color: var(--accentColor);
 }
 
+/* Mobile Hamburger Toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(194, 164, 255, 0.3);
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1002;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+  background: rgba(194, 164, 255, 0.15);
+  border-color: var(--accentColor);
+}
+
+.mobile-menu-toggle .bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+}
+
+.mobile-menu-toggle.open .bar-1 {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-toggle.open .bar-2 {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.mobile-menu-toggle.open .bar-3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Fullscreen Mobile Navigation Drawer */
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 8, 12, 0.97);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 90px 25px 40px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-15px);
+  transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+}
+
+.mobile-nav-drawer.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.mobile-nav-inner {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  margin: auto;
+}
+
+.mobile-nav-status {
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  color: #a3e635;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(163, 230, 53, 0.1);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(163, 230, 53, 0.25);
+  text-transform: uppercase;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.mobile-nav-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.25s ease;
+}
+
+.mobile-nav-item span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--accentColor);
+  letter-spacing: 1px;
+}
+
+.mobile-nav-item:hover,
+.mobile-nav-item:active {
+  background: rgba(194, 164, 255, 0.14);
+  border-color: rgba(194, 164, 255, 0.45);
+  color: var(--accentColor);
+  transform: translateX(4px);
+}
+
+.mobile-nav-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
+}
+
+.mobile-nav-email {
+  font-size: 13px;
+  color: #c2a4ff;
+  text-decoration: none;
+}
+
+.mobile-nav-socials {
+  display: flex;
+  gap: 20px;
+  font-size: 13px;
+}
+
+.mobile-nav-socials a {
+  color: #a09baa;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.mobile-nav-socials a:hover {
+  color: #ffffff;
+}
+
+body.no-scroll {
+  overflow: hidden !important;
+}
+
 @media only screen and (max-width: 1024px) {
   .header {
     padding: 14px 20px;
   }
-  .header ul {
+  .desktop-nav ul {
     column-gap: 14px;
     font-size: 12px;
   }
 }
 
-@media only screen and (max-width: 820px) {
+@media only screen and (max-width: 860px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-menu-toggle {
+    display: flex;
+  }
   .navbar-connect {
     display: none;
   }
-  .header ul {
-    column-gap: 10px;
-    font-size: 11px;
+  .header {
+    padding: 14px 20px;
   }
 }
 
@@ -542,19 +727,22 @@ h2.landing-info-h2 {
     order: 2;
     position: relative;
     width: 100%;
-    max-width: 300px;
-    margin: 10px auto;
+    max-width: 250px;
+    margin: 15px auto 25px;
     z-index: 5;
   }
   .mobile-photo img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-radius: 20px;
-    filter: drop-shadow(0 0 40px rgba(194, 164, 255, 0.45));
-    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    animation: mobileCharacterFloat 3.5s ease-in-out infinite;
+    width: 230px;
+    height: 290px;
+    max-width: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    border-radius: 24px;
+    border: 2px solid rgba(194, 164, 255, 0.45);
+    box-shadow: 0 16px 45px rgba(170, 66, 255, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    -webkit-mask-image: none !important;
+    mask-image: none !important;
+    animation: mobileCharacterFloat 4s ease-in-out infinite;
   }
   @keyframes mobileCharacterFloat {
     0%, 100% { transform: translateY(0); }
@@ -913,13 +1101,14 @@ h2.landing-info-h2 {
   }
   .career-dot {
     left: 20px;
+    transform: translate(-50%, -50%);
   }
   .career-info-box {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 40px;
+    gap: 8px;
+    margin-bottom: 35px;
     padding-left: 48px;
     box-sizing: border-box;
   }
@@ -927,16 +1116,29 @@ h2.landing-info-h2 {
     text-align: left;
     padding-right: 0;
   }
+  .career-role h4 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  .career-role h5 {
+    font-size: 13px;
+  }
   .career-year {
     justify-content: flex-start;
+  }
+  .career-year h3 {
+    font-size: 13px;
+    padding: 4px 12px;
   }
   .career-info-box p {
     padding-left: 0;
     width: 100%;
+    font-size: 14px;
+    line-height: 1.55;
   }
   .career-section h2 {
-    font-size: 42px;
-    margin-bottom: 40px;
+    font-size: 38px;
+    margin-bottom: 35px;
   }
 }
 

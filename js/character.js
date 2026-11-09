@@ -32,8 +32,8 @@
 
   // Camera framing the developer at her laptop (head, shoulders, chest, arms, laptop)
   const camera = new THREE.PerspectiveCamera(38, aspect, 0.1, 100);
-  camera.position.set(0, 1.40, 1.45);
-  camera.lookAt(0, 1.28, 0);
+  camera.position.set(0, 1.48, 1.40);
+  camera.lookAt(0, 1.34, 0.05);
 
   const renderer = new THREE.WebGLRenderer({
     alpha: true,
@@ -67,7 +67,7 @@
 
   // Soft purple screen glow emitted from the laptop toward face and hands
   const laptopScreenLight = new THREE.PointLight(0xc2a4ff, 2.4, 1.6);
-  laptopScreenLight.position.set(0, 1.16, 0.28);
+  laptopScreenLight.position.set(0, 1.25, 0.28);
   scene.add(laptopScreenLight);
 
   // Create Sleek Developer Laptop Prop
@@ -126,7 +126,7 @@
   lidGroup.add(screenMesh);
 
   laptopGroup.add(lidGroup);
-  laptopGroup.position.set(0, 0.93, 0.22);
+  laptopGroup.position.set(0, 1.02, 0.20);
   scene.add(laptopGroup);
 
   // Rigging references
@@ -171,110 +171,122 @@
   }
 
   // Load Rigged 3D Female Avatar
-  const gltfLoader = new THREE.GLTFLoader();
+  function loadAvatar() {
+    const gltfLoader = new THREE.GLTFLoader();
 
-  // If DRACOLoader is available on page, hook it up
-  if (typeof THREE.DRACOLoader !== 'undefined') {
-    const dracoLoader = new THREE.DRACOLoader();
-    dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/draco/');
-    gltfLoader.setDRACOLoader(dracoLoader);
+    if (typeof MeshoptDecoder !== 'undefined') {
+      gltfLoader.setMeshoptDecoder(MeshoptDecoder);
+    }
+
+    // If DRACOLoader is available on page, hook it up
+    if (typeof THREE.DRACOLoader !== 'undefined') {
+      const dracoLoader = new THREE.DRACOLoader();
+      dracoLoader.setDecoderPath('https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/libs/draco/');
+      gltfLoader.setDRACOLoader(dracoLoader);
+    }
+
+    gltfLoader.load('models/character.glb', function (gltf) {
+      avatarScene = gltf.scene;
+      avatarScene.position.set(0, 0, 0);
+      avatarScene.scale.set(1, 1, 1);
+
+      // Identify bones and mesh
+      avatarScene.traverse(function (child) {
+        if (child.isBone) {
+          const name = child.name;
+          if (name === 'Head') headBone = child;
+          else if (name === 'Neck') neckBone = child;
+          else if (name === 'Spine2' || (name === 'Spine' && !spineBone)) spineBone = child;
+          else if (name === 'LeftArm') leftArm = child;
+          else if (name === 'RightArm') rightArm = child;
+          else if (name === 'LeftForeArm') leftForeArm = child;
+          else if (name === 'RightForeArm') rightForeArm = child;
+          else if (name === 'LeftHand') leftHand = child;
+          else if (name === 'RightHand') rightHand = child;
+        }
+        if (child.isMesh) {
+          child.castShadow = true;
+          child.receiveShadow = true;
+          if (child.material) {
+            child.material.roughness = Math.max(child.material.roughness || 0.4, 0.35);
+            child.material.needsUpdate = true;
+          }
+          if (child.morphTargetDictionary && (child.name.includes('HighRes') || child.name.includes('Head') || !faceMesh)) {
+            faceMesh = child;
+          }
+        }
+      });
+
+      // Pose body parts into typing position at laptop
+      if (leftArm) {
+        leftArm.rotation.set(baseRot.leftArm.x, baseRot.leftArm.y, baseRot.leftArm.z);
+      }
+      if (rightArm) {
+        rightArm.rotation.set(baseRot.rightArm.x, baseRot.rightArm.y, baseRot.rightArm.z);
+      }
+      if (leftForeArm) {
+        leftForeArm.rotation.set(baseRot.leftForeArm.x, baseRot.leftForeArm.y, baseRot.leftForeArm.z);
+      }
+      if (rightForeArm) {
+        rightForeArm.rotation.set(baseRot.rightForeArm.x, baseRot.rightForeArm.y, baseRot.rightForeArm.z);
+      }
+      if (leftHand) {
+        leftHand.rotation.set(baseRot.leftHand.x, baseRot.leftHand.y, baseRot.leftHand.z);
+      }
+      if (rightHand) {
+        rightHand.rotation.set(baseRot.rightHand.x, baseRot.rightHand.y, baseRot.rightHand.z);
+      }
+      if (headBone) {
+        headBone.rotation.set(baseRot.head.x, baseRot.head.y, baseRot.head.z);
+      }
+
+      scene.add(avatarScene);
+
+      // Reveal glowing ambient rim once 3D avatar is ready
+      const rim = document.querySelector('.character-rim');
+      if (rim) {
+        rim.style.opacity = '0.75';
+      }
+
+      // GSAP ScrollTrigger Choreography (Redoyan signature)
+      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero -> About: Glide right, turn slightly towards about bio
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: '.landing-section',
+            start: 'top top',
+            end: 'bottom top',
+            scrub: 1.2
+          }
+        })
+        .to(avatarScene.position, { x: 0.38, z: -0.22, duration: 1 }, 0)
+        .to(laptopGroup.position, { x: 0.38, z: 0.02, duration: 1 }, 0)
+        .to(avatarScene.rotation, { y: -0.24, duration: 1 }, 0)
+        .to(laptopGroup.rotation, { y: -0.24, duration: 1 }, 0);
+
+        // What I Do & Beyond: Lift character smoothly up and out of view so text, cards, and career timeline are 100% unobstructed
+        gsap.timeline({
+          scrollTrigger: {
+            trigger: '.whatIDO',
+            start: 'top 85%',
+            end: 'top 20%',
+            scrub: 1.0
+          }
+        })
+        .to('.character-model', { y: '-100%', opacity: 0, duration: 1.2, ease: 'power2.inOut' }, 0);
+      }
+    }, undefined, function (err) {
+      console.warn('3D Character GLTF Notice:', err);
+    });
   }
 
-  gltfLoader.load('models/character.glb', function (gltf) {
-    avatarScene = gltf.scene;
-    avatarScene.position.set(0, 0, 0);
-    avatarScene.scale.set(1, 1, 1);
-
-    // Identify bones and mesh
-    avatarScene.traverse(function (child) {
-      if (child.isBone) {
-        const name = child.name;
-        if (name === 'Head') headBone = child;
-        else if (name === 'Neck') neckBone = child;
-        else if (name === 'Spine2' || (name === 'Spine' && !spineBone)) spineBone = child;
-        else if (name === 'LeftArm') leftArm = child;
-        else if (name === 'RightArm') rightArm = child;
-        else if (name === 'LeftForeArm') leftForeArm = child;
-        else if (name === 'RightForeArm') rightForeArm = child;
-        else if (name === 'LeftHand') leftHand = child;
-        else if (name === 'RightHand') rightHand = child;
-      }
-      if (child.isMesh) {
-        child.castShadow = true;
-        child.receiveShadow = true;
-        if (child.material) {
-          child.material.roughness = Math.max(child.material.roughness || 0.4, 0.35);
-          child.material.needsUpdate = true;
-        }
-        if (child.morphTargetDictionary && (child.name.includes('HighRes') || child.name.includes('Head') || !faceMesh)) {
-          faceMesh = child;
-        }
-      }
-    });
-
-    // Pose body parts into typing position at laptop
-    if (leftArm) {
-      leftArm.rotation.set(baseRot.leftArm.x, baseRot.leftArm.y, baseRot.leftArm.z);
-    }
-    if (rightArm) {
-      rightArm.rotation.set(baseRot.rightArm.x, baseRot.rightArm.y, baseRot.rightArm.z);
-    }
-    if (leftForeArm) {
-      leftForeArm.rotation.set(baseRot.leftForeArm.x, baseRot.leftForeArm.y, baseRot.leftForeArm.z);
-    }
-    if (rightForeArm) {
-      rightForeArm.rotation.set(baseRot.rightForeArm.x, baseRot.rightForeArm.y, baseRot.rightForeArm.z);
-    }
-    if (leftHand) {
-      leftHand.rotation.set(baseRot.leftHand.x, baseRot.leftHand.y, baseRot.leftHand.z);
-    }
-    if (rightHand) {
-      rightHand.rotation.set(baseRot.rightHand.x, baseRot.rightHand.y, baseRot.rightHand.z);
-    }
-    if (headBone) {
-      headBone.rotation.set(baseRot.head.x, baseRot.head.y, baseRot.head.z);
-    }
-
-    scene.add(avatarScene);
-
-    // Reveal glowing ambient rim once 3D avatar is ready
-    const rim = document.querySelector('.character-rim');
-    if (rim) {
-      rim.style.opacity = '0.75';
-    }
-
-    // GSAP ScrollTrigger Choreography (Redoyan signature)
-    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-      gsap.registerPlugin(ScrollTrigger);
-
-      // Hero -> About: Glide right, turn slightly towards about bio
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '.landing-section',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1.2
-        }
-      })
-      .to(avatarScene.position, { x: 0.38, z: -0.22, duration: 1 }, 0)
-      .to(laptopGroup.position, { x: 0.38, z: 0.02, duration: 1 }, 0)
-      .to(avatarScene.rotation, { y: -0.24, duration: 1 }, 0)
-      .to(laptopGroup.rotation, { y: -0.24, duration: 1 }, 0);
-
-      // What I Do & Beyond: Lift character smoothly up and out of view so text, cards, and career timeline are 100% unobstructed
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '.whatIDO',
-          start: 'top 85%',
-          end: 'top 20%',
-          scrub: 1.0
-        }
-      })
-      .to('.character-model', { y: '-100%', opacity: 0, duration: 1.2, ease: 'power2.inOut' }, 0);
-    }
-  }, undefined, function (err) {
-    console.warn('3D Character GLTF Notice:', err);
-  });
+  if (typeof MeshoptDecoder !== 'undefined' && MeshoptDecoder.ready) {
+    MeshoptDecoder.ready.then(loadAvatar);
+  } else {
+    loadAvatar();
+  }
 
   // Cursor tracking
   window.addEventListener('mousemove', function (e) {
@@ -365,7 +377,7 @@
       // Subtle ambient hover sway
       const swayY = Math.sin(time * 1.5) * 0.008;
       avatarScene.position.y = swayY;
-      laptopGroup.position.y = 0.93 + swayY;
+      laptopGroup.position.y = 1.02 + swayY;
     }
 
     renderer.render(scene, camera);

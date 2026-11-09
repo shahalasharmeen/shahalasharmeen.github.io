@@ -24,8 +24,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <!-- Stylesheet with Cache Busting -->
-  <link rel="stylesheet" href="css/style.css?v=redoyan_20261109_v8">
-  <link rel="stylesheet" href="css/print.css?v=redoyan_20261109_v8" media="print">
+  <link rel="stylesheet" href="css/style.css?v=redoyan_20261110_v1">
+  <link rel="stylesheet" href="css/print.css?v=redoyan_20261110_v1" media="print">
 </head>
 <body>
 
@@ -47,7 +47,8 @@
       </div>
     </div>
 
-    <nav aria-label="Main navigation">
+    <!-- Desktop Navigation Links -->
+    <nav class="desktop-nav" aria-label="Main navigation">
       <ul>
         <li><a href="#about" class="hover-link"><div class="hover-in">About<div>About</div></div></a></li>
         <li><a href="#services" class="hover-link"><div class="hover-in">What I Do<div>What I Do</div></div></a></li>
@@ -59,7 +60,40 @@
         <li><a href="#contact" class="hover-link"><div class="hover-in">Contact<div>Contact</div></div></a></li>
       </ul>
     </nav>
+
+    <!-- Mobile Hamburger Toggle Button -->
+    <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Toggle Navigation Menu" aria-expanded="false">
+      <span class="bar bar-1"></span>
+      <span class="bar bar-2"></span>
+      <span class="bar bar-3"></span>
+    </button>
   </header>
+
+  <!-- Mobile Fullscreen Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" aria-hidden="true">
+    <div class="mobile-nav-inner">
+      <div class="mobile-nav-status">
+        <span class="connect-dot"></span> OPEN FOR OPPORTUNITIES
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#about" class="mobile-nav-item"><span>01</span> About</a></li>
+        <li><a href="#services" class="mobile-nav-item"><span>02</span> What I Do</a></li>
+        <li><a href="#experience" class="mobile-nav-item"><span>03</span> Education &amp; Experience</a></li>
+        <li><a href="#work" class="mobile-nav-item"><span>04</span> Projects &amp; Hardware</a></li>
+        <li><a href="#techstack" class="mobile-nav-item"><span>05</span> Tech Stack</a></li>
+        <li><a href="resume.html" class="mobile-nav-item"><span>06</span> Official Resume</a></li>
+        <li><a href="biodata.html" class="mobile-nav-item"><span>07</span> Personal Bio-Data</a></li>
+        <li><a href="#contact" class="mobile-nav-item"><span>08</span> Contact</a></li>
+      </ul>
+      <div class="mobile-nav-footer">
+        <a href="mailto:shahalasharmeen@gmail.com" class="mobile-nav-email">shahalasharmeen@gmail.com</a>
+        <div class="mobile-nav-socials">
+          <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://linkedin.com/in/sahla-sharmeen" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Main Container -->
   <main id="main-content">
@@ -88,7 +122,7 @@
 
         <!-- Center Column (Mobile Fallback): Stacked Responsive Photo -->
         <div class="mobile-photo">
-          <img src="assets/images/character-model.png" alt="Sahla Sharmeen E.K" loading="eager" fetchpriority="high">
+          <img src="assets/images/Passport Size.jpeg" alt="Sahla Sharmeen E.K" loading="eager" fetchpriority="high">
         </div>
 
         <!-- Right Column: Engineering Disciplines -->
@@ -206,7 +240,7 @@
             <p>Bachelor of Engineering in Computer Science &amp; Engineering (Class of 2024), affiliated to VTU. Specializing in Embedded IoT, Data Structures, Web Development, and Systems Engineering.</p>
           </div>
 
-          <!-- Item 3: Hardware Project (2024) -->
+          <!-- Item 3: Hardware Project -->
           <div class="career-info-box">
             <div class="career-role">
               <h4>IoT &amp; Hardware Innovator</h4>
@@ -218,7 +252,7 @@
             <p>Fabricated an eco-friendly renewable energy prototype capturing mechanical kinetic pressure using piezoelectric sensor arrays, inverter circuits, and LCD output.</p>
           </div>
 
-          <!-- Item 4: ComedKares (2024) -->
+          <!-- Item 4: ComedKares -->
           <div class="career-info-box">
             <div class="career-role">
               <h4>Robotics Developer</h4>
@@ -537,8 +571,10 @@
 
   </main>
 
-  <!-- Three.js 3D Engine & Draco Loaders -->
+  <!-- Three.js 3D Engine, Draco & Meshopt Loaders -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- Meshopt Decoder for high-efficiency glTF decompression -->
+  <script src="js/meshopt_decoder.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/DRACOLoader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 
@@ -548,8 +584,8 @@
 
   <!-- jQuery & Global Script with Cache Busting -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="js/character.js?v=redoyan_20261109_v8"></script>
-  <script src="js/main.js?v=redoyan_20261109_v8"></script>
+  <script src="js/character.js?v=redoyan_20261110_v1"></script>
+  <script src="js/main.js?v=redoyan_20261110_v1"></script>
 
 </body>
 </html>

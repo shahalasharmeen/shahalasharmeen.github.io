@@ -193,11 +193,42 @@ $(document).ready(function () {
     }
   });
 
+  // 4b. Mobile Navigation Drawer Controller
+  function closeMobileNav() {
+    $('#mobileMenuBtn').removeClass('open').attr('aria-expanded', 'false');
+    $('#mobileNavDrawer').removeClass('open').attr('aria-hidden', 'true');
+    $('body').removeClass('no-scroll');
+  }
+
+  $(document).on('click', '#mobileMenuBtn', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    const isOpen = $(this).hasClass('open');
+    if (isOpen) {
+      closeMobileNav();
+    } else {
+      $(this).addClass('open').attr('aria-expanded', 'true');
+      $('#mobileNavDrawer').addClass('open').attr('aria-hidden', 'false');
+      $('body').addClass('no-scroll');
+    }
+  });
+
+  $(document).on('click', '#mobileNavDrawer a', function () {
+    closeMobileNav();
+  });
+
+  $(document).on('keydown', function (e) {
+    if (e.key === 'Escape' && $('#mobileNavDrawer').hasClass('open')) {
+      closeMobileNav();
+    }
+  });
+
   // 5. Smooth Anchor Scrolling for on-page sections
   $(document).on('click', 'a[href^="#"]', function (e) {
     const target = $(this.getAttribute('href'));
     if (target.length) {
       e.preventDefault();
+      closeMobileNav();
       $('html, body').stop().animate({
         scrollTop: target.offset().top - 90
       }, 600);
