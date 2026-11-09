@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Engineering Projects and Technical Systems by Sahla Sharmeen E.K - Embedded IoT, Arduino, Salesforce CRM, and Web Applications.">
+  <meta name="keywords" content="Sahla Sharmeen E.K Projects, Arduino Footstep Power, Salesforce Volunteer Tracker, EMG Muscle Sensor, ESP32 Drone, Recipe Portal">
+  <meta name="author" content="Sahla Sharmeen E.K">
+
+  <title>Projects Showcase | Sahla Sharmeen E.K - Engineering & Software</title>
+
+  <!-- Google Fonts Preconnect & Stylesheets -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="container nav-wrapper">
+      <a href="index.html" class="brand-logo" aria-label="Sahla Sharmeen E.K Home">
+        <div class="brand-avatar-mini">SK</div>
+        <div class="brand-text">Sahla<span>.dev</span></div>
+      </a>
+
+      <nav id="main-navigation" class="main-nav" aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="resume.html" class="nav-link">Resume</a></li>
+          <li><a href="biodata.html" class="nav-link">Bio-Data</a></li>
+          <li><a href="projects.html" class="nav-link active">Projects</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light and dark color theme">
+          <svg class="theme-icon-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+          <svg class="theme-icon-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>
+        </button>
+
+        <button id="mobile-menu-btn" class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg class="icon-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+          <svg class="icon-close" style="display:none;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Projects Section -->
+  <main class="section">
+    <div class="container">
+      
+      <header class="section-header">
+        <span class="section-subtitle">Technical Portfolio</span>
+        <h1 class="section-title">Projects &amp; Prototypes</h1>
+        <p class="section-desc">
+          An engineering collection spanning sustainable energy generation, cloud workflow automation, robotics, biomedical sensor integration, and web development.
+        </p>
+
+        <!-- Search Bar with Live Filter -->
+        <div style="max-width: 480px; margin: 1.5rem auto 0 auto; position: relative;">
+          <input type="text" id="project-search-input" class="form-control" placeholder="Search projects by title, tech or keyword..." aria-label="Search projects">
+        </div>
+      </header>
+
+      <!-- Category Filter Pills -->
+      <div class="filter-btn-group" role="tablist" aria-label="Project Categories">
+        <button class="filter-btn active" data-filter="all">All Projects (7)</button>
+        <button class="filter-btn" data-filter="iot">IoT &amp; Hardware</button>
+        <button class="filter-btn" data-filter="web">Web &amp; Software</button>
+        <button class="filter-btn" data-filter="cloud">Cloud &amp; CRM</button>
+      </div>
+
+      <!-- Results Indicator -->
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <span id="project-count-display" class="badge badge-neutral mono">7 Projects Displayed</span>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projects-container">
+
+        <!-- 1. Footstep Power Generation -->
+        <div class="project-card-wrapper" data-category="iot">
+          <article class="card project-card">
+            <div>
+              <div class="project-header-top">
+                <span class="badge badge-primary">IoT &amp; Energy</span>
+                <span class="project-timeline">2024 &bull; Team Member</span>
+              </div>
+              <h2 class="card-title">Footstep Power Generation Using Arduino</h2>
+              <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                A prototype renewable energy engineering project exploring electrical kinetic energy harvesting from human footsteps using piezoelectric transducers and an Arduino microcontroller to store charge in rechargeable battery banks.
+              </p>
+              <div class="project-tags-list">
+                <span class="project-tag">Arduino Uno</span>
+                <span class="project-tag">Piezoelectric Sensors</span>
+                <span class="project-tag">Energy Harvesting</span>
+                <span class="project-tag">AC-DC Rectifier</span>
+                <span class="project-tag">C/C++</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <span class="mono" style="font-size: 0.8rem; color: var(--text-light);">Hardware Prototype</span>
+              <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="Footstep Power Generation Using Arduino - Team Member (2024)">Copy Ref</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- 2. Volunteer Program Tracker Using Salesforce -->
+        <div class="project-card-wrapper" data-category="cloud">
+          <article class="card project-card">
+            <div>
+              <div class="project-header-top">
+                <span class="badge badge-accent">Cloud &amp; CRM</span>
+                <span class="project-timeline">2026 &bull; Project Leader</span>
+              </div>
+              <h2 class="card-title">Volunteer Program Tracker Using Salesforce</h2>
+              <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                A custom Salesforce solution architected to streamline non-profit and community volunteer recruitment, attendance monitoring, assignment management, and social impact analytical reports.
+              </p>
+              <div class="project-tags-list">
+                <span class="project-tag">Salesforce CRM</span>
+                <span class="project-tag">Custom Objects</span>
+                <span class="project-tag">Process Builder</span>
+                <span class="project-tag">Cloud Database</span>
+                <span class="project-tag">Reports &amp; Dashboards</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <span class="mono" style="font-size: 0.8rem; color: var(--text-light);">Cloud Architecture</span>
+              <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="Volunteer Program Tracker Using Salesforce - Leader (2026)">Copy Ref</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- 3. ComedKares RC Car Workshop -->
+        <div class="project-card-wrapper" data-category="iot">
+          <article class="card project-card">
+            <div>
+              <div class="project-header-top">
+                <span class="badge badge-success">Robotics &amp; Control</span>
+                <span class="project-timeline">2024 &bull; Team Leader</span>
+              </div>
+              <h2 class="card-title">ComedKares RC Car Using Arduino</h2>
+              <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                Engineering workshop project focused on assembling, calibrating motor drivers (L298N), soldering chassis telemetry, and programming directional control firmware on an Arduino-powered remote-controlled vehicle.
+              </p>
+              <div class="project-tags-list">
+                <span class="project-tag">Arduino</span>
+                <span class="project-tag">L298N Motor Driver</span>
+                <span class="project-tag">Embedded C</span>
+                <span class="project-tag">Wireless Telemetry</span>
+                <span class="project-tag">Robotics</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <span class="mono" style="font-size: 0.8rem; color: var(--text-light);">Autonomous Robotics</span>
+              <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="ComedKares RC Car Using Arduino - Leader (2024)">Copy Ref</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- 4. Muscle Flex Detection & IoT Monitoring System using EMG Sensor -->
+        <div class="project-card-wrapper" data-category="iot">
+          <article class="card project-card">
+            <div>
+              <div class="project-header-top">
+                <span class="badge badge-primary">Biomedical IoT</span>
+                <span class="project-timeline">Research Prototype</span>
+              </div>
+              <h2 class="card-title">Muscle Flex Detection System (EMG Sensor)</h2>
+              <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                An IoT health-tech monitoring system utilizing electromyography (EMG) surface electrodes to capture microvoltage muscle flexion pulses, filtering noise and streaming telemetry to an IoT dashboard for assistive control.
+              </p>
+              <div class="project-tags-list">
+                <span class="project-tag">EMG Sensor</span>
+                <span class="project-tag">Signal Conditioning</span>
+                <span class="project-tag">IoT Telemetry</span>
+                <span class="project-tag">Microcontroller</span>
+                <span class="project-tag">Bio-Sensors</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <span class="mono" style="font-size: 0.8rem; color: var(--text-light);">HealthTech &amp; Sensors</span>
+              <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="Muscle Flex Detection & IoT Monitoring System using EMG Sensor">Copy Ref</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- 5. Cooking Recipe Portal -->
+        <div class="project-card-wrapper" data-category="web">
+          <article class="card project-card">
+            <div>
+              <div class="project-header-top">
+                <span class="badge badge-accent">Web Development</span>
+                <span class="project-timeline">Interactive Portal</span>
+              </div>
+              <h2 class="card-title">Cooking Recipe Portal</h2>
+              <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                A feature-rich culinary web application connecting cooking enthusiasts with recipe guides, serving size recalculators, categorized dietary filtering, and responsive mobile-optimized instructions.
+              </p>
+              <div class="project-tags-list">
+                <span class="project-tag">HTML5 / CSS3</span>
+                <span class="project-tag">JavaScript / jQuery</span>
+                <span class="project-tag">UI/UX Design</span>
+                <span class="project-tag">Recipe Filters</span>
+                <span class="project-tag">Responsive UI</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <span class="mono" style="font-size: 0.8rem; color: var(--text-light);">Web Platform</span>
+              <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="Cooking Recipe Portal Web Application">Copy Ref</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- 6. Automated Irrigation System -->
+        <div class="project-card-wrapper" data-category="iot">
+          <article class="card project-card">
+            <div>
+              <div class="project-header-top">
+                <span class="badge badge-success">Smart Agriculture</span>
+                <span class="project-timeline">Automation</span>
+              </div>
+              <h2 class="card-title">Automated Irrigation System</h2>
+              <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                An automated precision agriculture system deploying capacitive soil moisture sensors and relay-actuated solenoid water valves to provide autonomous irrigation based on real-time soil hydration thresholds.
+              </p>
+              <div class="project-tags-list">
+                <span class="project-tag">Moisture Sensors</span>
+                <span class="project-tag">Relay Actuators</span>
+                <span class="project-tag">Microcontroller</span>
+                <span class="project-tag">Smart Agriculture</span>
+                <span class="project-tag">Automation</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <span class="mono" style="font-size: 0.8rem; color: var(--text-light);">IoT System</span>
+              <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="Automated Irrigation System using Soil Sensors">Copy Ref</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- 7. Drone Using ESP32 -->
+        <div class="project-card-wrapper" data-category="iot">
+          <article class="card project-card">
+            <div>
+              <div class="project-header-top">
+                <span class="badge badge-primary">Aero &amp; Embedded</span>
+                <span class="project-timeline">Advanced Prototype</span>
+              </div>
+              <h2 class="card-title">Quadcopter Drone Using ESP32</h2>
+              <p style="font-size: 0.95rem; margin-bottom: 1rem;">
+                An aerial robotics project building a lightweight multirotor drone powered by an ESP32 microcontroller, reading accelerometer/gyroscope IMU data for flight stabilization and Wi-Fi based command telemetry.
+              </p>
+              <div class="project-tags-list">
+                <span class="project-tag">ESP32 Dual-Core</span>
+                <span class="project-tag">MPU-6050 IMU</span>
+                <span class="project-tag">PID Flight Control</span>
+                <span class="project-tag">Brushless ESC</span>
+                <span class="project-tag">Wi-Fi Telemetry</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <span class="mono" style="font-size: 0.8rem; color: var(--text-light);">Flight Controller</span>
+              <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="Quadcopter Drone System using ESP32">Copy Ref</button>
+            </div>
+          </article>
+        </div>
+
+      </div>
+
+      <!-- Action Callout -->
+      <div style="margin-top: 4rem; text-align: center; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 2.5rem;">
+        <h3 style="margin-bottom: 0.75rem;">Have a Question About Any Project?</h3>
+        <p style="color: var(--text-muted); margin-bottom: 1.5rem; max-width: 580px; margin-left: auto; margin-right: auto;">
+          Whether you want to discuss the Arduino energy harvesting schematics, Salesforce custom configurations, or collaborate on new software builds, feel free to reach out.
+        </p>
+        <a href="contact.html" class="btn btn-primary">
+          Connect with Sahla &rarr;
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="brand-avatar-mini">SK</div>
+            <div>Sahla Sharmeen E.K</div>
+          </div>
+          <p style="margin-top: 0.5rem; font-size: 0.9rem; max-width: 360px;">
+            Computer Science Engineering Student, Developer, UI/UX Designer &bull; Kasaragod, Kerala.
+          </p>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="index.html" class="footer-link">Home</a></li>
+          <li><a href="resume.html" class="footer-link">Resume</a></li>
+          <li><a href="biodata.html" class="footer-link">Bio-Data</a></li>
+          <li><a href="projects.html" class="footer-link">Projects</a></li>
+          <li><a href="contact.html" class="footer-link">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; <span id="current-year">2026</span> Sahla Sharmeen E.K. Hosted on GitHub Pages.</div>
+        <div style="display: flex; gap: 1rem;">
+          <a href="https://linkedin.com/in/shahalasharmeen" target="_blank" rel="noopener" class="footer-link">LinkedIn</a>
+          <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener" class="footer-link">GitHub</a>
+          <a href="mailto:sahlasharmeen@email.com" class="footer-link">Email</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- jQuery, Main JS, & Projects JS -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+  <script src="js/projects.js"></script>
+</body>
+</html>
