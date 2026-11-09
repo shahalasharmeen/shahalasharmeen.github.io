@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,23 @@
   <meta name="keywords" content="Sahla Sharmeen E.K Bio-data, Personal Bio-data, Kasaragod, PA College of Engineering, Computer Science Engineering Student">
   <meta name="author" content="Sahla Sharmeen E.K">
 
-  <title>Bio-Data | Sahla Sharmeen E.K - Personal & Biographical Profile</title>
+  <title>Bio-Data | Sahla Sharmeen E.K - Personal &amp; Biographical Profile</title>
+
+  <!-- Synchronous theme loader (Prevents any split-second white flash) -->
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem('site-theme') || 
+          (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+  <style>
+    html { background-color: #f8fafc; }
+    html[data-theme="dark"] { background-color: #0a0f1d; color: #f8fafc; }
+    body { background-color: inherit; color: inherit; }
+  </style>
 
   <!-- Google Fonts Preconnect & Stylesheets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,8 +37,8 @@
   <header class="site-header">
     <div class="container nav-wrapper">
       <a href="index.html" class="brand-logo" aria-label="Sahla Sharmeen E.K Home">
-        <div class="brand-avatar-mini">SK</div>
-        <div class="brand-text">Sahla<span>.dev</span></div>
+        <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen" class="brand-avatar-mini">
+        <div class="brand-text">Sahla Sharmeen</div>
       </a>
 
       <nav id="main-navigation" class="main-nav" aria-label="Primary Navigation">
@@ -50,7 +66,7 @@
   </header>
 
   <!-- Main Bio-Data Section -->
-  <main class="section">
+  <main id="main-content" class="section">
     <div class="container container-narrow">
       
       <!-- Toolbar -->
@@ -73,10 +89,10 @@
           <p class="biodata-sub-heading">PERSONAL &amp; BIOGRAPHICAL PROFILE</p>
         </header>
 
-        <!-- Profile Card & Photo Header -->
+        <!-- Profile Card & Passport Photo Header -->
         <section class="biodata-profile-banner">
           <figure class="biodata-photo-frame">
-            <img src="assets/images/avatar.svg" alt="Sahla Sharmeen E.K Photo Portrait">
+            <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen E.K Passport Size Photo">
           </figure>
           
           <div>
@@ -313,8 +329,8 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="brand-logo">
-            <div class="brand-avatar-mini">SK</div>
-            <div>Sahla Sharmeen E.K</div>
+            <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen" class="brand-avatar-mini">
+            <div class="brand-text">Sahla Sharmeen</div>
           </div>
           <p style="margin-top: 0.5rem; font-size: 0.9rem; max-width: 360px;">
             Personal Biographical Record &bull; Computer Science Engineering &bull; Bendichal North, Kasaragod

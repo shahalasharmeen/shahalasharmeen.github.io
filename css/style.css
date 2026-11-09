@@ -29,7 +29,7 @@
   --border-focus: #3b82f6;
   --ring-color: rgba(37, 99, 235, 0.25);
   
-  --nav-bg: rgba(248, 250, 252, 0.85);
+  --nav-bg: rgba(248, 250, 252, 0.88);
   --nav-border: rgba(226, 232, 240, 0.8);
   
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -74,7 +74,7 @@
   --border-focus: #60a5fa;
   --ring-color: rgba(96, 165, 250, 0.25);
   
-  --nav-bg: rgba(10, 15, 29, 0.85);
+  --nav-bg: rgba(10, 15, 29, 0.88);
   --nav-border: rgba(30, 41, 59, 0.8);
   
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
@@ -84,7 +84,7 @@
 }
 
 /* ==========================================================================
-   Base & Resets
+   Base & Resets (Zero-Flash Architecture)
    ========================================================================== */
 
 *, *::before, *::after {
@@ -97,6 +97,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-main);
 }
 
 body {
@@ -109,6 +111,23 @@ body {
   flex-direction: column;
   transition: background-color var(--transition-normal), color var(--transition-normal);
   overflow-x: hidden;
+}
+
+/* Smooth Page Transitions (No White Flash) */
+#main-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 140ms ease-out, transform 140ms ease-out;
+}
+
+#main-content.page-fading-out {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+#main-content.page-fading-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 ::selection {
@@ -221,21 +240,20 @@ p {
 }
 
 .brand-avatar-mini {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.9rem;
-  box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--brand-secondary);
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+  flex-shrink: 0;
 }
 
-.brand-text span {
-  color: var(--brand-secondary);
+.brand-text {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
 }
 
 .main-nav {
@@ -600,14 +618,15 @@ p {
 }
 
 .hero-avatar-frame {
-  width: 280px;
-  height: 280px;
+  width: 290px;
+  height: 290px;
   margin: 0 auto;
   position: relative;
   border-radius: 50%;
-  padding: 8px;
+  padding: 6px;
   background: linear-gradient(135deg, var(--brand-secondary), var(--brand-accent));
-  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 20px 45px rgba(37, 99, 235, 0.28);
+  overflow: hidden;
 }
 
 .hero-avatar-img {
@@ -616,6 +635,7 @@ p {
   border-radius: 50%;
   background: var(--bg-card);
   object-fit: cover;
+  object-position: center 15%;
 }
 
 .hero-floating-stat {
@@ -802,7 +822,6 @@ p {
   height: 20px;
 }
 
-/* Timeline / Experience / Education Item */
 .resume-item {
   margin-bottom: 1.5rem;
   position: relative;
@@ -956,19 +975,21 @@ p {
 }
 
 .biodata-photo-frame {
-  width: 170px;
-  height: 200px;
-  border: 2px dashed var(--brand-secondary);
+  width: 175px;
+  height: 220px;
+  border: 2px solid var(--brand-secondary);
   border-radius: var(--radius-md);
-  padding: 6px;
+  padding: 5px;
   background: var(--bg-card);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
 }
 
 .biodata-photo-frame img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   border-radius: 4px;
 }
 
