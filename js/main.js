@@ -215,9 +215,9 @@ $(document).ready(function () {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: '.career-section',
-            start: 'top 75%',
-            end: 'bottom 40%',
-            scrub: 1.2,
+            start: 'top 65%',
+            end: 'bottom 35%',
+            scrub: 1.5,
             invalidateOnRefresh: true
           }
         });
@@ -227,15 +227,10 @@ $(document).ready(function () {
           { maxHeight: '100%', opacity: 1, duration: 1, ease: 'none' }, 
           0
         )
-        .fromTo('.career-dot', 
-          { top: '0%' }, 
-          { top: '100%', duration: 1, ease: 'none' }, 
-          0
-        )
         .fromTo('.career-info-box', 
-          { opacity: 0, y: 35 }, 
-          { opacity: 1, y: 0, stagger: 0.15, duration: 0.8, ease: 'power2.out' }, 
-          0.1
+          { opacity: 0, y: 25 }, 
+          { opacity: 1, y: 0, stagger: 0.12, duration: 0.5, ease: 'power2.out' }, 
+          0
         );
       }
     } else {
@@ -268,8 +263,8 @@ Computer Science & Engineering graduate (Class of 2024) from P.A. College of Eng
 
 EDUCATION
 - B.E in Computer Science & Engineering | P.A. College of Engineering, Mangalore (Class of 2024) | CGPA: 8.9
-- Pre-University Course (PCMB) | GHSS Irikkur, Kannur (2022 - 2024) | 84.6%
-- Secondary School Leaving Certificate (SSLC) | TIHSS Naimarmoola, Kasaragod (2021 - 2022) | 96.8%
+- Pre-University Course (PCMB) | Apsara Public School, Kasaragod (2023)
+- Secondary Schooling (SSLC / 10th) | Apsara Public School, Kasaragod (2021)
 
 TECHNICAL SKILLS
 - Programming Languages: Python, C, Java, JavaScript, Embedded C

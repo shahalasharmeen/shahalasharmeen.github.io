@@ -1,18 +1,19 @@
 /**
- * Interactive 3D Human Character & Head-Tracking Controller
- * Inspired by Redoyanul Haque Portfolio (redoyanulhaque.me)
+ * Interactive 3D Female Character & Head-Tracking Controller
+ * Tailored for Sahla Sharmeen E.K Portfolio
  * Features:
- * - Real-time 3D Human Model Loader with DRACO compression
- * - Natural Inertial Head Tracking Following Cursor (spine.006 bone lerp)
- * - Skeletal Animations (Typing, Blinking, Keyboard keystrokes)
- * - Screen Emissive Glow Shader Pulse
- * - GSAP ScrollTrigger Multi-Stage Scene Choreography
+ * - High-detail feminine 3D avatar with rigged armature
+ * - Real-time smooth head tracking towards cursor (Head & Neck bones)
+ * - Natural eye blinking via Ready Player Me morphTargets
+ * - Subtle ambient breathing motion on Spine bones
+ * - Multi-stage GSAP ScrollTrigger camera choreography
+ * - Non-overlapping layout with text protection
  */
 
 (function () {
   'use strict';
 
-  // Fallback to optimized static hero on small touch devices
+  // Desktop only for optimal rendering performance
   if (window.innerWidth <= 768) {
     return;
   }
@@ -20,16 +21,16 @@
   const container = document.getElementById('character-model');
   if (!container) return;
 
-  // Scene & Canvas Initialization
+  // Scene setup
   const scene = new THREE.Scene();
   const width = container.clientWidth || window.innerWidth;
   const height = container.clientHeight || window.innerHeight;
   const aspect = width / height;
 
-  const camera = new THREE.PerspectiveCamera(14.5, aspect, 0.1, 1000);
-  camera.position.set(0, 13.1, 24.7);
-  camera.zoom = 1.1;
-  camera.updateProjectionMatrix();
+  // Camera framing the upper torso, face, and hair perfectly centered
+  const camera = new THREE.PerspectiveCamera(36, aspect, 0.1, 100);
+  camera.position.set(0, 1.48, 1.42);
+  camera.lookAt(0, 1.44, 0);
 
   const renderer = new THREE.WebGLRenderer({
     alpha: true,
@@ -39,92 +40,71 @@
   renderer.setSize(width, height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.0;
+  renderer.toneMappingExposure = 1.15;
+  renderer.outputEncoding = THREE.sRGBEncoding || 3001;
   container.appendChild(renderer.domElement);
 
-  // Lighting setup matching Redoyan's aesthetic
-  const dirLight = new THREE.DirectionalLight(0xc7b8ff, 1.25);
-  dirLight.position.set(-0.47, 5, 4);
-  scene.add(dirLight);
+  // Soft atmospheric lighting for feminine facial tones
+  const keyLight = new THREE.DirectionalLight(0xfff0fd, 1.35);
+  keyLight.position.set(1.5, 3.0, 2.5);
+  scene.add(keyLight);
 
-  const ambLight = new THREE.AmbientLight(0x2a1a4a, 1.6);
+  const fillLight = new THREE.DirectionalLight(0xc2a4ff, 1.0);
+  fillLight.position.set(-2.0, 1.8, 1.8);
+  scene.add(fillLight);
+
+  const ambLight = new THREE.AmbientLight(0x281a38, 1.5);
   scene.add(ambLight);
 
-  const pointLight = new THREE.PointLight(0xc2a4ff, 2.2, 50);
-  pointLight.position.set(3, 12, 4);
-  scene.add(pointLight);
+  const rimLight = new THREE.PointLight(0xaf83ff, 2.0, 8);
+  rimLight.position.set(0, 2.2, -1.0);
+  scene.add(rimLight);
 
-  let mixer, spine006, screenlight, characterScene;
+  let avatarScene = null;
+  let headBone = null;
+  let neckBone = null;
+  let spineBone = null;
+  let headMesh = null;
   let mouse = { x: 0, y: 0 };
+  let blinkTimer = 0;
+  let isBlinking = false;
+  let blinkWeight = 0;
 
-  // Setup DRACO and GLTF Loaders
-  const dracoLoader = new THREE.DRACOLoader();
-  dracoLoader.setDecoderPath('draco/');
-
+  // Load Model
   const gltfLoader = new THREE.GLTFLoader();
-  gltfLoader.setDRACOLoader(dracoLoader);
 
-  // Load Uncompressed / Decrypted GLB Model
   gltfLoader.load('models/character.glb', function (gltf) {
-    characterScene = gltf.scene;
-    characterScene.position.set(0, 0, 0);
-    scene.add(characterScene);
+    avatarScene = gltf.scene;
+    avatarScene.position.set(0, 0, 0);
+    avatarScene.scale.set(1, 1, 1);
+    scene.add(avatarScene);
 
-    // Identify bones and screen emissive materials
-    characterScene.traverse(function (node) {
-      if (node.isBone && (node.name === 'spine.006' || node.name === 'spine006')) {
-        spine006 = node;
+    // Identify bones & morph targets
+    avatarScene.traverse(function (node) {
+      if (node.isBone) {
+        const name = node.name.toLowerCase();
+        if (name === 'head') headBone = node;
+        if (name === 'neck') neckBone = node;
+        if (name === 'spine2' || name === 'spine1' || name === 'spine') spineBone = node;
       }
-      if (node.name === 'screenlight' && node.material) {
-        screenlight = node;
-        node.material.transparent = true;
-        node.material.opacity = 0.95;
-        node.material.emissive = new THREE.Color(0xc2a4ff);
-        node.material.emissiveIntensity = 2.8;
+      if (node.isMesh && node.morphTargetDictionary) {
+        if (node.name.includes('Head') || node.name.includes('Face')) {
+          headMesh = node;
+        }
       }
     });
 
-    // Play all bundled skeletal animations
-    if (gltf.animations && gltf.animations.length) {
-      mixer = new THREE.AnimationMixer(characterScene);
-
-      // Intro Animation
-      const introClip = gltf.animations.find(a => a.name === 'introAnimation');
-      if (introClip) {
-        const introAction = mixer.clipAction(introClip);
-        introAction.setLoop(THREE.LoopOnce);
-        introAction.clampWhenFinished = true;
-        introAction.play();
-      }
-
-      // Continuous Typing Loop
-      const typingClip = gltf.animations.find(a => a.name === 'typing');
-      if (typingClip) {
-        const typingAction = mixer.clipAction(typingClip);
-        typingAction.play();
-        typingAction.timeScale = 1.1;
-      }
-
-      // Eye Blinking
-      const blinkClip = gltf.animations.find(a => a.name === 'Blink');
-      if (blinkClip) {
-        mixer.clipAction(blinkClip).play();
-      }
-
-      // Keyboard key clicks
-      ['key1', 'key2', 'key5', 'key6'].forEach(k => {
-        const keyClip = gltf.animations.find(a => a.name === k);
-        if (keyClip) {
-          mixer.clipAction(keyClip).play();
-        }
-      });
+    // Reveal glowing rim once model is ready
+    const rim = document.querySelector('.character-rim');
+    if (rim) {
+      rim.style.opacity = '0.7';
     }
 
-    // Choreographed GSAP ScrollTrigger Animations
+    // ScrollTrigger choreography
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
 
-      // Stage 1: Landing -> About (Character rotates and glides left)
+      // Hero -> About: Glide slightly right, rotate toward content
       gsap.timeline({
         scrollTrigger: {
           trigger: '.landing-section',
@@ -133,62 +113,95 @@
           scrub: 1.2
         }
       })
-      .to(characterScene.rotation, { y: 0.72, duration: 1 }, 0)
-      .to('.character-model', { x: '-24%', duration: 1 }, 0);
+      .to(avatarScene.position, { x: 0.35, z: -0.2, duration: 1 }, 0)
+      .to(avatarScene.rotation, { y: -0.25, duration: 1 }, 0)
+      .to(camera.position, { y: 1.38, z: 1.6, duration: 1 }, 0);
 
-      // Stage 2: About -> What I Do (Zoom in, laptop glow intensifies)
+      // About -> What I Do: Shift back slightly
       gsap.timeline({
         scrollTrigger: {
           trigger: '.about-section',
-          start: 'center 60%',
+          start: 'top center',
           end: 'bottom top',
           scrub: 1.2
         }
       })
-      .to(camera.position, { z: 18, y: 11, duration: 2 }, 0)
-      .to('.character-model', { x: '-15%', duration: 2 }, 0);
+      .to(avatarScene.position, { x: 0.45, z: -0.4, duration: 1 }, 0)
+      .to(avatarScene.rotation, { y: -0.4, duration: 1 }, 0);
 
-      // Stage 3: What I Do -> Career (Character lifts smoothly out of frame)
+      // What I Do & Beyond: Lift character out of view cleanly so all content cards and career timeline are 100% unobstructed
       gsap.timeline({
         scrollTrigger: {
           trigger: '.whatIDO',
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1.2
+          start: 'top 85%',
+          end: 'center 45%',
+          scrub: 1.0
         }
       })
-      .to('.character-model', { y: '-100%', duration: 2 }, 0);
+      .to('.character-model', { y: '-100%', opacity: 0, duration: 1.2, ease: 'power2.inOut' }, 0);
     }
 
-    // Fade in glowing backdrop rim once 3D scene is loaded
-    const rim = document.querySelector('.character-rim');
-    if (rim) {
-      rim.style.opacity = '0.75';
-    }
-
-  }, undefined, function (error) {
-    console.warn('3D model load notice:', error);
+  }, undefined, function (err) {
+    console.warn('3D Female Avatar Notice:', err);
   });
 
-  // Cursor tracking for realistic head rotation
+  // Cursor tracking
   window.addEventListener('mousemove', function (e) {
     mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
   });
 
-  // Render loop with requestAnimationFrame
+  // Main Render Loop
   const clock = new THREE.Clock();
+
   function animate() {
     requestAnimationFrame(animate);
 
     const delta = clock.getDelta();
-    if (mixer) mixer.update(delta);
+    const time = clock.getElapsedTime();
 
-    // Smooth head tracking when near top of page
-    if (spine006 && window.scrollY < 500) {
-      const maxRot = Math.PI / 6;
-      spine006.rotation.y = THREE.MathUtils.lerp(spine006.rotation.y, mouse.x * maxRot, 0.05);
-      spine006.rotation.x = THREE.MathUtils.lerp(spine006.rotation.x, -mouse.y * 0.25, 0.05);
+    // Natural head tracking when scrolled near top
+    if (headBone && window.scrollY < 600) {
+      const maxRotX = 0.22;
+      const maxRotY = 0.32;
+      headBone.rotation.y = THREE.MathUtils.lerp(headBone.rotation.y, mouse.x * maxRotY, 0.06);
+      headBone.rotation.x = THREE.MathUtils.lerp(headBone.rotation.x, -mouse.y * maxRotX, 0.06);
+
+      if (neckBone) {
+        neckBone.rotation.y = THREE.MathUtils.lerp(neckBone.rotation.y, mouse.x * (maxRotY * 0.4), 0.06);
+        neckBone.rotation.x = THREE.MathUtils.lerp(neckBone.rotation.x, -mouse.y * (maxRotX * 0.3), 0.06);
+      }
+    }
+
+    // Natural idle breathing motion
+    if (spineBone) {
+      spineBone.rotation.x = Math.sin(time * 1.8) * 0.015;
+      spineBone.rotation.z = Math.sin(time * 0.9) * 0.005;
+    }
+
+    // Realistic natural eye blinking
+    blinkTimer += delta;
+    if (blinkTimer > 3.8 && !isBlinking) {
+      isBlinking = true;
+      blinkTimer = 0;
+    }
+    if (isBlinking) {
+      blinkWeight += delta * 12;
+      if (blinkWeight > 1) blinkWeight = 1;
+      if (blinkTimer > 0.16) {
+        blinkWeight -= delta * 14;
+        if (blinkWeight <= 0) {
+          blinkWeight = 0;
+          isBlinking = false;
+          blinkTimer = 0;
+        }
+      }
+      if (headMesh && headMesh.morphTargetDictionary) {
+        const leftIdx = headMesh.morphTargetDictionary['eyeBlinkLeft'];
+        const rightIdx = headMesh.morphTargetDictionary['eyeBlinkRight'];
+        if (leftIdx !== undefined) headMesh.morphTargetInfluences[leftIdx] = blinkWeight;
+        if (rightIdx !== undefined) headMesh.morphTargetInfluences[rightIdx] = blinkWeight;
+      }
     }
 
     renderer.render(scene, camera);

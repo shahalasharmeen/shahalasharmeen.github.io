@@ -25,6 +25,8 @@ LinkedIn: https://linkedin.com/in/shahalasharmeen | GitHub: https://github.com/s
 EDUCATION:
 - Bachelor of Computer Science Engineering (CSE), PA College of Engineering
   CGPA: 8.9 | Class of 2024
+- Pre-University Course (PCMB), Apsara Public School, Kasaragod (2023)
+- Secondary Schooling (SSLC / 10th), Apsara Public School, Kasaragod (2021)
 
 TECHNICAL SKILLS:
 - Languages & Core: Python, C, Java, Web Development, UI/UX Design, SQL, Operating Software
