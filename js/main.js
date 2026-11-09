@@ -227,6 +227,11 @@ $(document).ready(function () {
           { maxHeight: '100%', opacity: 1, duration: 1, ease: 'none' }, 
           0
         )
+        .fromTo('.career-dot',
+          { top: '0%' },
+          { top: '100%', duration: 1, ease: 'none' },
+          0
+        )
         .fromTo('.career-info-box', 
           { opacity: 0, y: 25 }, 
           { opacity: 1, y: 0, stagger: 0.12, duration: 0.5, ease: 'power2.out' }, 

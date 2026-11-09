@@ -124,18 +124,19 @@ img {
 .header {
   display: flex;
   width: 100%;
-  max-width: 100vw;
+  left: 0;
+  right: 0;
+  top: 0;
   justify-content: space-between;
   align-items: center;
   padding: 16px 40px;
   box-sizing: border-box;
   position: fixed;
-  left: 0;
-  top: 0;
   z-index: 9999;
-  background: linear-gradient(180deg, rgba(11, 8, 12, 0.98) 0%, rgba(11, 8, 12, 0.85) 60%, rgba(11, 8, 12, 0) 100%);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: rgba(11, 8, 12, 0.94);
+  border-bottom: 1px solid rgba(194, 164, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .header-brand-group {
@@ -792,52 +793,52 @@ h2.landing-info-h2 {
 
 .career-info {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
   width: 100%;
+  max-width: 1050px;
+  margin: 0 auto;
 }
 
 .career-timeline {
   position: absolute;
-  top: -20px;
-  bottom: 0;
+  top: 15px;
+  bottom: 25px;
   left: 50%;
   transform: translateX(-50%);
-  width: 3px;
-  height: 100%;
-  background-image: linear-gradient(to bottom, #aa42ff 20%, var(--accentColor) 50%, transparent 95%);
+  width: 2px;
+  background-image: linear-gradient(to bottom, #aa42ff 15%, var(--accentColor) 50%, rgba(194, 164, 255, 0.2) 85%, transparent 100%);
   max-height: 0%;
   opacity: 0;
-  z-index: 2;
+  z-index: 1;
 }
 
 .career-dot {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, -50%);
   background-color: #aa42ff;
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  box-shadow: 0 0 8px 3px #d29bff, 0 0 20px 8px #d097ff, 0 0 40px 15px #f2c0ff;
+  box-shadow: 0 0 10px 2px #d29bff, 0 0 25px 6px #aa42ff, 0 0 45px 12px #f2c0ff;
   animation: timelineDotPulse 1.2s infinite ease-in-out;
+  z-index: 2;
 }
 
 @keyframes timelineDotPulse {
   0%, 100% {
-    box-shadow: 0 0 8px 3px #d29bff, 0 0 20px 8px #d097ff, 0 0 40px 15px #f2c0ff;
+    box-shadow: 0 0 10px 2px #d29bff, 0 0 25px 6px #aa42ff, 0 0 45px 12px #f2c0ff;
   }
   50% {
-    box-shadow: 0 0 4px 1px #d29bff, 0 0 10px 4px #d097ff;
+    box-shadow: 0 0 5px 1px #d29bff, 0 0 14px 3px #aa42ff;
   }
 }
 
 .career-info-box {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr 120px 1fr;
+  align-items: center;
+  gap: 25px;
   margin-bottom: 55px;
   position: relative;
   width: 100%;
@@ -852,16 +853,9 @@ h2.landing-info-h2 {
   transform: translateY(0) !important;
 }
 
-.career-info-in {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 44%;
-  gap: 20px;
-}
-
 .career-role {
-  flex: 1;
+  text-align: right;
+  padding-right: 10px;
 }
 
 .career-role h4 {
@@ -880,37 +874,64 @@ h2.landing-info-h2 {
   line-height: 1.4;
 }
 
-.career-info-in h3 {
-  font-size: 24px;
-  font-weight: 600;
+.career-year {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 4;
+}
+
+.career-year h3 {
+  font-size: 15px;
+  font-weight: 700;
   color: #ffffff;
+  background: #191424;
+  border: 1px solid rgba(194, 164, 255, 0.45);
+  box-shadow: 0 0 16px rgba(170, 66, 255, 0.35);
+  padding: 6px 16px;
+  border-radius: 20px;
   margin: 0;
   white-space: nowrap;
+  letter-spacing: 0.5px;
 }
 
 .career-info-box p {
-  width: 44%;
   font-size: 15px;
   color: #e5e0ea;
   line-height: 1.65;
   margin: 0;
   font-weight: 400;
+  text-align: left;
+  padding-left: 10px;
 }
 
 @media screen and (max-width: 900px) {
   .career-timeline {
-    left: 12px;
+    left: 20px;
     transform: none;
   }
+  .career-dot {
+    left: 20px;
+  }
   .career-info-box {
+    display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 12px;
     margin-bottom: 40px;
-    padding-left: 36px;
+    padding-left: 48px;
     box-sizing: border-box;
   }
-  .career-info-in,
+  .career-role {
+    text-align: left;
+    padding-right: 0;
+  }
+  .career-year {
+    justify-content: flex-start;
+  }
   .career-info-box p {
+    padding-left: 0;
     width: 100%;
   }
   .career-section h2 {
