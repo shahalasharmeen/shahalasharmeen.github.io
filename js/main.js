@@ -1,17 +1,19 @@
 /**
- * Main Global JavaScript - Inspired by Redoyanul Haque Portfolio
+ * Main Global JavaScript - Redoyanul Haque Inspired Portfolio
  * Features:
- * - Redoyan Interactive Glowing Cursor Follower
- * - Instant Zero-Lag Page Switching (PJAX + Prefetch)
- * - Timeline Animations & Interactive Hover Rolls
- * - Project Filtering & Contact Form Validation
+ * - Signature Follower Glowing Cursor
+ * - Zero-Lag In-Memory PJAX Page Transition (Eliminates White Flash)
+ * - Smooth Anchor Scrolling
+ * - Interactive Project Live Search & Category Filtering
+ * - Copy to Clipboard & Toast Notifications
+ * - ATS Plaintext Resume Generator & Print Trigger
  */
 
 $(document).ready(function () {
   'use strict';
 
   // 1. Redoyan Signature Glowing Follower Cursor
-  const $cursor = $('#cursor-follower');
+  const $cursor = $('#cursor-main');
   if ($cursor.length && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     let mouseX = -100, mouseY = -100;
     let cursorX = -100, cursorY = -100;
@@ -22,51 +24,27 @@ $(document).ready(function () {
     });
 
     function renderCursor() {
-      // Smooth interpolation for natural lagging inertia
-      cursorX += (mouseX - cursorX) * 0.2;
-      cursorY += (mouseY - cursorY) * 0.2;
+      cursorX += (mouseX - cursorX) * 0.22;
+      cursorY += (mouseY - cursorY) * 0.22;
       $cursor.css('transform', `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`);
       requestAnimationFrame(renderCursor);
     }
     requestAnimationFrame(renderCursor);
 
-    // Cursor hover expansion on links, cards, buttons
-    $(document).on('mouseenter', 'a, button, .myworks-card, .techstack-card', function () {
-      $cursor.css({
-        width: '64px',
-        height: '64px',
-        opacity: '0.8'
-      });
-    }).on('mouseleave', 'a, button, .myworks-card, .techstack-card', function () {
-      $cursor.css({
-        width: '44px',
-        height: '44px',
-        opacity: '1'
-      });
+    $(document).on('mouseenter', 'a, button, .work-box, .myworks-card, .techstack-item, .what-content', function () {
+      $cursor.addClass('cursor-hover');
+    }).on('mouseleave', 'a, button, .work-box, .myworks-card, .techstack-item, .what-content', function () {
+      $cursor.removeClass('cursor-hover');
+    });
+
+    $(document).on('mouseenter', '[data-cursor="disable"]', function () {
+      $cursor.addClass('cursor-disable');
+    }).on('mouseleave', '[data-cursor="disable"]', function () {
+      $cursor.removeClass('cursor-disable');
     });
   }
 
-  // 2. Mobile Menu Toggle
-  $('#mobile-menu-btn').on('click', function () {
-    const $nav = $('#main-navigation');
-    const isOpen = $nav.hasClass('is-open');
-    if (isOpen) {
-      $nav.removeClass('is-open');
-      $(this).attr('aria-expanded', 'false');
-    } else {
-      $nav.addClass('is-open');
-      $(this).attr('aria-expanded', 'true');
-    }
-  });
-
-  $(document).on('click', function (e) {
-    if (!$(e.target).closest('.site-header').length) {
-      $('#main-navigation').removeClass('is-open');
-      $('#mobile-menu-btn').attr('aria-expanded', 'false');
-    }
-  });
-
-  // 3. Global Toast Notifications
+  // 2. Global Toast Notification System
   window.showToast = function (message) {
     let $toast = $('#global-toast');
     if (!$toast.length) {
@@ -85,10 +63,10 @@ $(document).ready(function () {
     clearTimeout(window.toastTimer);
     window.toastTimer = setTimeout(function () {
       $toast.removeClass('show');
-    }, 3000);
+    }, 3200);
   };
 
-  // 4. Update Navigation Active State
+  // 3. Update Active Link in Navigation
   function updateActiveNav(path) {
     const filename = (path || window.location.pathname).split('/').pop() || 'index.html';
     $('.hover-link').each(function () {
@@ -101,7 +79,7 @@ $(document).ready(function () {
     });
   }
 
-  // 5. In-Memory Prefetch & Zero-Delay PJAX Page Switcher
+  // 4. In-Memory Prefetch & Zero-Delay PJAX Page Switcher
   const pageCache = {};
   const sitePages = ['index.html', 'resume.html', 'biodata.html', 'projects.html', 'contact.html'];
 
@@ -117,14 +95,14 @@ $(document).ready(function () {
       }
     });
   }
-  setTimeout(prefetchPages, 80);
+  // Prefetch immediately after initial render
+  setTimeout(prefetchPages, 100);
 
   function loadPage(url, pushState) {
     const filename = url.split('/').pop() || 'index.html';
     const $main = $('#main-content');
 
     $main.addClass('page-fading-out');
-    $('#main-navigation').removeClass('is-open');
 
     function render(html) {
       try {
@@ -153,7 +131,7 @@ $(document).ready(function () {
           setTimeout(function () {
             $main.removeClass('page-fading-out').addClass('page-fading-in');
             setTimeout(() => $main.removeClass('page-fading-in'), 150);
-          }, 30);
+          }, 20);
           return;
         }
       } catch (e) {
@@ -177,7 +155,7 @@ $(document).ready(function () {
     }
   }
 
-  // Intercept internal links for seamless navigation
+  // Intercept internal page link clicks
   $(document).on('click', 'a', function (e) {
     const href = $(this).attr('href');
     if (!href) return;
@@ -195,155 +173,146 @@ $(document).ready(function () {
     }
 
     const clean = href.split('?')[0].split('#')[0];
-    if (sitePages.includes(clean) || clean === './' || clean === '') {
+    if (sitePages.includes(clean)) {
       e.preventDefault();
       loadPage(href, true);
     }
   });
 
-  window.addEventListener('popstate', function () {
-    const path = window.location.pathname.split('/').pop() || 'index.html';
-    loadPage(path, false);
+  // Handle browser back/forward buttons
+  window.addEventListener('popstate', function (e) {
+    if (e.state && e.state.path) {
+      loadPage(e.state.path, false);
+    } else {
+      loadPage(window.location.pathname.split('/').pop() || 'index.html', false);
+    }
   });
 
-  // 6. Page-Specific Dynamic Interactions
+  // 5. Smooth Anchor Scrolling for on-page sections
+  $(document).on('click', 'a[href^="#"]', function (e) {
+    const target = $(this.getAttribute('href'));
+    if (target.length) {
+      e.preventDefault();
+      $('html, body').stop().animate({
+        scrollTop: target.offset().top - 90
+      }, 600);
+    }
+  });
+
+  // 6. Dynamic Bindings for Interactive Features
   function bindPageInteractions() {
-    // Copy buttons
+    
+    // Copy button handlers
     $('.btn-copy').off('click').on('click', function (e) {
       e.preventDefault();
-      const text = $(this).data('copy-text') || $(this).text().trim();
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(text).then(() => {
-          showToast(`Copied: ${text}`);
-        });
-      } else {
-        showToast('Copied to clipboard!');
-      }
-    });
-
-    // Resume print
-    $('#btn-print-resume').off('click').on('click', function (e) {
-      e.preventDefault();
-      window.print();
-    });
-
-    // Copy ATS
-    $('#btn-copy-ats').off('click').on('click', function (e) {
-      e.preventDefault();
-      const ats = `
-SAHLA SHARMEEN E.K
-Computer Science Engineering Student
-Email: sahlasharmeen@email.com | Phone: +91 9946753050
-Location: Bendichal North, Kasaragod
-LinkedIn: https://linkedin.com/in/shahalasharmeen | GitHub: https://github.com/shahalasharmeen
-
-EDUCATION:
-- Bachelor of Computer Science Engineering (CSE), PA College of Engineering
-  CGPA: 8.9 | Expected Graduation: 2028
-
-TECHNICAL SKILLS:
-- Languages: Python, C, Java, Web Development, UI/UX Design, SQL, Operating Software
-- Tools: Scratch, Salesforce, PowerPoint, Arduino IDE
-- Analytical: Statistics, Creative Skills, Communication, Teamwork, Problem Solving
-
-PROJECTS:
-1. Footstep Power Generation Using Arduino (2024, Team Member)
-2. Volunteer Program Tracker Using Salesforce (2026, Leader)
-3. ComedKares RC Car Workshop (2024, Leader)
-4. Muscle Flex Detection System (EMG Sensor)
-5. Cooking Recipe Portal, Automated Irrigation System, Drone Using ESP32
-      `.trim();
-
-      if (navigator.clipboard) {
-        navigator.clipboard.writeText(ats).then(() => {
-          showToast('ATS Plain-Text Resume copied!');
+      const textToCopy = $(this).attr('data-copy-text');
+      if (textToCopy) {
+        navigator.clipboard.writeText(textToCopy).then(function () {
+          window.showToast(`Copied "${textToCopy}" to clipboard!`);
+        }).catch(function () {
+          window.showToast('Unable to copy to clipboard.');
         });
       }
     });
 
-    // Project filters
-    $('.filter-btn').off('click').on('click', function () {
-      const f = $(this).data('filter');
-      $('.filter-btn').removeClass('active');
-      $(this).addClass('active');
+    // ATS Resume Plain Text copy
+    $('#btn-copy-ats').off('click').on('click', function () {
+      const atsText = `SAHLA SHARMEEN E.K
+Kasaragod, Kerala, India | Email: shahalasharmeen@gmail.com
+LinkedIn: https://linkedin.com/in/sahla-sharmeen | GitHub: https://github.com/shahalasharmeen
 
-      if (f === 'all') {
-        $('.project-card-wrapper').fadeIn(150);
-      } else {
-        $('.project-card-wrapper').hide();
-        $(`.project-card-wrapper[data-category*="${f}"]`).fadeIn(180);
-      }
+PROFESSIONAL SUMMARY
+Computer Science & Engineering undergraduate student at P.A. College of Engineering (CGPA: 8.9) with active development experience in IoT hardware, embedded systems, Python, C, Java, and modern web applications.
 
-      const count = f === 'all' 
-        ? $('.project-card-wrapper').length 
-        : $(`.project-card-wrapper[data-category*="${f}"]`).length;
-      $('#project-count-display').text(`${count} Projects Displayed`);
-    });
+EDUCATION
+- B.E in Computer Science & Engineering | P.A. College of Engineering, Mangalore (2024 - 2028) | CGPA: 8.9
+- Pre-University Course (PCMB) | GHSS Irikkur, Kannur (2022 - 2024) | 84.6%
+- Secondary School Leaving Certificate (SSLC) | TIHSS Naimarmoola, Kasaragod (2021 - 2022) | 96.8%
 
-    $('#project-search-input').off('keyup').on('keyup', function () {
-      const q = $(this).val().toLowerCase().trim();
-      $('.project-card-wrapper').each(function () {
-        if ($(this).text().toLowerCase().indexOf(q) !== -1) {
-          $(this).fadeIn(120);
-        } else {
-          $(this).fadeOut(120);
-        }
+TECHNICAL SKILLS
+- Programming Languages: Python, C, Java, JavaScript, Embedded C
+- Web Technologies: HTML5, CSS3, jQuery, Responsive UI/UX Design
+- Hardware & IoT: Arduino Uno, Raspberry Pi, ESP8266, Piezoelectric Sensors, HC-05 Bluetooth, Motor Drivers
+- Cloud & Platforms: Salesforce CRM, Git, GitHub, Linux, VS Code, Figma, MS Office
+
+KEY PROJECTS
+- Footstep Power Generation: Energy harvesting tile prototype with piezoelectric sensor array and LCD output.
+- Salesforce Volunteer Tracker: Cloud volunteer coordination app with automated flows and custom schema.
+- Smartphone Bluetooth RC Car: ComedKares robotics prototype with Arduino and mobile control.
+- EMG Biomedical Health Sensor: Muscle signal acquisition filter and real-time biometric thresholding.
+- Smart Recipe Finder: Responsive web application with dietary filtering and dynamic recipe matching.`;
+
+      navigator.clipboard.writeText(atsText).then(function () {
+        window.showToast('ATS Plaintext Resume copied to clipboard!');
+      }).catch(function () {
+        window.showToast('Unable to copy resume text.');
       });
     });
 
-    // Contact form validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // Print button handler
+    $('#btn-print-resume').off('click').on('click', function () {
+      window.print();
+    });
+
+    // Project live search & filter
+    const $searchInput = $('#project-search-input');
+    const $filterBtns = $('.filter-btn');
+    const $cards = $('.myworks-card');
+
+    function applyProjectFilter() {
+      const term = ($searchInput.val() || '').toLowerCase().trim();
+      const activeCategory = $('.filter-btn.active').attr('data-filter') || 'all';
+
+      let matchCount = 0;
+      $cards.each(function () {
+        const text = $(this).text().toLowerCase();
+        const cat = $(this).attr('data-category') || 'all';
+
+        const matchesSearch = !term || text.includes(term);
+        const matchesCat = activeCategory === 'all' || cat.includes(activeCategory);
+
+        if (matchesSearch && matchesCat) {
+          $(this).fadeIn(200);
+          matchCount++;
+        } else {
+          $(this).fadeOut(150);
+        }
+      });
+
+      $('#project-result-count').text(`Showing ${matchCount} of ${$cards.length} projects`);
+    }
+
+    $searchInput.off('input').on('input', applyProjectFilter);
+    $filterBtns.off('click').on('click', function () {
+      $filterBtns.removeClass('active');
+      $(this).addClass('active');
+      applyProjectFilter();
+    });
+
+    // Contact form submission simulation
     $('#contact-form').off('submit').on('submit', function (e) {
       e.preventDefault();
-      let ok = true;
+      const name = $('#contact-name').val();
+      const email = $('#contact-email').val();
+      const msg = $('#contact-message').val();
 
-      const $name = $('#contact-name');
-      if ($name.val().trim().length < 2) {
-        $name.addClass('is-invalid');
-        $name.siblings('.form-error-feedback').text('Please enter your name.').show();
-        ok = false;
-      } else {
-        $name.removeClass('is-invalid');
-        $name.siblings('.form-error-feedback').hide();
+      if (!name || !email || !msg) {
+        window.showToast('Please fill out all required fields.');
+        return;
       }
 
-      const $email = $('#contact-email');
-      if (!emailRegex.test($email.val().trim())) {
-        $email.addClass('is-invalid');
-        $email.siblings('.form-error-feedback').text('Please enter a valid email.').show();
-        ok = false;
-      } else {
-        $email.removeClass('is-invalid');
-        $email.siblings('.form-error-feedback').hide();
-      }
+      const $submitBtn = $(this).find('button[type="submit"]');
+      $submitBtn.prop('disabled', true).text('Sending message...');
 
-      const $msg = $('#contact-message');
-      if ($msg.val().trim().length < 10) {
-        $msg.addClass('is-invalid');
-        $msg.siblings('.form-error-feedback').text('Message must be at least 10 characters.').show();
-        ok = false;
-      } else {
-        $msg.removeClass('is-invalid');
-        $msg.siblings('.form-error-feedback').hide();
-      }
-
-      if (ok) {
-        const $btn = $('#btn-submit-contact');
-        $btn.prop('disabled', true).text('Transmitting...');
-
-        setTimeout(function () {
-          $btn.prop('disabled', false).text('Transmit Message');
-          $('#contact-form')[0].reset();
-          $('#contact-success-alert').slideDown(250);
-          setTimeout(() => $('#contact-success-alert').slideUp(250), 6000);
-          showToast('Message transmitted successfully!');
-        }, 750);
-      }
+      setTimeout(function () {
+        window.showToast(`Thank you, ${name}! Your message has been received.`);
+        $('#contact-form')[0].reset();
+        $submitBtn.prop('disabled', false).text('Send Message');
+      }, 900);
     });
   }
 
-  // Initial bindings
+  // Initial bindings on page load
   updateActiveNav();
   bindPageInteractions();
-  $('#current-year').text(new Date().getFullYear());
 });

@@ -3,223 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Sahla Sharmeen E.K - Computer Science Engineering Student. Connect via email, phone, LinkedIn, GitHub or send a direct inquiry.">
+  <meta name="description" content="Contact Sahla Sharmeen E.K - Computer Science Engineering Student. Connect via email, LinkedIn, GitHub or send an inquiry.">
   <meta name="keywords" content="Contact Sahla Sharmeen E.K, Kasaragod, Computer Science Engineer, LinkedIn, GitHub, Email">
   <meta name="author" content="Sahla Sharmeen E.K">
-
   <title>Contact | Sahla Sharmeen E.K - Get in Touch</title>
 
-  <!-- Prevent FOUC / White Flash -->
+  <!-- Zero White Flash Guard -->
   <style>
-    html, body { background-color: #0b080c; color: #eae5ec; }
+    html, body {
+      background-color: #0b080c !important;
+      color: #eae5ec !important;
+      margin: 0;
+      padding: 0;
+    }
   </style>
 
-  <!-- Google Fonts & Stylesheets -->
+  <!-- Google Fonts: Geist & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/print.css" media="print">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets with Cache Busting -->
+  <link rel="stylesheet" href="css/style.css?v=redoyan_20261109">
+  <link rel="stylesheet" href="css/print.css?v=redoyan_20261109" media="print">
 </head>
 <body>
 
-  <!-- Redoyan Cursor Follower -->
-  <div id="cursor-follower" class="cursor-main"></div>
+  <!-- Redoyan Custom Glowing Follower Cursor -->
+  <div class="cursor-main" id="cursor-main"></div>
 
-  <!-- Redoyan Fixed Header -->
-  <header class="site-header">
-    <div class="container nav-wrapper">
-      <a href="index.html" class="navbar-brand" aria-label="Sahla Sharmeen Home">
-        <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen" class="brand-avatar-mini">
-        <span class="navbar-title">SAHLA SHARMEEN</span>
-      </a>
-
-      <div class="navbar-connect">
-        <span class="status-dot"></span>
-        <span>Available for Internships &bull; Kasaragod, India</span>
+  <!-- Redoyan Signature Fixed Header -->
+  <header class="header" role="banner">
+    <a href="index.html" class="navbar-title hover-link" aria-label="Sahla Sharmeen Home">
+      <div class="hover-in">
+        SAHLA SHARMEEN
+        <div>SAHLA SHARMEEN</div>
       </div>
+    </a>
 
-      <nav id="main-navigation" class="main-nav" aria-label="Primary Navigation">
-        <ul class="nav-links">
-          <li>
-            <a href="index.html" class="hover-link">
-              <span class="hover-in">
-                <div>Home</div>
-                <div>Home</div>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="resume.html" class="hover-link">
-              <span class="hover-in">
-                <div>Resume</div>
-                <div>Resume</div>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="biodata.html" class="hover-link">
-              <span class="hover-in">
-                <div>Bio-Data</div>
-                <div>Bio-Data</div>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="projects.html" class="hover-link">
-              <span class="hover-in">
-                <div>Projects</div>
-                <div>Projects</div>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="contact.html" class="hover-link active">
-              <span class="hover-in">
-                <div>Contact</div>
-                <div>Contact</div>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <button id="mobile-menu-btn" class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
-      </button>
+    <div class="navbar-connect">
+      <span class="connect-dot"></span> OPEN FOR OPPORTUNITIES
     </div>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" class="hover-link"><div class="hover-in">Home<div>Home</div></div></a></li>
+        <li><a href="resume.html" class="hover-link"><div class="hover-in">Resume<div>Resume</div></div></a></li>
+        <li><a href="biodata.html" class="hover-link"><div class="hover-in">Bio-Data<div>Bio-Data</div></div></a></li>
+        <li><a href="projects.html" class="hover-link"><div class="hover-in">Projects<div>Projects</div></div></a></li>
+        <li><a href="contact.html" class="hover-link active"><div class="hover-in">Contact<div>Contact</div></div></a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Main Contact Content -->
-  <main id="main-content" class="section">
-    <div class="container">
+  <!-- Main Container -->
+  <main id="main-content" class="page-container">
+    
+    <div style="margin-bottom: 20px;">
+      <a href="index.html" class="back-btn-pill">← Back to Home</a>
+    </div>
+
+    <header class="page-header">
+      <h1>Let's <span>Connect</span></h1>
+      <p>Have an engineering inquiry, collaborative project idea, or internship opportunity? Drop a direct message below or connect across my networks.</p>
+    </header>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; max-width: 1100px; margin: 0 auto 60px;">
       
-      <div style="text-align: center; max-width: 650px; margin: 0 auto 4rem auto;">
-        <span class="section-label" style="text-align: center;">Get In Touch</span>
-        <h1 class="gradient-title" style="margin-bottom: 1rem;">Let's Connect</h1>
-        <p>
-          Feel free to reach out for engineering project collaborations, internships, speaking opportunities, or inquiries about my resume and bio-data.
-        </p>
+      <!-- Direct Contact Details Card -->
+      <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.09); border-radius: 20px; padding: 40px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span style="font-size: 12px; font-family: 'JetBrains Mono', monospace; color: var(--accentColor); letter-spacing: 2px; text-transform: uppercase;">Direct Inquiries</span>
+          <h2 style="font-size: 28px; color: #fff; margin: 8px 0 25px 0;">Get in Touch</h2>
+          
+          <div style="margin-bottom: 25px;">
+            <div style="font-size: 12px; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 1px;">Primary Email</div>
+            <div style="font-size: 18px; color: #fff; margin-top: 4px;"><a href="mailto:shahalasharmeen@gmail.com" style="color: inherit;">shahalasharmeen@gmail.com</a></div>
+            <button class="btn-copy cta-btn cta-btn-play" data-copy-text="shahalasharmeen@gmail.com" style="padding: 6px 14px; font-size: 12px; margin-top: 8px;" data-cursor="disable">
+              Copy Email Address
+            </button>
+          </div>
+
+          <div style="margin-bottom: 25px;">
+            <div style="font-size: 12px; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 1px;">Location</div>
+            <div style="font-size: 18px; color: #fff; margin-top: 4px;">Kasaragod, Kerala, India</div>
+          </div>
+
+          <div>
+            <div style="font-size: 12px; color: rgba(255, 255, 255, 0.5); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Profiles &amp; Repositories</div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener noreferrer" class="contact-social" data-cursor="disable">
+                GitHub Repository <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
+              </a>
+              <a href="https://linkedin.com/in/sahla-sharmeen" target="_blank" rel="noopener noreferrer" class="contact-social" data-cursor="disable">
+                LinkedIn Network <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 13px; color: #b5afbc;">
+          Status: <span style="color: #a3e635; font-weight: 600;">Open for engineering internships &amp; collaborative hardware/software projects.</span>
+        </div>
       </div>
 
-      <div class="contact-flex">
+      <!-- Direct Message Form Card -->
+      <div class="contact-form-card">
+        <h3 style="font-size: 22px; color: #fff; margin-bottom: 20px;">Send a Direct Message</h3>
         
-        <!-- Left Column: Direct Info & Socials -->
-        <aside class="contact-left" aria-label="Contact Information">
-          
-          <div style="background: var(--bg-card-glass); border: 1px solid var(--borderColor); border-radius: var(--radius-lg); padding: 2.5rem; margin-bottom: 2rem;">
-            <div style="font-family: var(--font-mono); color: var(--accentColor); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
-              Direct Channels
-            </div>
-            
-            <div style="margin-bottom: 1.5rem;">
-              <div style="font-size: 0.85rem; color: var(--textMuted);">ELECTRONIC MAIL</div>
-              <a href="mailto:sahlasharmeen@email.com" class="contact-social-link" style="font-size: 1.15rem;">sahlasharmeen@email.com</a>
-              <div>
-                <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="sahlasharmeen@email.com">Copy Email</button>
-              </div>
-            </div>
-
-            <div style="margin-bottom: 1.5rem;">
-              <div style="font-size: 0.85rem; color: var(--textMuted);">PHONE &bull; WHATSAPP</div>
-              <a href="tel:+919946753050" class="contact-social-link" style="font-size: 1.15rem;">+91 9946753050</a>
-              <div>
-                <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="+919946753050">Copy Phone</button>
-              </div>
-            </div>
-
-            <div>
-              <div style="font-size: 0.85rem; color: var(--textMuted);">PERMANENT LOCATION</div>
-              <div style="font-size: 1.1rem; color: #fff; margin-top: 0.35rem;">Bendichal North, Kasaragod, Kerala, India</div>
-            </div>
+        <form id="contact-form">
+          <div class="form-group">
+            <label for="contact-name">Your Full Name</label>
+            <input type="text" id="contact-name" class="form-input" placeholder="e.g. Jane Doe" required>
           </div>
 
-          <div style="background: var(--bg-card-glass); border: 1px solid var(--borderColor); border-radius: var(--radius-lg); padding: 2rem;">
-            <div style="font-family: var(--font-mono); color: var(--accentColor); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem;">
-              Professional Profiles
-            </div>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-              <a href="https://linkedin.com/in/shahalasharmeen" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
-                LinkedIn Profile &rarr;
-              </a>
-              <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
-                GitHub Repositories &rarr;
-              </a>
-            </div>
+          <div class="form-group">
+            <label for="contact-email">Your Email Address</label>
+            <input type="email" id="contact-email" class="form-input" placeholder="e.g. jane@example.com" required>
           </div>
 
-        </aside>
-
-        <!-- Right Column: Validated Message Form -->
-        <section class="contact-right" aria-label="Contact Form">
-          <div style="background: var(--bg-card-glass); border: 1px solid var(--borderColor); border-radius: var(--radius-lg); padding: 2.5rem; backdrop-filter: blur(12px);">
-            <h2 style="font-size: 1.6rem; margin-bottom: 0.5rem; color: #fff;">Transmit a Message</h2>
-            <p style="margin-bottom: 2rem;">
-              Leave a note below and I will respond to your inquiry promptly.
-            </p>
-
-            <div id="contact-success-alert" style="display: none; background: rgba(52, 211, 153, 0.1); border: 1px solid var(--successColor); color: var(--successColor); padding: 1rem; border-radius: var(--radius-md); margin-bottom: 1.5rem;">
-              <strong>Success!</strong> Thank you for your note. I have received your message and will respond shortly.
-            </div>
-
-            <form id="contact-form" novalidate>
-              <div class="form-group">
-                <label for="contact-name" class="form-label">Full Name <span style="color: var(--accentColor);">*</span></label>
-                <input type="text" id="contact-name" class="form-control" placeholder="e.g. Alex Mercer" required>
-                <div class="form-error-feedback"></div>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-email" class="form-label">Email Address <span style="color: var(--accentColor);">*</span></label>
-                <input type="email" id="contact-email" class="form-control" placeholder="e.g. alex@example.com" required>
-                <div class="form-error-feedback"></div>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-subject" class="form-label">Subject / Purpose</label>
-                <input type="text" id="contact-subject" class="form-control" placeholder="e.g. Engineering Internship / Project Collaboration">
-                <div class="form-error-feedback"></div>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-message" class="form-label">Message Details <span style="color: var(--accentColor);">*</span></label>
-                <textarea id="contact-message" class="form-control" rows="5" placeholder="Share details about your team opportunity, project, or inquiry..." required></textarea>
-                <div class="form-error-feedback"></div>
-              </div>
-
-              <button type="submit" id="btn-submit-contact" class="btn btn-primary" style="width: 100%;">
-                Transmit Message &rarr;
-              </button>
-            </form>
+          <div class="form-group">
+            <label for="contact-subject">Inquiry Subject</label>
+            <input type="text" id="contact-subject" class="form-input" placeholder="Project collaboration / Internship inquiry" required>
           </div>
-        </section>
 
+          <div class="form-group">
+            <label for="contact-message">Message Details</label>
+            <textarea id="contact-message" class="form-textarea" rows="5" placeholder="Write your message or inquiry here..." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" data-cursor="disable">
+            Send Message &rarr;
+          </button>
+        </form>
       </div>
 
     </div>
+
+    <!-- Contact & Action Footer -->
+    <footer class="contact-section" id="contact" role="contentinfo">
+      <div class="contact-container">
+        <h3>Sahla Sharmeen E.K</h3>
+        <div class="contact-flex">
+          <div class="contact-box">
+            <h4>Email</h4>
+            <p><a href="mailto:shahalasharmeen@gmail.com" data-cursor="disable">shahalasharmeen@gmail.com</a></p>
+            <h4>Location</h4>
+            <p><span>Kasaragod, Kerala, India</span></p>
+          </div>
+          <div class="contact-box">
+            <h4>Social &amp; Profiles</h4>
+            <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener noreferrer" data-cursor="disable" class="contact-social">
+              Github <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/sahla-sharmeen" target="_blank" rel="noopener noreferrer" data-cursor="disable" class="contact-social">
+              Linkedin <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
+            </a>
+          </div>
+          <div class="contact-box">
+            <h4>Quick Navigation</h4>
+            <a href="index.html" data-cursor="disable" class="contact-social">Home</a>
+            <a href="resume.html" data-cursor="disable" class="contact-social">Resume</a>
+            <a href="biodata.html" data-cursor="disable" class="contact-social">Bio-Data</a>
+            <a href="projects.html" data-cursor="disable" class="contact-social">Projects Archive</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
   </main>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container footer-wrapper">
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen" class="brand-avatar-mini" style="width: 32px; height: 32px;">
-        <span style="font-weight: 600; color: #fff;">Sahla Sharmeen E.K</span>
-      </div>
+  <!-- jQuery & Global Script with Cache Busting -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js?v=redoyan_20261109"></script>
 
-      <div style="font-size: 0.9rem; color: var(--textMuted);">
-        &copy; <span id="current-year">2026</span> Sahla Sharmeen. Hosted on GitHub Pages.
-      </div>
-
-      <div style="display: flex; gap: 1.5rem; font-size: 0.9rem;">
-        <a href="https://linkedin.com/in/shahalasharmeen" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:sahlasharmeen@email.com">Email</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- jQuery & Main JS -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
 </body>
 </html>

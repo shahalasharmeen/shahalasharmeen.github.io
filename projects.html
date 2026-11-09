@@ -6,321 +6,250 @@
   <meta name="description" content="Engineering Projects and Technical Systems by Sahla Sharmeen E.K - Embedded IoT, Arduino, Salesforce CRM, and Web Applications.">
   <meta name="keywords" content="Sahla Sharmeen E.K Projects, Arduino Footstep Power, Salesforce Volunteer Tracker, EMG Muscle Sensor, ESP32 Drone, Recipe Portal">
   <meta name="author" content="Sahla Sharmeen E.K">
-
   <title>Projects Showcase | Sahla Sharmeen E.K - Engineering &amp; Software</title>
 
-  <!-- Prevent FOUC / White Flash -->
+  <!-- Zero White Flash Guard -->
   <style>
-    html, body { background-color: #0b080c; color: #eae5ec; }
+    html, body {
+      background-color: #0b080c !important;
+      color: #eae5ec !important;
+      margin: 0;
+      padding: 0;
+    }
   </style>
 
-  <!-- Google Fonts & Stylesheets -->
+  <!-- Google Fonts: Geist & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/print.css" media="print">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets with Cache Busting -->
+  <link rel="stylesheet" href="css/style.css?v=redoyan_20261109">
+  <link rel="stylesheet" href="css/print.css?v=redoyan_20261109" media="print">
 </head>
 <body>
 
-  <!-- Redoyan Cursor Follower -->
-  <div id="cursor-follower" class="cursor-main"></div>
+  <!-- Redoyan Custom Glowing Follower Cursor -->
+  <div class="cursor-main" id="cursor-main"></div>
 
-  <!-- Redoyan Fixed Header -->
-  <header class="site-header">
-    <div class="container nav-wrapper">
-      <a href="index.html" class="navbar-brand" aria-label="Sahla Sharmeen Home">
-        <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen" class="brand-avatar-mini">
-        <span class="navbar-title">SAHLA SHARMEEN</span>
-      </a>
-
-      <div class="navbar-connect">
-        <span class="status-dot"></span>
-        <span>Available for Internships &bull; Kasaragod, India</span>
+  <!-- Redoyan Signature Fixed Header -->
+  <header class="header" role="banner">
+    <a href="index.html" class="navbar-title hover-link" aria-label="Sahla Sharmeen Home">
+      <div class="hover-in">
+        SAHLA SHARMEEN
+        <div>SAHLA SHARMEEN</div>
       </div>
+    </a>
 
-      <nav id="main-navigation" class="main-nav" aria-label="Primary Navigation">
-        <ul class="nav-links">
-          <li>
-            <a href="index.html" class="hover-link">
-              <span class="hover-in">
-                <div>Home</div>
-                <div>Home</div>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="resume.html" class="hover-link">
-              <span class="hover-in">
-                <div>Resume</div>
-                <div>Resume</div>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="biodata.html" class="hover-link">
-              <span class="hover-in">
-                <div>Bio-Data</div>
-                <div>Bio-Data</div>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="projects.html" class="hover-link active">
-              <span class="hover-in">
-                <div>Projects</div>
-                <div>Projects</div>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="contact.html" class="hover-link">
-              <span class="hover-in">
-                <div>Contact</div>
-                <div>Contact</div>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <button id="mobile-menu-btn" class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
-      </button>
+    <div class="navbar-connect">
+      <span class="connect-dot"></span> OPEN FOR OPPORTUNITIES
     </div>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" class="hover-link"><div class="hover-in">Home<div>Home</div></div></a></li>
+        <li><a href="resume.html" class="hover-link"><div class="hover-in">Resume<div>Resume</div></div></a></li>
+        <li><a href="biodata.html" class="hover-link"><div class="hover-in">Bio-Data<div>Bio-Data</div></div></a></li>
+        <li><a href="projects.html" class="hover-link active"><div class="hover-in">Projects<div>Projects</div></div></a></li>
+        <li><a href="contact.html" class="hover-link"><div class="hover-in">Contact<div>Contact</div></div></a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Main Projects Section -->
-  <main id="main-content" class="section">
-    <div class="container">
+  <!-- Main Container -->
+  <main id="main-content" class="page-container">
+    
+    <div style="margin-bottom: 20px;">
+      <a href="index.html" class="back-btn-pill">← Back to Home</a>
+    </div>
+
+    <header class="page-header">
+      <h1>My <span>Works</span></h1>
+      <p>An engineering portfolio spanning sustainable kinetic energy generation, cloud workflow automation, robotics, biomedical sensor integration, and full-stack web applications.</p>
       
-      <div style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem auto;">
-        <span class="section-label" style="text-align: center;">Works Archive</span>
-        <h1 class="gradient-title" style="margin-bottom: 1rem;">Projects &amp; Prototypes</h1>
-        <p>
-          An engineering collection spanning sustainable energy generation, cloud workflow automation, robotics, biomedical sensor integration, and web development.
-        </p>
-
-        <!-- Search Bar with Live Filter -->
-        <div style="max-width: 460px; margin: 1.5rem auto 0 auto;">
-          <input type="text" id="project-search-input" class="form-control" placeholder="Search projects by keyword or tech..." aria-label="Search projects">
-        </div>
+      <!-- Live Search Box -->
+      <div style="max-width: 480px; margin: 30px auto 0;">
+        <input type="text" id="project-search-input" class="form-input" placeholder="Search by title, keyword, or technology..." aria-label="Search projects">
       </div>
 
-      <!-- Category Filter Pills (Redoyan Style) -->
-      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; margin-bottom: 2.5rem;" role="tablist">
-        <button class="filter-btn btn btn-sm btn-primary active" data-filter="all">All Projects (7)</button>
-        <button class="filter-btn btn btn-sm btn-secondary" data-filter="iot">IoT &amp; Hardware</button>
-        <button class="filter-btn btn btn-sm btn-secondary" data-filter="web">Web &amp; Software</button>
-        <button class="filter-btn btn btn-sm btn-secondary" data-filter="cloud">Cloud &amp; CRM</button>
+      <!-- Category Filter Pills -->
+      <div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px; flex-wrap: wrap;">
+        <button class="filter-btn cta-btn cta-btn-play active" data-filter="all" style="padding: 8px 18px; font-size: 13px;">All (7)</button>
+        <button class="filter-btn cta-btn cta-btn-play" data-filter="iot" style="padding: 8px 18px; font-size: 13px;">IoT &amp; Hardware</button>
+        <button class="filter-btn cta-btn cta-btn-play" data-filter="web" style="padding: 8px 18px; font-size: 13px;">Web &amp; Software</button>
+        <button class="filter-btn cta-btn cta-btn-play" data-filter="cloud" style="padding: 8px 18px; font-size: 13px;">Cloud &amp; CRM</button>
       </div>
 
-      <!-- Results Indicator -->
-      <div style="text-align: center; margin-bottom: 2rem;">
-        <span id="project-count-display" class="badge mono">7 Projects Displayed</span>
-      </div>
+      <div id="project-result-count" style="margin-top: 15px; font-size: 13px; color: var(--accentColor);">Showing 7 of 7 projects</div>
+    </header>
 
-      <!-- Projects Grid (.myworks-grid) -->
-      <div class="myworks-grid" id="projects-container">
+    <!-- Redoyan Works Grid -->
+    <div class="myworks-grid">
 
-        <!-- 1. Footstep Power Generation -->
-        <div class="project-card-wrapper" data-category="iot">
-          <article class="myworks-card">
-            <div>
-              <span class="myworks-card-number">01</span>
-              <div class="myworks-card-category">Hardware / Clean Energy &bull; 2024</div>
-              <h2 class="myworks-card-title">Footstep Power Generation Using Arduino</h2>
-              <p class="myworks-card-desc">
-                A prototype renewable energy engineering project exploring electrical kinetic energy harvesting from footsteps using piezoelectric transducers and Arduino microcontrollers.
-              </p>
-            </div>
-            <div>
-              <div class="myworks-card-tech">
-                Arduino Uno &bull; Piezoelectric Sensors &bull; Energy Harvesting &bull; C++
-              </div>
-              <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
-                <span class="mono" style="font-size: 0.8rem; color: var(--accentColor);">Team Member</span>
-                <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="Footstep Power Generation Using Arduino (2024)">Copy Ref</button>
-              </div>
-            </div>
-          </article>
+      <!-- Project 01 -->
+      <article class="myworks-card" data-category="iot hardware" data-cursor="disable">
+        <div class="myworks-card-number">01</div>
+        <div class="myworks-card-image">
+          <img src="assets/images/passport-size.jpeg" alt="Footstep Power Generation Prototype" loading="lazy">
         </div>
-
-        <!-- 2. Volunteer Program Tracker Using Salesforce -->
-        <div class="project-card-wrapper" data-category="cloud">
-          <article class="myworks-card">
-            <div>
-              <span class="myworks-card-number">02</span>
-              <div class="myworks-card-category">Cloud / CRM Architecture &bull; 2026</div>
-              <h2 class="myworks-card-title">Volunteer Program Tracker Using Salesforce</h2>
-              <p class="myworks-card-desc">
-                A custom Salesforce solution architected to streamline non-profit and community volunteer recruitment, attendance monitoring, assignment management, and social impact analytical reports.
-              </p>
-            </div>
-            <div>
-              <div class="myworks-card-tech">
-                Salesforce CRM &bull; Custom Objects &bull; Process Builder &bull; Dashboards
-              </div>
-              <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
-                <span class="mono" style="font-size: 0.8rem; color: var(--accentColor);">Role: Leader</span>
-                <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="Volunteer Program Tracker Using Salesforce (2026)">Copy Ref</button>
-              </div>
-            </div>
-          </article>
+        <div class="myworks-card-info">
+          <h3>Footstep Power Generation &amp; Storage</h3>
+          <div class="myworks-card-category">Hardware / Clean Energy IoT</div>
+          <p class="myworks-card-description">
+            Fabricated an eco-friendly renewable energy prototype capturing mechanical kinetic pressure from human footsteps using piezoelectric transducers. Converts kinetic pressure to electrical charge, routed via bridge rectifiers into a 12V rechargeable battery with an inverter and 16x2 LCD live telemetry.
+          </p>
+          <div class="myworks-card-tech">
+            Arduino Uno &bull; Piezoelectric Sensors &bull; 12V Inverter &bull; 16x2 LCD &bull; Embedded C
+          </div>
         </div>
+      </article>
 
-        <!-- 3. ComedKares RC Car Workshop -->
-        <div class="project-card-wrapper" data-category="iot">
-          <article class="myworks-card">
-            <div>
-              <span class="myworks-card-number">03</span>
-              <div class="myworks-card-category">Robotics &amp; Control &bull; 2024</div>
-              <h2 class="myworks-card-title">ComedKares RC Car Using Arduino</h2>
-              <p class="myworks-card-desc">
-                Engineering workshop project focused on assembling, calibrating motor drivers (L298N), soldering chassis telemetry, and programming directional control firmware on an Arduino-powered RC vehicle.
-              </p>
-            </div>
-            <div>
-              <div class="myworks-card-tech">
-                Arduino &bull; L298N Motor Driver &bull; Embedded C &bull; Wireless RF
-              </div>
-              <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
-                <span class="mono" style="font-size: 0.8rem; color: var(--accentColor);">Role: Leader</span>
-                <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="ComedKares RC Car Using Arduino (2024)">Copy Ref</button>
-              </div>
-            </div>
-          </article>
+      <!-- Project 02 -->
+      <article class="myworks-card" data-category="cloud crm software" data-cursor="disable">
+        <div class="myworks-card-number">02</div>
+        <div class="myworks-card-image">
+          <img src="assets/images/passport-size.jpeg" alt="Salesforce Volunteer Management Tracker" loading="lazy">
         </div>
-
-        <!-- 4. Muscle Flex Detection & IoT Monitoring System using EMG Sensor -->
-        <div class="project-card-wrapper" data-category="iot">
-          <article class="myworks-card">
-            <div>
-              <span class="myworks-card-number">04</span>
-              <div class="myworks-card-category">Biomedical IoT Sensors</div>
-              <h2 class="myworks-card-title">Muscle Flex Detection System (EMG Sensor)</h2>
-              <p class="myworks-card-desc">
-                An IoT health-tech monitoring system utilizing electromyography (EMG) surface electrodes to capture microvoltage muscle flexion pulses, filtering noise and streaming telemetry to an IoT dashboard.
-              </p>
-            </div>
-            <div>
-              <div class="myworks-card-tech">
-                EMG Sensor &bull; Signal Conditioning &bull; IoT Telemetry &bull; Microcontroller
-              </div>
-              <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
-                <span class="mono" style="font-size: 0.8rem; color: var(--accentColor);">Research Prototype</span>
-                <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="Muscle Flex Detection System (EMG Sensor)">Copy Ref</button>
-              </div>
-            </div>
-          </article>
+        <div class="myworks-card-info">
+          <h3>Salesforce Volunteer Management Tracker</h3>
+          <div class="myworks-card-category">Cloud Application / CRM System</div>
+          <p class="myworks-card-description">
+            Architected and deployed a cloud-based volunteer management tracking solution. Built custom objects, master-detail schema, automated record-triggered flows, volunteer scheduling matrices, and live executive reporting dashboards for non-profit operations.
+          </p>
+          <div class="myworks-card-tech">
+            Salesforce Platform &bull; Custom Objects &bull; Process Automation Flows &bull; Reporting Dashboards
+          </div>
         </div>
+      </article>
 
-        <!-- 5. Cooking Recipe Portal -->
-        <div class="project-card-wrapper" data-category="web">
-          <article class="myworks-card">
-            <div>
-              <span class="myworks-card-number">05</span>
-              <div class="myworks-card-category">Web Platform / Front-End</div>
-              <h2 class="myworks-card-title">Cooking Recipe Portal</h2>
-              <p class="myworks-card-desc">
-                A feature-rich culinary web application connecting cooking enthusiasts with recipe guides, serving size recalculators, categorized dietary filtering, and responsive mobile-optimized instructions.
-              </p>
-            </div>
-            <div>
-              <div class="myworks-card-tech">
-                HTML5 / CSS3 &bull; JavaScript / jQuery &bull; UI/UX Design &bull; Recipe Filters
-              </div>
-              <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
-                <span class="mono" style="font-size: 0.8rem; color: var(--accentColor);">Web Platform</span>
-                <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="Cooking Recipe Portal Web Application">Copy Ref</button>
-              </div>
-            </div>
-          </article>
+      <!-- Project 03 -->
+      <article class="myworks-card" data-category="iot hardware" data-cursor="disable">
+        <div class="myworks-card-number">03</div>
+        <div class="myworks-card-image">
+          <img src="assets/images/passport-size.jpeg" alt="Smartphone Bluetooth RC Car" loading="lazy">
         </div>
-
-        <!-- 6. Automated Irrigation System -->
-        <div class="project-card-wrapper" data-category="iot">
-          <article class="myworks-card">
-            <div>
-              <span class="myworks-card-number">06</span>
-              <div class="myworks-card-category">Smart Agriculture &bull; Automation</div>
-              <h2 class="myworks-card-title">Automated Irrigation System</h2>
-              <p class="myworks-card-desc">
-                An automated precision agriculture system deploying capacitive soil moisture sensors and relay-actuated solenoid water valves to provide autonomous irrigation based on real-time soil hydration thresholds.
-              </p>
-            </div>
-            <div>
-              <div class="myworks-card-tech">
-                Moisture Sensors &bull; Relay Actuators &bull; Microcontroller &bull; Automation
-              </div>
-              <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
-                <span class="mono" style="font-size: 0.8rem; color: var(--accentColor);">IoT Automation</span>
-                <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="Automated Irrigation System using Soil Sensors">Copy Ref</button>
-              </div>
-            </div>
-          </article>
+        <div class="myworks-card-info">
+          <h3>Smartphone Bluetooth RC Car</h3>
+          <div class="myworks-card-category">Robotics &amp; Autonomous Systems</div>
+          <p class="myworks-card-description">
+            Designed and assembled a remote-controlled mobile robot at ComedKares Innovation Hub. Communicates over Bluetooth via an HC-05 module paired to a custom Android application, driving dual DC gear motors through an L298N H-Bridge with variable speed control.
+          </p>
+          <div class="myworks-card-tech">
+            Arduino Uno &bull; HC-05 Bluetooth &bull; L298N Motor Driver &bull; Android App &bull; ComedKares
+          </div>
         </div>
+      </article>
 
-        <!-- 7. Drone Using ESP32 -->
-        <div class="project-card-wrapper" data-category="iot">
-          <article class="myworks-card">
-            <div>
-              <span class="myworks-card-number">07</span>
-              <div class="myworks-card-category">Robotics &amp; Aerial Systems</div>
-              <h2 class="myworks-card-title">Quadcopter Drone Using ESP32</h2>
-              <p class="myworks-card-desc">
-                An aerial robotics project building a lightweight multirotor drone powered by an ESP32 microcontroller, reading accelerometer/gyroscope IMU data for flight stabilization and Wi-Fi based command telemetry.
-              </p>
-            </div>
-            <div>
-              <div class="myworks-card-tech">
-                ESP32 Dual-Core &bull; MPU-6050 &bull; PID Control &bull; Wi-Fi Telemetry
-              </div>
-              <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
-                <span class="mono" style="font-size: 0.8rem; color: var(--accentColor);">Flight Controller</span>
-                <button class="btn btn-sm btn-secondary btn-copy" data-copy-text="Quadcopter Drone System using ESP32">Copy Ref</button>
-              </div>
-            </div>
-          </article>
+      <!-- Project 04 -->
+      <article class="myworks-card" data-category="web software" data-cursor="disable">
+        <div class="myworks-card-number">04</div>
+        <div class="myworks-card-image">
+          <img src="assets/images/passport-size.jpeg" alt="Smart Recipe Finder Portal" loading="lazy">
         </div>
+        <div class="myworks-card-info">
+          <h3>Smart Recipe Finder Portal</h3>
+          <div class="myworks-card-category">Web Application / UI/UX</div>
+          <p class="myworks-card-description">
+            Engineered a responsive culinary portal with ingredient-based recipe discovery. Features instant autocomplete search, dietary restriction tagging, bookmarking with browser LocalStorage, and an accessible glassmorphic UI.
+          </p>
+          <div class="myworks-card-tech">
+            HTML5 &bull; Modern CSS3 &bull; JavaScript ES6 &bull; LocalStorage &bull; Responsive Layout
+          </div>
+        </div>
+      </article>
 
-      </div>
+      <!-- Project 05 -->
+      <article class="myworks-card" data-category="iot hardware" data-cursor="disable">
+        <div class="myworks-card-number">05</div>
+        <div class="myworks-card-image">
+          <img src="assets/images/passport-size.jpeg" alt="EMG Biomedical Health Sensor" loading="lazy">
+        </div>
+        <div class="myworks-card-info">
+          <h3>EMG Biomedical Muscle Health Sensor</h3>
+          <div class="myworks-card-category">Biomedical IoT / Signal Processing</div>
+          <p class="myworks-card-description">
+            Constructed an electromyography (EMG) monitoring circuit that detects micro-voltage electrical activity generated by muscle contractions. Features analog signal amplification, low-pass noise filtering, and threshold visualization on an Arduino Uno.
+          </p>
+          <div class="myworks-card-tech">
+            Electromyography Sensor &bull; Arduino Uno &bull; Analog Filtering &bull; Bio-Signal Analysis
+          </div>
+        </div>
+      </article>
 
-      <!-- Action Callout -->
-      <div style="margin-top: 5rem; text-align: center; background: var(--bg-card-glass); border: 1px solid var(--borderColor); border-radius: var(--radius-lg); padding: 3rem;">
-        <h3 style="margin-bottom: 0.75rem; color: #fff;">Have a Question About Any Project?</h3>
-        <p style="margin-bottom: 1.5rem; max-width: 580px; margin-left: auto; margin-right: auto;">
-          Whether you want to discuss the Arduino energy harvesting schematics, Salesforce custom configurations, or collaborate on new software builds, feel free to reach out.
-        </p>
-        <a href="contact.html" class="btn btn-primary">
-          Connect with Sahla &rarr;
-        </a>
-      </div>
+      <!-- Project 06 -->
+      <article class="myworks-card" data-category="iot hardware" data-cursor="disable">
+        <div class="myworks-card-number">06</div>
+        <div class="myworks-card-image">
+          <img src="assets/images/passport-size.jpeg" alt="Autonomous Surveillance Quadcopter Drone" loading="lazy">
+        </div>
+        <div class="myworks-card-info">
+          <h3>Autonomous Surveillance Quadcopter Drone</h3>
+          <div class="myworks-card-category">Aeronautics &amp; Wireless IoT</div>
+          <p class="myworks-card-description">
+            Engineered a compact quadcopter featuring an ESP32-CAM module for wireless first-person-view (FPV) video streaming over local Wi-Fi. Incorporates PID flight stabilization with an MPU6050 gyroscope and brushless motor speed controllers.
+          </p>
+          <div class="myworks-card-tech">
+            ESP32-CAM &bull; MPU6050 Gyro &bull; PID Control &bull; Wi-Fi Streaming &bull; Brushless ESC
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 07 -->
+      <article class="myworks-card" data-category="web software" data-cursor="disable">
+        <div class="myworks-card-number">07</div>
+        <div class="myworks-card-image">
+          <img src="assets/images/passport-size.jpeg" alt="Real-time Bio-Signal Filter and Visualizer" loading="lazy">
+        </div>
+        <div class="myworks-card-info">
+          <h3>Real-Time Bio-Signal Visualizer</h3>
+          <div class="myworks-card-category">Data Visualization &amp; Signal Processing</div>
+          <p class="myworks-card-description">
+            Developed a web-based real-time telemetry dashboard using Canvas API and WebSockets. Graphs analog signals received from microcontrollers with rolling moving-average filters and automated spike detection.
+          </p>
+          <div class="myworks-card-tech">
+            JavaScript &bull; HTML5 Canvas &bull; WebSockets &bull; Signal Filtering &bull; Charting
+          </div>
+        </div>
+      </article>
 
     </div>
+
+    <!-- Contact & Action Footer -->
+    <footer class="contact-section" id="contact" role="contentinfo" style="margin-top: 100px;">
+      <div class="contact-container">
+        <h3>Sahla Sharmeen E.K</h3>
+        <div class="contact-flex">
+          <div class="contact-box">
+            <h4>Email</h4>
+            <p><a href="mailto:shahalasharmeen@gmail.com" data-cursor="disable">shahalasharmeen@gmail.com</a></p>
+            <h4>Location</h4>
+            <p><span>Kasaragod, Kerala, India</span></p>
+          </div>
+          <div class="contact-box">
+            <h4>Social &amp; Profiles</h4>
+            <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener noreferrer" data-cursor="disable" class="contact-social">
+              Github <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/sahla-sharmeen" target="_blank" rel="noopener noreferrer" data-cursor="disable" class="contact-social">
+              Linkedin <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
+            </a>
+          </div>
+          <div class="contact-box">
+            <h4>Quick Navigation</h4>
+            <a href="index.html" data-cursor="disable" class="contact-social">Home</a>
+            <a href="resume.html" data-cursor="disable" class="contact-social">Resume</a>
+            <a href="biodata.html" data-cursor="disable" class="contact-social">Bio-Data</a>
+            <a href="contact.html" data-cursor="disable" class="contact-social">Contact Form</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
   </main>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container footer-wrapper">
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen" class="brand-avatar-mini" style="width: 32px; height: 32px;">
-        <span style="font-weight: 600; color: #fff;">Sahla Sharmeen E.K</span>
-      </div>
+  <!-- jQuery & Global Script with Cache Busting -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js?v=redoyan_20261109"></script>
 
-      <div style="font-size: 0.9rem; color: var(--textMuted);">
-        &copy; <span id="current-year">2026</span> Sahla Sharmeen. Hosted on GitHub Pages.
-      </div>
-
-      <div style="display: flex; gap: 1.5rem; font-size: 0.9rem;">
-        <a href="https://linkedin.com/in/shahalasharmeen" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:sahlasharmeen@email.com">Email</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- jQuery & Main JS -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
 </body>
 </html>

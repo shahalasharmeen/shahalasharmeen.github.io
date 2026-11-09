@@ -6,322 +6,290 @@
   <meta name="description" content="Official Resume of Sahla Sharmeen E.K - Computer Science Engineering Student at PA College of Engineering. Experience in Python, C, Web Development, UI/UX, and IoT.">
   <meta name="keywords" content="Sahla Sharmeen E.K Resume, Computer Science Engineer CV, PA College of Engineering, Python, C, Java, UI/UX Design, Arduino, Salesforce">
   <meta name="author" content="Sahla Sharmeen E.K">
-
   <title>Resume | Sahla Sharmeen E.K - Computer Science Engineering</title>
 
-  <!-- Prevent FOUC / White Flash -->
+  <!-- Zero White Flash Guard -->
   <style>
-    html, body { background-color: #0b080c; color: #eae5ec; }
+    html, body {
+      background-color: #0b080c !important;
+      color: #eae5ec !important;
+      margin: 0;
+      padding: 0;
+    }
   </style>
 
-  <!-- Google Fonts & Stylesheets -->
+  <!-- Google Fonts: Geist & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/print.css" media="print">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets with Cache Busting -->
+  <link rel="stylesheet" href="css/style.css?v=redoyan_20261109">
+  <link rel="stylesheet" href="css/print.css?v=redoyan_20261109" media="print">
 </head>
 <body>
 
-  <!-- Redoyan Cursor Follower -->
-  <div id="cursor-follower" class="cursor-main"></div>
+  <!-- Redoyan Custom Glowing Follower Cursor -->
+  <div class="cursor-main" id="cursor-main"></div>
 
-  <!-- Redoyan Fixed Header -->
-  <header class="site-header">
-    <div class="container nav-wrapper">
-      <a href="index.html" class="navbar-brand" aria-label="Sahla Sharmeen Home">
-        <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen" class="brand-avatar-mini">
-        <span class="navbar-title">SAHLA SHARMEEN</span>
-      </a>
-
-      <div class="navbar-connect">
-        <span class="status-dot"></span>
-        <span>Available for Internships &bull; Kasaragod, India</span>
+  <!-- Redoyan Signature Fixed Header -->
+  <header class="header" role="banner">
+    <a href="index.html" class="navbar-title hover-link" aria-label="Sahla Sharmeen Home">
+      <div class="hover-in">
+        SAHLA SHARMEEN
+        <div>SAHLA SHARMEEN</div>
       </div>
+    </a>
 
-      <nav id="main-navigation" class="main-nav" aria-label="Primary Navigation">
-        <ul class="nav-links">
-          <li>
-            <a href="index.html" class="hover-link">
-              <span class="hover-in">
-                <div>Home</div>
-                <div>Home</div>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="resume.html" class="hover-link active">
-              <span class="hover-in">
-                <div>Resume</div>
-                <div>Resume</div>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="biodata.html" class="hover-link">
-              <span class="hover-in">
-                <div>Bio-Data</div>
-                <div>Bio-Data</div>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="projects.html" class="hover-link">
-              <span class="hover-in">
-                <div>Projects</div>
-                <div>Projects</div>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a href="contact.html" class="hover-link">
-              <span class="hover-in">
-                <div>Contact</div>
-                <div>Contact</div>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <button id="mobile-menu-btn" class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
-      </button>
+    <div class="navbar-connect">
+      <span class="connect-dot"></span> OPEN FOR OPPORTUNITIES
     </div>
+
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="index.html" class="hover-link"><div class="hover-in">Home<div>Home</div></div></a></li>
+        <li><a href="resume.html" class="hover-link active"><div class="hover-in">Resume<div>Resume</div></div></a></li>
+        <li><a href="biodata.html" class="hover-link"><div class="hover-in">Bio-Data<div>Bio-Data</div></div></a></li>
+        <li><a href="projects.html" class="hover-link"><div class="hover-in">Projects<div>Projects</div></div></a></li>
+        <li><a href="contact.html" class="hover-link"><div class="hover-in">Contact<div>Contact</div></div></a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Main Resume Content -->
-  <main id="main-content" class="section">
-    <div class="container container-narrow">
-      
-      <!-- Interactive Action Toolbar -->
-      <div class="resume-actions-bar">
-        <button id="btn-print-resume" class="btn btn-sm btn-primary" title="Print or save as high-quality PDF">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect width="12" height="8" x="6" y="14"></rect></svg>
+  <!-- Main Container -->
+  <main id="main-content" class="page-container">
+    
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 30px;">
+      <a href="index.html" class="back-btn-pill">← Back to Home</a>
+
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <button id="btn-print-resume" class="cta-btn cta-btn-hire" style="padding: 10px 20px; font-size: 14px;" data-cursor="disable">
           Print / PDF Mode
         </button>
-        <button id="btn-copy-ats" class="btn btn-sm btn-secondary" title="Copy clean plain-text format for job applications">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>
+        <button id="btn-copy-ats" class="cta-btn cta-btn-play" style="padding: 10px 20px; font-size: 14px;" data-cursor="disable">
           Copy Plain ATS Text
         </button>
-        <a href="assets/Resume.pdf" download="Sahla_Sharmeen_Resume.pdf" class="btn btn-sm btn-outline" target="_blank" rel="noopener">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          Original PDF
+        <a href="assets/Resume.pdf" download="Sahla_Sharmeen_Resume.pdf" class="cta-btn cta-btn-play" style="padding: 10px 20px; font-size: 14px;" target="_blank" rel="noopener" data-cursor="disable">
+          Download PDF
         </a>
       </div>
-
-      <!-- Formal Resume Sheet Container (Cosmic Glass Theme) -->
-      <article class="resume-paper" id="resume-document">
-        
-        <!-- Resume Header -->
-        <header class="resume-header">
-          <div>
-            <h1 class="gradient-title" style="font-size: 2.5rem; margin-bottom: 0.35rem;">SAHLA SHARMEEN E.K</h1>
-            <div style="font-family: var(--font-mono); color: var(--accentColor); font-weight: 500; font-size: 1rem; letter-spacing: 1px; text-transform: uppercase;">
-              Computer Science Engineering Student
-            </div>
-            
-            <ul style="display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1.25rem; list-style: none; font-size: 0.9rem; color: var(--textMuted);">
-              <li style="display: flex; align-items: center; gap: 0.4rem;">
-                <span style="color: var(--accentColor);">&#9742;</span>
-                <a href="tel:+919946753050">+91 9946753050</a>
-              </li>
-              <li style="display: flex; align-items: center; gap: 0.4rem;">
-                <span style="color: var(--accentColor);">&#9906;</span>
-                <span>Bendichal North, Kasaragod</span>
-              </li>
-              <li style="display: flex; align-items: center; gap: 0.4rem;">
-                <span style="color: var(--accentColor);">&#9993;</span>
-                <a href="mailto:sahlasharmeen@email.com">sahlasharmeen@email.com</a>
-              </li>
-              <li style="display: flex; align-items: center; gap: 0.4rem;">
-                <span style="color: var(--accentColor);">&#9874;</span>
-                <a href="https://linkedin.com/in/shahalasharmeen" target="_blank" rel="noopener">linkedin.com/in/shahalasharmeen</a>
-              </li>
-              <li style="display: flex; align-items: center; gap: 0.4rem;">
-                <span style="color: var(--accentColor);">&#9881;</span>
-                <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener">github.com/shahalasharmeen</a>
-              </li>
-            </ul>
-          </div>
-        </header>
-
-        <!-- Summary Section -->
-        <section style="margin-bottom: 2.5rem;">
-          <h2 class="resume-section-heading">Summary</h2>
-          <p style="font-size: 1rem; line-height: 1.7; color: var(--textMuted);">
-            A Computer Science Engineering student passionate about technology and creativity, with experience in Python, C, web development, and UI/UX design. I also enjoy photography, painting, and baking. I am fluent in multiple languages and have worked on projects such as Footstep Power Generation using Arduino. Eager to learn and contribute in the tech world.
-          </p>
-        </section>
-
-        <!-- Education Section -->
-        <section style="margin-bottom: 2.5rem;">
-          <h2 class="resume-section-heading">Education</h2>
-          <div style="margin-bottom: 1rem;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem;">
-              <div>
-                <div style="font-size: 1.2rem; font-weight: 600; color: #fff;">BACHELOR OF COMPUTER SCIENCE ENGINEERING (CSE)</div>
-                <div style="color: var(--accentColor); font-weight: 500;">PA College of Engineering</div>
-              </div>
-              <div class="mono" style="font-size: 0.85rem; color: var(--textMuted); background: rgba(255, 255, 255, 0.05); padding: 0.2rem 0.6rem; border-radius: 4px;">
-                Year of Passing: 2028
-              </div>
-            </div>
-            <div style="margin-top: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-              <span class="badge" style="background: rgba(52, 211, 153, 0.1); color: var(--successColor); border-color: rgba(52, 211, 153, 0.3);">
-                CGPA: 8.9 / 10.0
-              </span>
-              <span style="font-size: 0.9rem; color: var(--textMuted);">Academic Standing: High Distinction</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section style="margin-bottom: 2.5rem;">
-          <h2 class="resume-section-heading">Skills</h2>
-          
-          <div style="margin-bottom: 1.25rem;">
-            <div style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; color: #fff;">Technical Skills:</div>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">C</span>
-              <span class="tech-tag">Java</span>
-              <span class="tech-tag">Web Development</span>
-              <span class="tech-tag">UI/UX Design</span>
-              <span class="tech-tag">SQL</span>
-              <span class="tech-tag">Operating Software</span>
-            </div>
-          </div>
-
-          <div style="margin-bottom: 1.25rem;">
-            <div style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; color: #fff;">Analytical &amp; Software Competencies:</div>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-              <span class="tech-tag">Statistics</span>
-              <span class="tech-tag">Creative Skills</span>
-              <span class="tech-tag">Communication</span>
-              <span class="tech-tag">Teamwork</span>
-              <span class="tech-tag">Problem Solving</span>
-            </div>
-          </div>
-
-          <div>
-            <div style="font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; color: #fff;">Tools &amp; Platforms:</div>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-              <span class="tech-tag">Scratch</span>
-              <span class="tech-tag">Salesforce</span>
-              <span class="tech-tag">PowerPoint</span>
-              <span class="tech-tag">Arduino IDE</span>
-            </div>
-          </div>
-        </section>
-
-        <!-- Key Projects Section -->
-        <section style="margin-bottom: 2.5rem;">
-          <h2 class="resume-section-heading">Key Projects</h2>
-
-          <div style="margin-bottom: 1.5rem;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.25rem;">
-              <div style="font-size: 1.15rem; font-weight: 600; color: #fff;">Footstep Power Generation Using Arduino</div>
-              <div class="mono" style="font-size: 0.85rem; color: var(--accentColor);">Role: Team Member | Timeline: 2024</div>
-            </div>
-            <p style="font-size: 0.95rem; color: var(--textMuted);">
-              A prototype project exploring electrical power generation from footsteps using Arduino microcontrollers and energy-harvesting piezoelectric transducers.
-            </p>
-          </div>
-
-          <div style="margin-bottom: 1.5rem;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.25rem;">
-              <div style="font-size: 1.15rem; font-weight: 600; color: #fff;">ComedKares RC Car Using Arduino Workshop</div>
-              <div class="mono" style="font-size: 0.85rem; color: var(--accentColor);">Role: Leader | Timeline: 2024</div>
-            </div>
-            <p style="font-size: 0.95rem; color: var(--textMuted);">
-              Workshop project focused on assembling, configuring motor drivers, and understanding an Arduino-powered RC car system.
-            </p>
-          </div>
-
-          <div style="margin-bottom: 1.5rem;">
-            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.25rem;">
-              <div style="font-size: 1.15rem; font-weight: 600; color: #fff;">Volunteer Program Tracker Using Salesforce</div>
-              <div class="mono" style="font-size: 0.85rem; color: var(--accentColor);">Role: Leader | Timeline: 2026</div>
-            </div>
-            <p style="font-size: 0.95rem; color: var(--textMuted);">
-              A Salesforce-based project configured to organize, automate, and track volunteer recruitment and social welfare program activities.
-            </p>
-          </div>
-
-          <!-- Additional Projects -->
-          <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--borderColor); padding: 1.25rem; border-radius: var(--radius-md);">
-            <div style="font-weight: 600; margin-bottom: 0.5rem; color: #fff;">Additional Projects:</div>
-            <ul style="list-style: none; padding-left: 0; font-size: 0.95rem; color: var(--textMuted); line-height: 1.8;">
-              <li>&bull; <strong>Muscle Flex Detection &amp; IoT Monitoring System</strong> using EMG Sensor</li>
-              <li>&bull; <strong>Cooking Recipe Portal</strong> (Interactive Web Application)</li>
-              <li>&bull; <strong>Automated Irrigation System</strong> (Smart Soil Moisture Automation)</li>
-              <li>&bull; <strong>Drone Using ESP32</strong> (Autonomous flight control &amp; telemetry)</li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- Certifications Section -->
-        <section style="margin-bottom: 2.5rem;">
-          <h2 class="resume-section-heading">Certificates</h2>
-          <ul style="list-style: none; padding-left: 0; font-size: 0.95rem; color: var(--textMuted); line-height: 1.8;">
-            <li>&bull; <strong>Salesforce Essentials and CRM Foundations</strong> &bull; Comprehensive customer relations architecture and workflow logic.</li>
-            <li>&bull; <strong>NPTEL - Artificial Intelligence for Economics</strong> &bull; Elite certification in computational economic models.</li>
-            <li>&bull; <strong>ComedKares RC Car</strong> &bull; Practical vehicular robotics and hardware telemetry.</li>
-            <li>&bull; <strong>Cisco Networking Basic</strong> &bull; IP routing, switching protocols, and network topology.</li>
-          </ul>
-        </section>
-
-        <!-- Achievements & Participation Section -->
-        <section style="margin-bottom: 2.5rem;">
-          <h2 class="resume-section-heading">Achievements &amp; Participation</h2>
-          <ul style="list-style: none; padding-left: 0; font-size: 0.95rem; color: var(--textMuted); line-height: 1.8;">
-            <li>
-              &bull; <strong>RC Car Workshop:</strong> Participated in an RC car workshop, gaining exposure to remote-controlled vehicle technology and core engineering concepts.
-            </li>
-            <li>
-              &bull; <strong>Hands-on Workshop on Game Development Using Python:</strong> Participated in a hands-on workshop focused on Python game programming and modular object design.
-            </li>
-          </ul>
-        </section>
-
-        <!-- Languages Section -->
-        <section>
-          <h2 class="resume-section-heading">Languages</h2>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.75rem;">
-            <span class="badge">English (Fluent / Academic)</span>
-            <span class="badge">Malayalam (Native)</span>
-            <span class="badge">Hindi (Working Proficiency)</span>
-            <span class="badge">Tamil (Conversational)</span>
-          </div>
-        </section>
-
-      </article>
-
     </div>
+
+    <header class="page-header">
+      <h1>Curriculum <span>Vitae</span></h1>
+      <p>Verified academic and technical background of Sahla Sharmeen E.K, including coursework, hardware prototypes, cloud platforms, and certifications.</p>
+    </header>
+
+    <!-- Document Sheet (Cosmic Glass) -->
+    <article class="document-sheet" id="resume-document">
+      
+      <!-- Resume Header -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; border-bottom: 1px solid rgba(194, 164, 255, 0.25); padding-bottom: 25px; margin-bottom: 30px;">
+        <div>
+          <h2 style="font-size: 36px; font-weight: 700; color: #fff; margin: 0 0 6px 0;">SAHLA SHARMEEN E.K</h2>
+          <div style="font-size: 18px; color: var(--accentColor); font-weight: 500; margin-bottom: 12px;">Computer Science &amp; Engineering Undergraduate</div>
+          <div style="font-size: 14px; color: #b5afbc; display: flex; flex-wrap: wrap; gap: 15px;">
+            <span>📍 Kasaragod, Kerala, India</span>
+            <span>✉️ <a href="mailto:shahalasharmeen@gmail.com" style="color: inherit;">shahalasharmeen@gmail.com</a></span>
+            <span>🔗 <a href="https://linkedin.com/in/sahla-sharmeen" target="_blank" rel="noopener" style="color: inherit;">linkedin.com/in/sahla-sharmeen</a></span>
+          </div>
+        </div>
+        <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 2px solid var(--accentColor); box-shadow: 0 0 20px rgba(194, 164, 255, 0.4);">
+          <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen E.K" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      </div>
+
+      <!-- Professional Summary -->
+      <section>
+        <h3 class="doc-section-title">Professional Summary</h3>
+        <p class="doc-entry-desc" style="font-size: 15px; line-height: 1.7;">
+          Motivated Computer Science and Engineering student at P.A. College of Engineering, Mangalore (CGPA 8.9), with strong foundations in software development and embedded hardware systems. Demonstrated track record of fabricating functional IoT devices, including kinetic energy harvesters, biometric muscle sensors, and wireless Bluetooth rovers. Passionate about applying problem-solving rigor to scalable cloud platforms and responsive web user interfaces.
+        </p>
+      </section>
+
+      <!-- Education Section -->
+      <section>
+        <h3 class="doc-section-title">Education</h3>
+        
+        <div class="doc-entry">
+          <div class="doc-entry-header">
+            <h4>Bachelor of Engineering (B.E) in Computer Science &amp; Engineering</h4>
+            <span>2024 &ndash; 2028 (Present)</span>
+          </div>
+          <div class="doc-entry-sub">P.A. College of Engineering, Mangalore &bull; VTU Affiliated &bull; <strong>CGPA: 8.9 / 10.0</strong></div>
+          <p class="doc-entry-desc">
+            Relevant Coursework: Data Structures &amp; Algorithms, Object-Oriented Programming (Java/C++), Embedded IoT &amp; Microcontrollers, Operating Systems, Web Technologies, Database Systems.
+          </p>
+        </div>
+
+        <div class="doc-entry">
+          <div class="doc-entry-header">
+            <h4>Pre-University Course (PUC) &ndash; PCMB</h4>
+            <span>2022 &ndash; 2024</span>
+          </div>
+          <div class="doc-entry-sub">GHSS Irikkur, Kannur &bull; <strong>Percentage: 84.6%</strong></div>
+          <p class="doc-entry-desc">
+            Physics, Chemistry, Mathematics, Biology. Graduated with distinction in science and analytical foundation.
+          </p>
+        </div>
+
+        <div class="doc-entry">
+          <div class="doc-entry-header">
+            <h4>Secondary School Leaving Certificate (SSLC)</h4>
+            <span>2021 &ndash; 2022</span>
+          </div>
+          <div class="doc-entry-sub">TIHSS Naimarmoola, Kasaragod &bull; <strong>Percentage: 96.8%</strong></div>
+          <p class="doc-entry-desc">
+            Awarded high academic distinction with top honors across mathematics, sciences, and multilingual subjects.
+          </p>
+        </div>
+      </section>
+
+      <!-- Technical Skills Section -->
+      <section>
+        <h3 class="doc-section-title">Technical Skills &amp; Competencies</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+          <div>
+            <h4 style="font-size: 15px; color: var(--accentColor); margin-bottom: 8px;">Languages &amp; Core</h4>
+            <p class="doc-entry-desc">Python, C, Java, JavaScript (ES6+), Embedded C, HTML5, CSS3, SQL</p>
+          </div>
+          <div>
+            <h4 style="font-size: 15px; color: var(--accentColor); margin-bottom: 8px;">Hardware &amp; IoT</h4>
+            <p class="doc-entry-desc">Arduino Uno, Raspberry Pi, ESP8266/ESP32, Piezoelectric Harvesters, HC-05 Bluetooth, Sensors</p>
+          </div>
+          <div>
+            <h4 style="font-size: 15px; color: var(--accentColor); margin-bottom: 8px;">Cloud &amp; Platforms</h4>
+            <p class="doc-entry-desc">Salesforce Platform, Custom Objects &amp; Process Flows, Git, GitHub, Linux, VS Code</p>
+          </div>
+          <div>
+            <h4 style="font-size: 15px; color: var(--accentColor); margin-bottom: 8px;">Design &amp; Creativity</h4>
+            <p class="doc-entry-desc">Figma (UI/UX), Canva, Responsive Layouts, Photography, Painting, Baking</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Projects Section -->
+      <section>
+        <h3 class="doc-section-title">Featured Engineering Projects</h3>
+
+        <div class="doc-entry">
+          <div class="doc-entry-header">
+            <h4>Footstep Power Generation &amp; Storage System</h4>
+            <span>Hardware / IoT</span>
+          </div>
+          <div class="doc-entry-sub">Embedded Hardware Prototype &bull; Arduino Uno, Piezo Sensors, 12V Inverter, 16x2 LCD</div>
+          <p class="doc-entry-desc">
+            Engineered a clean-energy kinetic tile that captures mechanical pressure from walking and converts it into electrical energy. Integrated a bridge rectifier and filtering capacitor network to charge a 12V battery, connected to a power inverter and real-time telemetry LCD screen.
+          </p>
+        </div>
+
+        <div class="doc-entry">
+          <div class="doc-entry-header">
+            <h4>Salesforce Volunteer Management Tracker</h4>
+            <span>Cloud Application</span>
+          </div>
+          <div class="doc-entry-sub">Salesforce Platform &bull; Data Architecture, Automation Flows, Reports &amp; Dashboards</div>
+          <p class="doc-entry-desc">
+            Designed an end-to-end non-profit volunteer coordination application. Automated task dispatching and email alerts using Record-Triggered Flows, built customized volunteer profiles and hours tracking matrices, and compiled executive analytics dashboards.
+          </p>
+        </div>
+
+        <div class="doc-entry">
+          <div class="doc-entry-header">
+            <h4>Smartphone Bluetooth Controlled RC Car</h4>
+            <span>Robotics &amp; Control</span>
+          </div>
+          <div class="doc-entry-sub">ComedKares Innovation Hub &bull; Arduino Uno, HC-05, L298N Motor Driver, Android</div>
+          <p class="doc-entry-desc">
+            Constructed a robotic mobile chassis maneuvered wirelessly through Bluetooth serial commands. Implemented bidirectional motor PWM control for smooth acceleration, tight turning radii, and fail-safe automated stops.
+          </p>
+        </div>
+
+        <div class="doc-entry">
+          <div class="doc-entry-header">
+            <h4>EMG Biomedical Health Sensor System</h4>
+            <span>Biomedical IoT</span>
+          </div>
+          <div class="doc-entry-sub">Medical Instrumentation &bull; Electromyography Sensor, Arduino Microcontroller, Signal Filtering</div>
+          <p class="doc-entry-desc">
+            Built an analog electromyography detection circuit reading muscle activation potentials. Implemented signal noise cancellation and threshold detection routines to trigger assistive alerts for physical rehabilitation monitoring.
+          </p>
+        </div>
+
+        <div class="doc-entry">
+          <div class="doc-entry-header">
+            <h4>Smart Recipe Finder Web Portal</h4>
+            <span>Web Application</span>
+          </div>
+          <div class="doc-entry-sub">Modern Web Stack &bull; HTML5, CSS3, JavaScript ES6, LocalStorage</div>
+          <p class="doc-entry-desc">
+            Developed a responsive culinary application allowing users to input refrigerator ingredients and dynamically surface matched recipes with nutritional breakdowns and dietary preference filtering.
+          </p>
+        </div>
+      </section>
+
+      <!-- Certifications & Training -->
+      <section>
+        <h3 class="doc-section-title">Certifications &amp; Achievements</h3>
+        <ul style="list-style: square; padding-left: 20px; color: #c9c4cf; line-height: 1.8; font-size: 14px;">
+          <li><strong style="color: #fff;">Salesforce Trailhead Certifications:</strong> Process Automation Specialist, Data Modeling, Security &amp; Custom Objects.</li>
+          <li><strong style="color: #fff;">ComedKares Innovation Workshop:</strong> Hands-on Robotics, Embedded Control, Rapid Prototyping (2024).</li>
+          <li><strong style="color: #fff;">Academic Excellence Award:</strong> 96.8% in SSLC Examination, District Recognition.</li>
+          <li><strong style="color: #fff;">IoT Hardware Bootcamp:</strong> Microcontroller interfacing, sensor calibration, and circuit schematic design.</li>
+        </ul>
+      </section>
+
+      <!-- Languages -->
+      <section>
+        <h3 class="doc-section-title">Languages</h3>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+          <div class="what-tags" style="font-size: 13px; padding: 6px 16px;">English (Fluent)</div>
+          <div class="what-tags" style="font-size: 13px; padding: 6px 16px;">Malayalam (Native)</div>
+          <div class="what-tags" style="font-size: 13px; padding: 6px 16px;">Hindi (Proficient)</div>
+          <div class="what-tags" style="font-size: 13px; padding: 6px 16px;">Urdu (Conversational)</div>
+          <div class="what-tags" style="font-size: 13px; padding: 6px 16px;">Kannada (Working)</div>
+        </div>
+      </section>
+
+    </article>
+
+    <!-- Contact & Action Footer -->
+    <footer class="contact-section" id="contact" role="contentinfo">
+      <div class="contact-container">
+        <h3>Sahla Sharmeen E.K</h3>
+        <div class="contact-flex">
+          <div class="contact-box">
+            <h4>Email</h4>
+            <p><a href="mailto:shahalasharmeen@gmail.com" data-cursor="disable">shahalasharmeen@gmail.com</a></p>
+            <h4>Location</h4>
+            <p><span>Kasaragod, Kerala, India</span></p>
+          </div>
+          <div class="contact-box">
+            <h4>Social &amp; Profiles</h4>
+            <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener noreferrer" data-cursor="disable" class="contact-social">
+              Github <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/sahla-sharmeen" target="_blank" rel="noopener noreferrer" data-cursor="disable" class="contact-social">
+              Linkedin <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
+            </a>
+          </div>
+          <div class="contact-box">
+            <h4>Quick Navigation</h4>
+            <a href="index.html" data-cursor="disable" class="contact-social">Home</a>
+            <a href="biodata.html" data-cursor="disable" class="contact-social">Bio-Data</a>
+            <a href="projects.html" data-cursor="disable" class="contact-social">Projects Archive</a>
+            <a href="contact.html" data-cursor="disable" class="contact-social">Contact Form</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
   </main>
 
-  <!-- Site Footer -->
-  <footer class="site-footer">
-    <div class="container footer-wrapper">
-      <div style="display: flex; align-items: center; gap: 12px;">
-        <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen" class="brand-avatar-mini" style="width: 32px; height: 32px;">
-        <span style="font-weight: 600; color: #fff;">Sahla Sharmeen E.K</span>
-      </div>
+  <!-- jQuery & Global Script with Cache Busting -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/main.js?v=redoyan_20261109"></script>
 
-      <div style="font-size: 0.9rem; color: var(--textMuted);">
-        &copy; <span id="current-year">2026</span> Sahla Sharmeen. Hosted on GitHub Pages.
-      </div>
-
-      <div style="display: flex; gap: 1.5rem; font-size: 0.9rem;">
-        <a href="https://linkedin.com/in/shahalasharmeen" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener">GitHub</a>
-        <a href="mailto:sahlasharmeen@email.com">Email</a>
-      </div>
-    </div>
-  </footer>
-
-  <!-- jQuery & Main JS -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
 </body>
 </html>
