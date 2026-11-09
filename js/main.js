@@ -273,9 +273,9 @@ TECHNICAL SKILLS
 - Cloud & Platforms: Salesforce CRM, Git, GitHub, Linux, VS Code, Figma, MS Office
 
 KEY PROJECTS
-- Footstep Power Generation: Energy harvesting tile prototype with piezoelectric sensor array and LCD output.
-- Salesforce Volunteer Tracker: Cloud volunteer coordination app with automated flows and custom schema.
-- Smartphone Bluetooth RC Car: ComedKares robotics prototype with Arduino and mobile control.
+- Footstep Power Generation (2024): Energy harvesting tile prototype with piezoelectric sensor array and LCD output.
+- Salesforce Volunteer Tracker (2026): Cloud volunteer coordination app with automated flows and custom schema.
+- Smartphone Bluetooth RC Car (2024): ComedKares robotics prototype with Arduino and mobile control.
 - EMG Biomedical Health Sensor: Muscle signal acquisition filter and real-time biometric thresholding.
 - Smart Recipe Finder: Responsive web application with dietary filtering and dynamic recipe matching.`;
 

@@ -1,19 +1,19 @@
 /**
- * Interactive 3D Female Character & Head-Tracking Controller
+ * Interactive Animated Human Model Controller
  * Tailored for Sahla Sharmeen E.K Portfolio
  * Features:
- * - High-detail feminine 3D avatar with rigged armature
- * - Real-time smooth head tracking towards cursor (Head & Neck bones)
- * - Natural eye blinking via Ready Player Me morphTargets
- * - Subtle ambient breathing motion on Spine bones
- * - Multi-stage GSAP ScrollTrigger camera choreography
- * - Non-overlapping layout with text protection
+ * - High-resolution transparent character model from image.png (assets/images/character-model.png)
+ * - Three.js WebGL rendering with real-time dynamic lighting
+ * - Real-time smooth cursor tracking (3D perspective tilt & parallax lerp)
+ * - Natural ambient floating & breathing oscillation
+ * - Dynamic cosmic rim lighting reacting to mouse position
+ * - Multi-stage GSAP ScrollTrigger choreography (Hero -> About -> Lift out of view for What I Do & Timeline)
  */
 
 (function () {
   'use strict';
 
-  // Desktop only for optimal rendering performance
+  // Desktop only for WebGL canvas; mobile uses smooth CSS animated cutout
   if (window.innerWidth <= 768) {
     return;
   }
@@ -27,10 +27,10 @@
   const height = container.clientHeight || window.innerHeight;
   const aspect = width / height;
 
-  // Camera framing the upper torso, face, and hair perfectly centered
-  const camera = new THREE.PerspectiveCamera(36, aspect, 0.1, 100);
-  camera.position.set(0, 1.48, 1.42);
-  camera.lookAt(0, 1.44, 0);
+  // Camera framing
+  const camera = new THREE.PerspectiveCamera(38, aspect, 0.1, 100);
+  camera.position.set(0, 0, 2.5);
+  camera.lookAt(0, 0, 0);
 
   const renderer = new THREE.WebGLRenderer({
     alpha: true,
@@ -39,65 +39,62 @@
   });
   renderer.setSize(width, height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.15;
-  renderer.outputEncoding = THREE.sRGBEncoding || 3001;
+  if (renderer.outputEncoding !== undefined) {
+    renderer.outputEncoding = THREE.sRGBEncoding || 3001;
+  }
   container.appendChild(renderer.domElement);
 
-  // Soft atmospheric lighting for feminine facial tones
-  const keyLight = new THREE.DirectionalLight(0xfff0fd, 1.35);
-  keyLight.position.set(1.5, 3.0, 2.5);
-  scene.add(keyLight);
-
-  const fillLight = new THREE.DirectionalLight(0xc2a4ff, 1.0);
-  fillLight.position.set(-2.0, 1.8, 1.8);
-  scene.add(fillLight);
-
-  const ambLight = new THREE.AmbientLight(0x281a38, 1.5);
+  // Dynamic atmospheric lighting
+  const ambLight = new THREE.AmbientLight(0xffffff, 1.15);
   scene.add(ambLight);
 
-  const rimLight = new THREE.PointLight(0xaf83ff, 2.0, 8);
-  rimLight.position.set(0, 2.2, -1.0);
-  scene.add(rimLight);
+  const keyLight = new THREE.DirectionalLight(0xfff0fd, 1.3);
+  keyLight.position.set(1.5, 2.5, 2.0);
+  scene.add(keyLight);
 
-  let avatarScene = null;
-  let headBone = null;
-  let neckBone = null;
-  let spineBone = null;
-  let headMesh = null;
-  let mouse = { x: 0, y: 0 };
-  let blinkTimer = 0;
-  let isBlinking = false;
-  let blinkWeight = 0;
+  const fillLight = new THREE.DirectionalLight(0xc2a4ff, 0.95);
+  fillLight.position.set(-2.0, 1.5, 1.5);
+  scene.add(fillLight);
 
-  // Load Model
-  const gltfLoader = new THREE.GLTFLoader();
+  // Dynamic mouse-following point light for interactive cosmic sheen
+  const pointLight = new THREE.PointLight(0xc2a4ff, 2.8, 6.0);
+  pointLight.position.set(0, 0.2, 1.4);
+  scene.add(pointLight);
 
-  gltfLoader.load('models/character.glb', function (gltf) {
-    avatarScene = gltf.scene;
-    avatarScene.position.set(0, 0, 0);
-    avatarScene.scale.set(1, 1, 1);
-    scene.add(avatarScene);
+  let characterMesh = null;
+  const mouse = { x: 0, y: 0 };
+  const targetRotation = { x: 0, y: 0 };
 
-    // Identify bones & morph targets
-    avatarScene.traverse(function (node) {
-      if (node.isBone) {
-        const name = node.name.toLowerCase();
-        if (name === 'head') headBone = node;
-        if (name === 'neck') neckBone = node;
-        if (name === 'spine2' || name === 'spine1' || name === 'spine') spineBone = node;
-      }
-      if (node.isMesh && node.morphTargetDictionary) {
-        if (node.name.includes('Head') || node.name.includes('Face')) {
-          headMesh = node;
-        }
-      }
+  // Load character texture
+  const textureLoader = new THREE.TextureLoader();
+  textureLoader.load('assets/images/character-model.png', function (texture) {
+    texture.minFilter = THREE.LinearFilter;
+    texture.magFilter = THREE.LinearFilter;
+    texture.generateMipmaps = false;
+
+    // Aspect ratio of the character model image (416 / 457 ≈ 0.91)
+    const charAspect = 416 / 457;
+    const planeHeight = 1.82;
+    const planeWidth = planeHeight * charAspect;
+
+    const geometry = new THREE.PlaneGeometry(planeWidth, planeHeight, 32, 32);
+    const material = new THREE.MeshStandardMaterial({
+      map: texture,
+      transparent: true,
+      alphaTest: 0.01,
+      roughness: 0.35,
+      metalness: 0.1,
+      side: THREE.DoubleSide
     });
+
+    characterMesh = new THREE.Mesh(geometry, material);
+    characterMesh.position.set(0, -0.04, 0);
+    scene.add(characterMesh);
 
     // Reveal glowing rim once model is ready
     const rim = document.querySelector('.character-rim');
     if (rim) {
-      rim.style.opacity = '0.7';
+      rim.style.opacity = '0.75';
     }
 
     // ScrollTrigger choreography
@@ -113,23 +110,10 @@
           scrub: 1.2
         }
       })
-      .to(avatarScene.position, { x: 0.35, z: -0.2, duration: 1 }, 0)
-      .to(avatarScene.rotation, { y: -0.25, duration: 1 }, 0)
-      .to(camera.position, { y: 1.38, z: 1.6, duration: 1 }, 0);
+      .to(characterMesh.position, { x: 0.40, z: -0.25, duration: 1 }, 0)
+      .to(characterMesh.rotation, { y: -0.24, duration: 1 }, 0);
 
-      // About -> What I Do: Shift back slightly
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: '.about-section',
-          start: 'top center',
-          end: 'bottom top',
-          scrub: 1.2
-        }
-      })
-      .to(avatarScene.position, { x: 0.45, z: -0.4, duration: 1 }, 0)
-      .to(avatarScene.rotation, { y: -0.4, duration: 1 }, 0);
-
-      // What I Do & Beyond: Lift character out of view cleanly so all content cards and career timeline are 100% unobstructed
+      // What I Do & Beyond: Lift character out of view cleanly so text & timeline are 100% unobstructed
       gsap.timeline({
         scrollTrigger: {
           trigger: '.whatIDO',
@@ -140,9 +124,8 @@
       })
       .to('.character-model', { y: '-100%', opacity: 0, duration: 1.2, ease: 'power2.inOut' }, 0);
     }
-
   }, undefined, function (err) {
-    console.warn('3D Female Avatar Notice:', err);
+    console.warn('Character Texture Notice:', err);
   });
 
   // Cursor tracking
@@ -151,7 +134,7 @@
     mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
   });
 
-  // Main Render Loop
+  // Render Loop
   const clock = new THREE.Clock();
 
   function animate() {
@@ -160,48 +143,29 @@
     const delta = clock.getDelta();
     const time = clock.getElapsedTime();
 
-    // Natural head tracking when scrolled near top
-    if (headBone && window.scrollY < 600) {
-      const maxRotX = 0.22;
-      const maxRotY = 0.32;
-      headBone.rotation.y = THREE.MathUtils.lerp(headBone.rotation.y, mouse.x * maxRotY, 0.06);
-      headBone.rotation.x = THREE.MathUtils.lerp(headBone.rotation.x, -mouse.y * maxRotX, 0.06);
+    if (characterMesh) {
+      // Interactive 3D perspective tilt tracking cursor
+      targetRotation.y = mouse.x * 0.25;
+      targetRotation.x = -mouse.y * 0.18;
 
-      if (neckBone) {
-        neckBone.rotation.y = THREE.MathUtils.lerp(neckBone.rotation.y, mouse.x * (maxRotY * 0.4), 0.06);
-        neckBone.rotation.x = THREE.MathUtils.lerp(neckBone.rotation.x, -mouse.y * (maxRotX * 0.3), 0.06);
-      }
-    }
+      characterMesh.rotation.y = THREE.MathUtils.lerp(characterMesh.rotation.y, targetRotation.y, 0.06);
+      characterMesh.rotation.x = THREE.MathUtils.lerp(characterMesh.rotation.x, targetRotation.x, 0.06);
 
-    // Natural idle breathing motion
-    if (spineBone) {
-      spineBone.rotation.x = Math.sin(time * 1.8) * 0.015;
-      spineBone.rotation.z = Math.sin(time * 0.9) * 0.005;
-    }
+      // Natural breathing & floating motion
+      const floatY = Math.sin(time * 2.0) * 0.035;
+      const swayX = Math.cos(time * 1.3) * 0.012;
+      characterMesh.position.y = -0.04 + floatY;
+      if (!window.scrollY || window.scrollY < 80) {
+        characterMesh.position.x = swayX;
+      }
 
-    // Realistic natural eye blinking
-    blinkTimer += delta;
-    if (blinkTimer > 3.8 && !isBlinking) {
-      isBlinking = true;
-      blinkTimer = 0;
-    }
-    if (isBlinking) {
-      blinkWeight += delta * 12;
-      if (blinkWeight > 1) blinkWeight = 1;
-      if (blinkTimer > 0.16) {
-        blinkWeight -= delta * 14;
-        if (blinkWeight <= 0) {
-          blinkWeight = 0;
-          isBlinking = false;
-          blinkTimer = 0;
-        }
-      }
-      if (headMesh && headMesh.morphTargetDictionary) {
-        const leftIdx = headMesh.morphTargetDictionary['eyeBlinkLeft'];
-        const rightIdx = headMesh.morphTargetDictionary['eyeBlinkRight'];
-        if (leftIdx !== undefined) headMesh.morphTargetInfluences[leftIdx] = blinkWeight;
-        if (rightIdx !== undefined) headMesh.morphTargetInfluences[rightIdx] = blinkWeight;
-      }
+      // Subtle breathing scale pulse
+      const breath = 1.0 + Math.sin(time * 1.8) * 0.008;
+      characterMesh.scale.set(breath, breath, 1);
+
+      // Dynamic point light tracking cursor for responsive highlights
+      pointLight.position.x = mouse.x * 1.8;
+      pointLight.position.y = mouse.y * 1.4 + 0.3;
     }
 
     renderer.render(scene, camera);

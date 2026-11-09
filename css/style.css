@@ -553,6 +553,11 @@ h2.landing-info-h2 {
     filter: drop-shadow(0 0 40px rgba(194, 164, 255, 0.45));
     -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
     mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    animation: mobileCharacterFloat 3.5s ease-in-out infinite;
+  }
+  @keyframes mobileCharacterFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
   }
   .landing-info {
     text-align: center;
