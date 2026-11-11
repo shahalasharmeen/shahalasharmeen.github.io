@@ -85,10 +85,17 @@ This website is ready to be hosted immediately on GitHub Pages. Follow these sim
 
 ---
 
-## 🛠️ Installed UI/UX Pro Max Skill
-The skill has been installed locally in `.agents/skills/ui-ux-pro-max` and globally in `~/.gemini/skills/ui-ux-pro-max-skill`.
-To search design tokens, palettes, and typography anytime:
-```bash
-python .agents/skills/ui-ux-pro-max/scripts/search.py "portfolio resume" --domain product
-python .agents/skills/ui-ux-pro-max/scripts/search.py "tech developer" --domain typography
-```
+## 🛠️ Installed Skills & Design Systems
+The project incorporates elite design skills locally in `.agents/skills/` and globally in `~/.gemini/config/skills/`:
+
+1. **[Hallmark](https://github.com/nutlope/hallmark)**:
+   - 16 Floor craft rules enforced: tokenized `:root` styles, `overflow-x: clip`, `:focus-visible`, reduced-motion support, no invented metrics, no emoji icons.
+2. **[Emil Kowalski Design Engineering](https://github.com/emilkowalski/skills)**:
+   - Physics-based spring and cubic-bezier easings (`--ease-out`, `--ease-spring`), tactile button `:active` scaling, sub-220ms snappy transitions, and 60fps cursor follower.
+3. **[Taste-Skill (Frontend Taste 2.5)](https://github.com/leonxlnx/taste-skill)**:
+   - Figma and x.ai level aesthetics: equal content edges, authentic photography and 3D female engineer model, real hardware project captures with hover zoom, and crisp typography.
+4. **[Impeccable](https://github.com/pbakaus/impeccable)**:
+   - Deep experience mode, zero-lag in-memory PJAX page routing, print `@media` optimization for ATS resumes, and resilient accessibility.
+5. **[UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill)**:
+   - Design tokens, palettes, and typography guidance.
+

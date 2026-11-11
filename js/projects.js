@@ -1,45 +1,45 @@
 /**
- * Projects Interactive Filter & Search - Powered by jQuery
+ * Projects Interactive Filter & Search - Powered by jQuery & Emil Kowalski physics
  */
 
 $(document).ready(function () {
   'use strict';
 
-  // Category Filtering
-  $('.filter-btn').on('click', function () {
-    const filter = $(this).data('filter');
+  function filterProjects() {
+    const filter = $('.filter-btn.active').data('filter') || 'all';
+    const query = ($('#project-search-input').val() || '').toLowerCase().trim();
+    const $cards = $('.myworks-card');
 
-    // Update active filter button
-    $('.filter-btn').removeClass('active');
-    $(this).addClass('active');
+    let visibleCount = 0;
 
-    // Filter cards with smooth fade transition
-    if (filter === 'all') {
-      $('.project-card-wrapper').fadeIn(200);
-    } else {
-      $('.project-card-wrapper').hide();
-      $(`.project-card-wrapper[data-category*="${filter}"]`).fadeIn(250);
-    }
+    $cards.each(function () {
+      const $card = $(this);
+      const category = ($card.attr('data-category') || '').toLowerCase();
+      const cardText = $card.text().toLowerCase();
 
-    // Update results counter
-    const visibleCount = filter === 'all' 
-      ? $('.project-card-wrapper').length 
-      : $(`.project-card-wrapper[data-category*="${filter}"]`).length;
+      const matchesCategory = filter === 'all' || category.indexOf(filter) !== -1;
+      const matchesSearch = !query || cardText.indexOf(query) !== -1;
 
-    $('#project-count-display').text(`${visibleCount} Projects Displayed`);
-  });
-
-  // Search input filter if present
-  $('#project-search-input').on('keyup', function () {
-    const query = $(this).val().toLowerCase().trim();
-    
-    $('.project-card-wrapper').each(function () {
-      const cardText = $(this).text().toLowerCase();
-      if (cardText.indexOf(query) !== -1) {
-        $(this).fadeIn(150);
+      if (matchesCategory && matchesSearch) {
+        $card.stop(true, true).fadeIn(180);
+        visibleCount++;
       } else {
-        $(this).fadeOut(150);
+        $card.stop(true, true).fadeOut(120);
       }
     });
+
+    $('#project-result-count').text(`Showing ${visibleCount} of ${$cards.length} projects`);
+  }
+
+  // Category Filtering
+  $('.filter-btn').on('click', function () {
+    $('.filter-btn').removeClass('active');
+    $(this).addClass('active');
+    filterProjects();
+  });
+
+  // Search input filter
+  $('#project-search-input').on('input', function () {
+    filterProjects();
   });
 });

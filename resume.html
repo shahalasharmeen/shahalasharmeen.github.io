@@ -23,9 +23,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Stylesheets with Cache Busting -->
-  <link rel="stylesheet" href="css/style.css?v=redoyan_20261109_v8">
-  <link rel="stylesheet" href="css/print.css?v=redoyan_20261109_v8" media="print">
+  <!-- Stylesheets with Design Tokens & Cache Busting -->
+  <link rel="stylesheet" href="css/tokens.css?v=20261111_v1">
+  <link rel="stylesheet" href="css/style.css?v=20261111_v1">
+  <link rel="stylesheet" href="css/print.css?v=20261111_v1" media="print">
 </head>
 <body>
 
@@ -90,10 +91,16 @@
         <div>
           <h2 style="font-size: 36px; font-weight: 700; color: #fff; margin: 0 0 6px 0;">SAHLA SHARMEEN E.K</h2>
           <div style="font-size: 18px; color: var(--accentColor); font-weight: 500; margin-bottom: 12px;">Computer Science Engineer</div>
-          <div style="font-size: 14px; color: #b5afbc; display: flex; flex-wrap: wrap; gap: 15px;">
-            <span>📍 Kasaragod, Kerala, India</span>
-            <span>✉️ <a href="mailto:shahalasharmeen@gmail.com" style="color: inherit;">shahalasharmeen@gmail.com</a></span>
-            <span>🔗 <a href="https://linkedin.com/in/sahla-sharmeen" target="_blank" rel="noopener" style="color: inherit;">linkedin.com/in/sahla-sharmeen</a></span>
+          <div style="font-size: 14px; color: #b5afbc; display: flex; flex-wrap: wrap; gap: 15px; align-items: center;">
+            <span style="display: inline-flex; align-items: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Kasaragod, Kerala, India
+            </span>
+            <span style="display: inline-flex; align-items: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg> <a href="mailto:shahalasharmeen@gmail.com" style="color: inherit;">shahalasharmeen@gmail.com</a>
+            </span>
+            <span style="display: inline-flex; align-items: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg> <a href="https://linkedin.com/in/sahla-sharmeen" target="_blank" rel="noopener" style="color: inherit;">linkedin.com/in/sahla-sharmeen</a>
+            </span>
           </div>
         </div>
         <div style="width: 80px; height: 80px; border-radius: 50%; overflow: hidden; border: 2px solid var(--accentColor); box-shadow: 0 0 20px rgba(194, 164, 255, 0.4);">

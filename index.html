@@ -23,9 +23,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Stylesheet with Cache Busting -->
-  <link rel="stylesheet" href="css/style.css?v=redoyan_20261110_v2">
-  <link rel="stylesheet" href="css/print.css?v=redoyan_20261110_v2" media="print">
+  <!-- Stylesheets with Design Tokens & Cache Busting -->
+  <link rel="stylesheet" href="css/tokens.css?v=20261111_v1">
+  <link rel="stylesheet" href="css/style.css?v=20261111_v1">
+  <link rel="stylesheet" href="css/print.css?v=20261111_v1" media="print">
 </head>
 <body>
 
@@ -106,13 +107,38 @@
     <section class="landing-section" id="landingDiv" aria-label="Hero Section">
       <div class="landing-container">
         
-        <!-- Left Column: Intro -->
-        <div class="landing-intro">
-          <h2>Hello! I'm</h2>
+        <!-- Left Column: Editorial Intro & Actions -->
+        <div class="landing-intro" data-enter="1">
+          <div class="hero-badge">
+            <span class="badge-dot"></span> Open for Opportunities &bull; Kasaragod, India
+          </div>
           <h1>SAHLA<br><span>SHARMEEN E.K</span></h1>
+          <div class="hero-discipline">Computer Science &amp; Embedded Systems Engineer</div>
+          <p class="hero-lead">
+            B.E graduate from P.A. College of Engineering (CGPA 8.9). Fabricating kinetic energy harvesting hardware, Salesforce cloud platforms, and responsive web applications.
+          </p>
+          <div class="hero-actions-group">
+            <a href="#work" class="cta-btn cta-btn-hire">Explore Works &amp; Hardware ↓</a>
+            <a href="resume.html" class="cta-btn cta-btn-play">Official Resume &rarr;</a>
+            <a href="biodata.html" class="cta-btn cta-btn-play">Bio-Data &rarr;</a>
+          </div>
+          <div class="hero-metrics-row">
+            <div class="hero-metric">
+              <span class="metric-val">8.9</span>
+              <span class="metric-key">CGPA (VTU Affiliated)</span>
+            </div>
+            <div class="hero-metric">
+              <span class="metric-val">7+</span>
+              <span class="metric-key">Hardware &amp; Web Systems</span>
+            </div>
+            <div class="hero-metric">
+              <span class="metric-val">Class of 2024</span>
+              <span class="metric-key">Computer Science &amp; Engg</span>
+            </div>
+          </div>
         </div>
 
-        <!-- Center 3D Interactive Human Character (Desktop) -->
+        <!-- Center/Right 3D Interactive Human Character (Desktop) -->
         <div class="character-container">
           <div class="character-model" id="character-model">
             <div class="character-rim"></div>
@@ -123,13 +149,6 @@
         <!-- Center Column (Mobile Fallback): Stacked Responsive Photo -->
         <div class="mobile-photo">
           <img src="assets/images/Passport Size.jpeg" alt="Sahla Sharmeen E.K" loading="eager" fetchpriority="high">
-        </div>
-
-        <!-- Right Column: Engineering Disciplines -->
-        <div class="landing-info">
-          <h3>A</h3>
-          <h2 class="landing-info-h2"><div class="landing-h2-1">Computer Science</div></h2>
-          <h2><div class="landing-h2-info">Engineer</div></h2>
         </div>
 
       </div>
@@ -145,60 +164,70 @@
       </div>
     </section>
 
-    <!-- 3. What I Do Section (Redoyan 2-Column Expanding Cards) -->
+    <!-- 3. What I Do Section (Focused 3-Column Engineering Systems) -->
     <section class="whatIDO" id="services" aria-label="What I Do">
-      <div class="what-box">
-        <h2 class="title">W<span class="hat-h2">HAT</span><div> I<span class="do-h2"> DO</span></div></h2>
+      <div class="what-box what-header-box">
+        <h2 class="title">What I Do</h2>
+        <p class="what-subtitle">Transforming engineering fundamentals into functional physical devices, scalable cloud pipelines, and clean user interfaces.</p>
       </div>
 
-      <div class="what-box">
+      <div class="what-box what-cards-box">
         <div class="what-box-in">
 
           <!-- Card 1: Hardware & IoT -->
           <div class="what-content">
-            <h3>IOT &amp; HARDWARE</h3>
-            <h4>Embedded Systems &amp; Smart Sensors</h4>
-            <p>Designing physical computing prototypes using Arduino, ESP modules, piezoelectric energy harvesters, and bio-sensors with real-time signal analysis.</p>
+            <div class="what-icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+            </div>
+            <h3>IoT &amp; Embedded Hardware</h3>
+            <h4>Physical Computing &amp; Biometrics</h4>
+            <p>Fabricating kinetic energy harvesting tiles, Arduino sensor arrays, biomedical electromyography (EMG) amplifiers, and Bluetooth telemetry rovers.</p>
             <h5>Skillset &amp; tools</h5>
             <div class="what-content-flex">
-              <div class="what-tags">Arduino</div>
-              <div class="what-tags">Sensors</div>
-              <div class="what-tags">IoT</div>
+              <div class="what-tags">Arduino Uno</div>
+              <div class="what-tags">Piezo Sensors</div>
+              <div class="what-tags">ESP32</div>
               <div class="what-tags">Embedded C</div>
-              <div class="what-tags">Robotics</div>
-              <div class="what-tags">ComedKares</div>
+              <div class="what-tags">HC-05 Bluetooth</div>
+              <div class="what-tags">Robotics PWM</div>
             </div>
           </div>
 
           <!-- Card 2: Web & Software -->
           <div class="what-content">
-            <h3>WEB &amp; SOFTWARE</h3>
-            <h4>Full-Stack &amp; Cloud Applications</h4>
-            <p>Building high-performance websites and cloud-based management systems with modern HTML5/CSS3, JavaScript/jQuery, Python, Java, and Salesforce.</p>
+            <div class="what-icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <h3>Cloud &amp; Software Platforms</h3>
+            <h4>Enterprise Architecture &amp; Web Systems</h4>
+            <p>Designing custom Salesforce data objects, record-triggered automation flows, analytics dashboards, and responsive frontends in modern JavaScript.</p>
             <h5>Skillset &amp; tools</h5>
             <div class="what-content-flex">
-              <div class="what-tags">HTML5/CSS3</div>
-              <div class="what-tags">JavaScript</div>
+              <div class="what-tags">Salesforce CRM</div>
+              <div class="what-tags">Process Flows</div>
+              <div class="what-tags">JavaScript (ES6+)</div>
               <div class="what-tags">Python</div>
               <div class="what-tags">Java / C</div>
-              <div class="what-tags">Salesforce</div>
-              <div class="what-tags">Git/GitHub</div>
+              <div class="what-tags">Git &amp; GitHub</div>
             </div>
           </div>
 
           <!-- Card 3: UI/UX & Creative -->
           <div class="what-content">
-            <h3>UI/UX &amp; CREATIVE</h3>
-            <h4>Visual Design &amp; Digital Media</h4>
-            <p>Creating intuitive interfaces, wireframes, and design systems in Figma. Bringing an artistic eye refined by photography, painting, and visual balance.</p>
+            <div class="what-icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>
+            </div>
+            <h3>UI/UX &amp; Design Systems</h3>
+            <h4>Human-Centric Interface Architecture</h4>
+            <p>Structuring interactive wireframes, component design tokens, and fluid layout rhythms in Figma. Guided by visual balance and craft precision.</p>
             <h5>Skillset &amp; tools</h5>
             <div class="what-content-flex">
               <div class="what-tags">Figma</div>
-              <div class="what-tags">UI/UX</div>
-              <div class="what-tags">Design Systems</div>
-              <div class="what-tags">Photography</div>
-              <div class="what-tags">Painting</div>
+              <div class="what-tags">Design Tokens</div>
+              <div class="what-tags">Wireframing</div>
               <div class="what-tags">Canva</div>
+              <div class="what-tags">Visual Arts</div>
+              <div class="what-tags">Photography</div>
             </div>
           </div>
 
