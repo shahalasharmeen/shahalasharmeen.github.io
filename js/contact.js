@@ -1,92 +1,103 @@
 /**
- * Contact Form Interactive Validation & Handling - jQuery
+ * Contact Page Controller - Pure Vanilla JS
+ * Inline field validation and feedback
  */
 
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
   'use strict';
+
+  const form = document.getElementById('contact-form');
+  const successAlert = document.getElementById('contact-success-alert');
+
+  if (!form) return;
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  $('#contact-form').on('submit', function (e) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
 
     let isValid = true;
 
-    // Name Validation
-    const $name = $('#contact-name');
-    if ($name.val().trim().length < 2) {
-      $name.addClass('is-invalid');
-      $name.siblings('.form-error-feedback').text('Please enter your name (at least 2 characters).').show();
+    // Name
+    const nameInput = document.getElementById('contact-name');
+    const nameError = document.getElementById('name-error');
+    if (!nameInput.value.trim() || nameInput.value.trim().length < 2) {
+      if (nameError) nameError.textContent = 'Please enter your name (at least 2 characters).';
+      nameInput.classList.add('is-invalid');
       isValid = false;
     } else {
-      $name.removeClass('is-invalid');
-      $name.siblings('.form-error-feedback').hide();
+      if (nameError) nameError.textContent = '';
+      nameInput.classList.remove('is-invalid');
     }
 
-    // Email Validation
-    const $email = $('#contact-email');
-    if (!emailRegex.test($email.val().trim())) {
-      $email.addClass('is-invalid');
-      $email.siblings('.form-error-feedback').text('Please enter a valid email address.').show();
+    // Email
+    const emailInput = document.getElementById('contact-email');
+    const emailError = document.getElementById('email-error');
+    if (!emailRegex.test(emailInput.value.trim())) {
+      if (emailError) emailError.textContent = 'Please enter a valid email address.';
+      emailInput.classList.add('is-invalid');
       isValid = false;
     } else {
-      $email.removeClass('is-invalid');
-      $email.siblings('.form-error-feedback').hide();
+      if (emailError) emailError.textContent = '';
+      emailInput.classList.remove('is-invalid');
     }
 
-    // Subject Validation
-    const $subject = $('#contact-subject');
-    if ($subject.val().trim().length < 3) {
-      $subject.addClass('is-invalid');
-      $subject.siblings('.form-error-feedback').text('Please enter a subject (at least 3 characters).').show();
+    // Subject
+    const subjectInput = document.getElementById('contact-subject');
+    const subjectError = document.getElementById('subject-error');
+    if (!subjectInput.value.trim() || subjectInput.value.trim().length < 3) {
+      if (subjectError) subjectError.textContent = 'Please enter a subject.';
+      subjectInput.classList.add('is-invalid');
       isValid = false;
     } else {
-      $subject.removeClass('is-invalid');
-      $subject.siblings('.form-error-feedback').hide();
+      if (subjectError) subjectError.textContent = '';
+      subjectInput.classList.remove('is-invalid');
     }
 
-    // Message Validation
-    const $message = $('#contact-message');
-    if ($message.val().trim().length < 10) {
-      $message.addClass('is-invalid');
-      $message.siblings('.form-error-feedback').text('Please enter a message (at least 10 characters).').show();
+    // Message
+    const msgInput = document.getElementById('contact-message');
+    const msgError = document.getElementById('message-error');
+    if (!msgInput.value.trim() || msgInput.value.trim().length < 10) {
+      if (msgError) msgError.textContent = 'Please enter a message (at least 10 characters).';
+      msgInput.classList.add('is-invalid');
       isValid = false;
     } else {
-      $message.removeClass('is-invalid');
-      $message.siblings('.form-error-feedback').hide();
+      if (msgError) msgError.textContent = '';
+      msgInput.classList.remove('is-invalid');
     }
 
     if (isValid) {
-      const $submitBtn = $('#btn-submit-contact');
-      const originalText = $submitBtn.html();
+      const submitBtn = document.getElementById('btn-submit-contact');
+      const originalText = submitBtn.textContent;
 
-      // Show sending state
-      $submitBtn.prop('disabled', true).html(`
-        <svg class="animate-spin" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg> Sending...
-      `);
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending Message...';
 
-      setTimeout(function () {
-        $submitBtn.prop('disabled', false).html(originalText);
-        $('#contact-form')[0].reset();
-        
-        // Show success alert in card
-        $('#contact-success-alert').slideDown(300);
-        setTimeout(function() {
-          $('#contact-success-alert').slideUp(300);
-        }, 6000);
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+        form.reset();
+
+        if (successAlert) {
+          successAlert.style.display = 'block';
+          setTimeout(() => {
+            successAlert.style.display = 'none';
+          }, 6000);
+        }
 
         if (window.showToast) {
-          window.showToast('Thank you! Your message has been sent successfully.');
+          window.showToast('Your message has been sent successfully!');
         }
-      }, 1200);
+      }, 900);
     }
   });
 
-  // Real-time input clearing of error states
-  $('.form-control').on('input', function () {
-    if ($(this).hasClass('is-invalid')) {
-      $(this).removeClass('is-invalid');
-      $(this).siblings('.form-error-feedback').hide();
-    }
+  // Clear errors on input
+  form.querySelectorAll('.form-input, .form-textarea').forEach(input => {
+    input.addEventListener('input', function () {
+      this.classList.remove('is-invalid');
+      const err = this.parentElement.querySelector('.form-error-feedback');
+      if (err) err.textContent = '';
+    });
   });
 });

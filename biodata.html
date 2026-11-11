@@ -1,331 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-type="service">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal Bio-Data of Sahla Sharmeen E.K - Biographical details, academic qualifications, creative interests in photography, painting, baking, and multilingual abilities.">
-  <meta name="keywords" content="Sahla Sharmeen E.K Bio-data, Personal Bio-data, Kasaragod, PA College of Engineering, Computer Science Engineering Student">
-  <meta name="author" content="Sahla Sharmeen E.K">
-  <title>Bio-Data | Sahla Sharmeen E.K - Personal &amp; Biographical Profile</title>
-
-  <!-- Zero White Flash Guard -->
-  <style>
-    html, body {
-      background-color: #0b080c !important;
-      color: #eae5ec !important;
-      margin: 0;
-      padding: 0;
-    }
-  </style>
-
-  <!-- Google Fonts: Geist & JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Stylesheets with Design Tokens & Cache Busting -->
-  <link rel="stylesheet" href="css/tokens.css?v=20261111_v1">
-  <link rel="stylesheet" href="css/style.css?v=20261111_v1">
-  <link rel="stylesheet" href="css/print.css?v=20261111_v1" media="print">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Personal &amp; Family Profile / Bio-Data of Sahla Sharmeen E.K - Computer Science Engineer, Kasaragod.">
+  <title>Personal Bio-Data — Sahla Sharmeen E.K</title>
+  
+  <link rel="stylesheet" href="css/tokens.css?v=20261111_v2">
+  <link rel="stylesheet" href="css/style.css?v=20261111_v2">
+  <link rel="stylesheet" href="css/print.css?v=20261111_v2" media="print">
 </head>
 <body>
 
-  <!-- Redoyan Custom Glowing Follower Cursor -->
-  <div class="cursor-main" id="cursor-main"></div>
-
-  <!-- Redoyan Signature Fixed Header -->
-  <header class="header" role="banner">
-    <div class="header-brand-group">
-      <a href="index.html" class="navbar-title hover-link" aria-label="Sahla Sharmeen E.K Home">
-        <div class="hover-in">
-          SAHLA SHARMEEN E.K
-          <div>SAHLA SHARMEEN E.K</div>
-        </div>
+  <!-- Site Navigation -->
+  <header class="site-header" role="banner">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-link" aria-label="Sahla Sharmeen Homepage">
+        <span class="brand-mark">SS</span>
+        <span>Sahla Sharmeen</span>
       </a>
 
-      <div class="navbar-connect">
-        <span class="connect-dot"></span> OPEN FOR OPPORTUNITIES
+      <nav aria-label="Primary Navigation">
+        <ul class="nav-links">
+          <li class="nav-item"><a href="index.html">Overview</a></li>
+          <li class="nav-item"><a href="projects.html">Works &amp; Systems</a></li>
+          <li class="nav-item"><a href="resume.html">Resume</a></li>
+          <li class="nav-item"><a href="biodata.html" class="active">Bio-Data</a></li>
+          <li class="nav-item"><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <button onclick="window.print()" class="btn btn-secondary btn-sm">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>Print Bio-Data</span>
+        </button>
+        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Open mobile navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
       </div>
     </div>
-
-    <nav aria-label="Main navigation">
-      <ul>
-        <li><a href="index.html" class="hover-link"><div class="hover-in">Home<div>Home</div></div></a></li>
-        <li><a href="resume.html" class="hover-link"><div class="hover-in">Resume<div>Resume</div></div></a></li>
-        <li><a href="biodata.html" class="hover-link active"><div class="hover-in">Bio-Data<div>Bio-Data</div></div></a></li>
-        <li><a href="projects.html" class="hover-link"><div class="hover-in">Projects<div>Projects</div></div></a></li>
-        <li><a href="contact.html" class="hover-link"><div class="hover-in">Contact<div>Contact</div></div></a></li>
-      </ul>
-    </nav>
   </header>
 
-  <!-- Main Container -->
-  <main id="main-content" class="page-container">
-    
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; margin-bottom: 30px;">
-      <a href="index.html" class="back-btn-pill">← Back to Home</a>
-
-      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-        <button onclick="window.print()" class="cta-btn cta-btn-hire" style="padding: 10px 20px; font-size: 14px;" data-cursor="disable">
-          Print Bio-Data
-        </button>
-        <a href="contact.html" class="cta-btn cta-btn-play" style="padding: 10px 20px; font-size: 14px;" data-cursor="disable">
-          Get In Touch &rarr;
-        </a>
+  <!-- Mobile Drawer -->
+  <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="mobile-drawer-panel">
+      <div>
+        <div class="mobile-drawer-header">
+          <div class="brand-link">
+            <span class="brand-mark">SS</span>
+            <span>Sahla Sharmeen</span>
+          </div>
+          <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </button>
+        </div>
+        <ul class="mobile-drawer-nav">
+          <li><a href="index.html">Overview</a></li>
+          <li><a href="projects.html">Works &amp; Systems</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="biodata.html" class="active">Bio-Data</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div style="padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle);">
+        <button onclick="window.print()" class="btn btn-primary" style="width: 100%;">Print Document</button>
       </div>
     </div>
+  </aside>
 
-    <header class="page-header">
-      <h1>Personal <span>Bio-Data</span></h1>
-      <p>Official biographical record, academic qualifications, multilingual proficiencies, and creative pursuits of Sahla Sharmeen E.K.</p>
-    </header>
-
-    <!-- Document Sheet (Cosmic Glass) -->
-    <article class="document-sheet" id="biodata-document">
+  <main class="section-padding">
+    <div class="container" style="max-width: 900px;">
       
-      <!-- Bio-Data Header with Passport Photo -->
-      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; border-bottom: 1px solid rgba(194, 164, 255, 0.25); padding-bottom: 25px; margin-bottom: 35px;">
+      <!-- Top Title Bar -->
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-8); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border-subtle);">
         <div>
-          <span style="font-size: 12px; font-family: 'JetBrains Mono', monospace; color: var(--accentColor); letter-spacing: 2px; text-transform: uppercase;">Official Biographical Profile</span>
-          <h2 style="font-size: 36px; font-weight: 700; color: #fff; margin: 4px 0 8px 0;">SAHLA SHARMEEN E.K</h2>
-          <div style="font-size: 16px; color: #b5afbc;">Computer Science Engineer</div>
+          <span style="font-size: var(--text-xs); color: var(--color-accent); font-weight: var(--weight-medium);">&#x25cf; Formal Personal Profile</span>
+          <h1 style="font-size: var(--text-3xl); font-weight: var(--weight-bold); letter-spacing: -0.02em;">Bio-Data</h1>
         </div>
-
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-          <div style="width: 110px; height: 130px; border-radius: 12px; overflow: hidden; border: 2px solid var(--accentColor); box-shadow: 0 0 25px rgba(194, 164, 255, 0.35);">
-            <img src="assets/images/passport-size.jpeg" alt="Sahla Sharmeen E.K Passport Size Photo" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-          <span style="font-size: 11px; color: rgba(255, 255, 255, 0.6); text-transform: uppercase; letter-spacing: 1px;">Passport Photo</span>
-        </div>
+        <button onclick="window.print()" class="btn btn-secondary btn-sm">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>Print / Save Document</span>
+        </button>
       </div>
 
-      <!-- 1. Demographic & Personal Particulars -->
-      <section>
-        <h3 class="doc-section-title">Personal Particulars</h3>
+      <!-- Bio-Data Paper Sheet -->
+      <div style="background-color: var(--color-bg-elevated); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xl); padding: var(--space-10); box-shadow: var(--shadow-lg);">
         
-        <div class="biodata-grid">
-          <div class="biodata-item">
-            <div class="biodata-label">Full Name</div>
-            <div class="biodata-value">Sahla Sharmeen E.K</div>
+        <!-- Header with Passport Photo Frame -->
+        <div style="display: grid; grid-template-columns: minmax(0, 1fr) 140px; gap: var(--space-6); align-items: center; padding-bottom: var(--space-8); border-bottom: 1px solid var(--color-border-subtle); margin-bottom: var(--space-8);">
+          <div>
+            <h2 style="font-size: var(--text-3xl); font-weight: var(--weight-bold); letter-spacing: -0.02em; color: var(--color-text-primary);">SAHLA SHARMEEN E.K</h2>
+            <p style="font-size: var(--text-base); color: var(--color-accent); font-weight: var(--weight-medium); margin-top: 2px;">B.E in Computer Science &amp; Engineering &bull; Class of 2024</p>
+            <p style="font-size: var(--text-xs); color: var(--color-text-secondary); margin-top: var(--space-3); line-height: var(--leading-relaxed); max-width: 520px;">
+              Bendichal North, Thekkil Post, Kasaragod District, Kerala, India &bull; PIN: 671541
+            </p>
           </div>
-          <div class="biodata-item">
-            <div class="biodata-label">Gender</div>
-            <div class="biodata-value">Female</div>
-          </div>
-          <div class="biodata-item">
-            <div class="biodata-label">Nationality</div>
-            <div class="biodata-value">Indian</div>
-          </div>
-          <div class="biodata-item">
-            <div class="biodata-label">Marital Status</div>
-            <div class="biodata-value">Single</div>
-          </div>
-          <div class="biodata-item">
-            <div class="biodata-label">Permanent Location</div>
-            <div class="biodata-value">Kasaragod, Kerala, India</div>
-          </div>
-          <div class="biodata-item">
-            <div class="biodata-label">Primary Email</div>
-            <div class="biodata-value"><a href="mailto:shahalasharmeen@gmail.com" style="color: var(--accentColor);">shahalasharmeen@gmail.com</a></div>
+          <div style="width: 140px; height: 168px; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border-strong); background-color: var(--color-bg-surface);">
+            <img src="assets/images/Passport Size.jpeg" alt="Sahla Sharmeen E.K" style="width: 100%; height: 100%; object-fit: cover;">
           </div>
         </div>
-      </section>
 
-      <!-- 2. Academic Qualifications Table -->
-      <section>
-        <h3 class="doc-section-title">Academic Qualifications</h3>
+        <!-- 1. Personal Details -->
+        <div style="margin-bottom: var(--space-8);">
+          <h3 style="font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4); border-bottom: 1px solid var(--color-border-subtle); padding-bottom: var(--space-2);">1. Personal Particulars</h3>
+          
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); font-size: var(--text-sm);">
+            <div><strong style="color: var(--color-text-secondary); font-size: var(--text-xs); display: block;">Full Name:</strong> <span style="color: var(--color-text-primary);">Sahla Sharmeen E.K</span></div>
+            <div><strong style="color: var(--color-text-secondary); font-size: var(--text-xs); display: block;">Date of Birth:</strong> <span style="color: var(--color-text-primary);">01 January 2003</span></div>
+            <div><strong style="color: var(--color-text-secondary); font-size: var(--text-xs); display: block;">Religion &amp; Caste:</strong> <span style="color: var(--color-text-primary);">Islam, Muslim</span></div>
+            <div><strong style="color: var(--color-text-secondary); font-size: var(--text-xs); display: block;">Native Place:</strong> <span style="color: var(--color-text-primary);">Kasaragod, Kerala</span></div>
+            <div><strong style="color: var(--color-text-secondary); font-size: var(--text-xs); display: block;">Languages Known:</strong> <span style="color: var(--color-text-primary);">English, Malayalam, Hindi, Kannada</span></div>
+            <div><strong style="color: var(--color-text-secondary); font-size: var(--text-xs); display: block;">Marital Status:</strong> <span style="color: var(--color-text-primary);">Single / Unmarried</span></div>
+          </div>
+        </div>
 
-        <div style="overflow-x: auto;">
-          <table style="width: 100%; border-collapse: collapse; margin-bottom: 25px; font-size: 14px;">
+        <!-- 2. Educational Background -->
+        <div style="margin-bottom: var(--space-8);">
+          <h3 style="font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4); border-bottom: 1px solid var(--color-border-subtle); padding-bottom: var(--space-2);">2. Educational Qualifications</h3>
+          
+          <table style="width: 100%; border-collapse: collapse; font-size: var(--text-xs); color: var(--color-text-secondary);">
             <thead>
-              <tr style="border-bottom: 2px solid rgba(194, 164, 255, 0.3); text-align: left; color: var(--accentColor);">
-                <th style="padding: 12px 10px;">Qualification</th>
-                <th style="padding: 12px 10px;">Institution</th>
-                <th style="padding: 12px 10px;">Board / University</th>
-                <th style="padding: 12px 10px;">Year</th>
-                <th style="padding: 12px 10px;">Performance</th>
+              <tr style="border-bottom: 1px solid var(--color-border-strong); text-align: left; color: var(--color-text-primary);">
+                <th style="padding: var(--space-2) var(--space-3);">Course / Degree</th>
+                <th style="padding: var(--space-2) var(--space-3);">Institution &amp; Board</th>
+                <th style="padding: var(--space-2) var(--space-3);">Year</th>
+                <th style="padding: var(--space-2) var(--space-3);">Performance</th>
               </tr>
             </thead>
             <tbody>
-              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-                <td style="padding: 14px 10px; font-weight: 600; color: #fff;">B.E (Computer Science &amp; Engineering)</td>
-                <td style="padding: 14px 10px; color: #c9c4cf;">P.A. College of Engineering, Mangalore</td>
-                <td style="padding: 14px 10px; color: #c9c4cf;">VTU Belagavi</td>
-                <td style="padding: 14px 10px; color: var(--accentColor); font-family: monospace;">Class of 2024</td>
-                <td style="padding: 14px 10px; font-weight: 600; color: #a3e635;">CGPA 8.9 / 10</td>
+              <tr style="border-bottom: 1px solid var(--color-border-subtle);">
+                <td style="padding: var(--space-3); color: var(--color-text-primary); font-weight: var(--weight-semibold);">B.E in Computer Science &amp; Engg</td>
+                <td style="padding: var(--space-3);">P.A. College of Engineering (VTU)</td>
+                <td style="padding: var(--space-3); font-family: var(--font-mono);">2020 &mdash; 2024</td>
+                <td style="padding: var(--space-3); color: var(--color-emerald); font-weight: var(--weight-semibold);">CGPA: 8.9</td>
               </tr>
-              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-                <td style="padding: 14px 10px; font-weight: 600; color: #fff;">Pre-University Course (PUC - PCMB)</td>
-                <td style="padding: 14px 10px; color: #c9c4cf;">Apsara Public School, Kasaragod</td>
-                <td style="padding: 14px 10px; color: #c9c4cf;">CBSE / State</td>
-                <td style="padding: 14px 10px; color: var(--accentColor); font-family: monospace;">2023</td>
-                <td style="padding: 14px 10px; font-weight: 600; color: #a3e635;">Completed (2023)</td>
+              <tr style="border-bottom: 1px solid var(--color-border-subtle);">
+                <td style="padding: var(--space-3); color: var(--color-text-primary); font-weight: var(--weight-semibold);">Pre-University (PCMB)</td>
+                <td style="padding: var(--space-3);">Apsara Public School, Kasaragod</td>
+                <td style="padding: var(--space-3); font-family: var(--font-mono);">2021 &mdash; 2023</td>
+                <td style="padding: var(--space-3);">First Class</td>
               </tr>
-              <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-                <td style="padding: 14px 10px; font-weight: 600; color: #fff;">Secondary Schooling (SSLC / 10th)</td>
-                <td style="padding: 14px 10px; color: #c9c4cf;">Apsara Public School, Kasaragod</td>
-                <td style="padding: 14px 10px; color: #c9c4cf;">CBSE / State</td>
-                <td style="padding: 14px 10px; color: var(--accentColor); font-family: monospace;">2021</td>
-                <td style="padding: 14px 10px; font-weight: 600; color: #a3e635;">Completed (2021)</td>
+              <tr>
+                <td style="padding: var(--space-3); color: var(--color-text-primary); font-weight: var(--weight-semibold);">SSLC / 10th Standard</td>
+                <td style="padding: var(--space-3);">Apsara Public School, Kasaragod</td>
+                <td style="padding: var(--space-3); font-family: var(--font-mono);">2021</td>
+                <td style="padding: var(--space-3);">Distinction</td>
               </tr>
             </tbody>
           </table>
         </div>
-      </section>
 
-      <!-- 3. Linguistic Competencies -->
-      <section>
-        <h3 class="doc-section-title">Linguistic Proficiencies</h3>
-        
-        <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 30px;">
-          <div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 14px;">
-              <span style="font-weight: 500; color: #fff;">English</span>
-              <span style="color: var(--accentColor);">Professional &bull; Fluent</span>
-            </div>
-            <div style="height: 6px; border-radius: 4px; background: rgba(255, 255, 255, 0.1); overflow: hidden;">
-              <div style="width: 95%; height: 100%; background: var(--accentColor);"></div>
-            </div>
+        <!-- 3. Family Background -->
+        <div style="margin-bottom: var(--space-8);">
+          <h3 style="font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4); border-bottom: 1px solid var(--color-border-subtle); padding-bottom: var(--space-2);">3. Family Details</h3>
+          
+          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); font-size: var(--text-sm);">
+            <div><strong style="color: var(--color-text-secondary); font-size: var(--text-xs); display: block;">Father's Name:</strong> <span style="color: var(--color-text-primary);">E.K Khaleel</span> <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">(Business)</span></div>
+            <div><strong style="color: var(--color-text-secondary); font-size: var(--text-xs); display: block;">Mother's Name:</strong> <span style="color: var(--color-text-primary);">Aysha M</span> <span style="font-size: var(--text-xs); color: var(--color-text-tertiary);">(Home Maker)</span></div>
+            <div><strong style="color: var(--color-text-secondary); font-size: var(--text-xs); display: block;">Elder Brother:</strong> <span style="color: var(--color-text-primary);">Shahil</span></div>
+            <div><strong style="color: var(--color-text-secondary); font-size: var(--text-xs); display: block;">Younger Brother:</strong> <span style="color: var(--color-text-primary);">Shazil</span></div>
           </div>
+        </div>
 
-          <div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 14px;">
-              <span style="font-weight: 500; color: #fff;">Malayalam</span>
-              <span style="color: var(--accentColor);">Native &bull; Mother Tongue</span>
+        <!-- 4. Hobbies & Interests (SVG Icons - Zero Emojis) -->
+        <div>
+          <h3 style="font-size: var(--text-base); font-weight: var(--weight-bold); color: var(--color-text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4); border-bottom: 1px solid var(--color-border-subtle); padding-bottom: var(--space-2);">4. Personal Interests &amp; Creative Pursuits</h3>
+          
+          <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3);">
+            <div style="padding: var(--space-3); background-color: var(--color-bg-surface); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); text-align: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" style="margin: 0 auto var(--space-1);"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+              <span style="font-size: var(--text-xs); color: var(--color-text-primary); font-weight: var(--weight-medium); display: block;">Photography</span>
             </div>
-            <div style="height: 6px; border-radius: 4px; background: rgba(255, 255, 255, 0.1); overflow: hidden;">
-              <div style="width: 100%; height: 100%; background: var(--accentColor);"></div>
+            <div style="padding: var(--space-3); background-color: var(--color-bg-surface); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); text-align: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" style="margin: 0 auto var(--space-1);"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>
+              <span style="font-size: var(--text-xs); color: var(--color-text-primary); font-weight: var(--weight-medium); display: block;">Painting &amp; Arts</span>
             </div>
-          </div>
-
-          <div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 14px;">
-              <span style="font-weight: 500; color: #fff;">Hindi</span>
-              <span style="color: var(--accentColor);">Advanced &bull; Proficient</span>
+            <div style="padding: var(--space-3); background-color: var(--color-bg-surface); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); text-align: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" style="margin: 0 auto var(--space-1);"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+              <span style="font-size: var(--text-xs); color: var(--color-text-primary); font-weight: var(--weight-medium); display: block;">Culinary &amp; Baking</span>
             </div>
-            <div style="height: 6px; border-radius: 4px; background: rgba(255, 255, 255, 0.1); overflow: hidden;">
-              <div style="width: 85%; height: 100%; background: var(--accentColor);"></div>
-            </div>
-          </div>
-
-          <div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 14px;">
-              <span style="font-weight: 500; color: #fff;">Urdu</span>
-              <span style="color: var(--accentColor);">Conversational</span>
-            </div>
-            <div style="height: 6px; border-radius: 4px; background: rgba(255, 255, 255, 0.1); overflow: hidden;">
-              <div style="width: 75%; height: 100%; background: var(--accentColor);"></div>
-            </div>
-          </div>
-
-          <div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 6px; font-size: 14px;">
-              <span style="font-weight: 500; color: #fff;">Kannada</span>
-              <span style="color: var(--accentColor);">Working Knowledge</span>
-            </div>
-            <div style="height: 6px; border-radius: 4px; background: rgba(255, 255, 255, 0.1); overflow: hidden;">
-              <div style="width: 65%; height: 100%; background: var(--accentColor);"></div>
+            <div style="padding: var(--space-3); background-color: var(--color-bg-surface); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); text-align: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" style="margin: 0 auto var(--space-1);"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+              <span style="font-size: var(--text-xs); color: var(--color-text-primary); font-weight: var(--weight-medium); display: block;">IoT Prototyping</span>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- 4. Hobbies & Creative Pursuits -->
-      <section>
-        <h3 class="doc-section-title">Hobbies &amp; Creative Pursuits</h3>
-        
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-bottom: 30px;">
-          <div class="biodata-item">
-            <div style="margin-bottom: 10px; color: var(--color-accent);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
-            </div>
-            <div style="font-weight: 600; color: #fff; margin-bottom: 4px;">Photography</div>
-            <p style="font-size: 13px; color: #b5afbc; line-height: 1.5; margin: 0;">Capturing natural perspectives, architecture, and visual light compositions that inspire UI design symmetry.</p>
-          </div>
-
-          <div class="biodata-item">
-            <div style="margin-bottom: 10px; color: var(--color-accent);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5"></circle><circle cx="17.5" cy="10.5" r=".5"></circle><circle cx="8.5" cy="7.5" r=".5"></circle><circle cx="6.5" cy="12.5" r=".5"></circle><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path></svg>
-            </div>
-            <div style="font-weight: 600; color: #fff; margin-bottom: 4px;">Painting &amp; Art</div>
-            <p style="font-size: 13px; color: #b5afbc; line-height: 1.5; margin: 0;">Exploring acrylic and watercolor expressions, color gradients, and textures reflecting user interface aesthetics.</p>
-          </div>
-
-          <div class="biodata-item">
-            <div style="margin-bottom: 10px; color: var(--color-accent);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
-            </div>
-            <div style="font-weight: 600; color: #fff; margin-bottom: 4px;">Baking &amp; Culinary Arts</div>
-            <p style="font-size: 13px; color: #b5afbc; line-height: 1.5; margin: 0;">Practicing precise ingredient ratios, artisanal pastry crafting, and process-driven perfectionism.</p>
-          </div>
-
-          <div class="biodata-item">
-            <div style="margin-bottom: 10px; color: var(--color-accent);">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
-            </div>
-            <div style="font-weight: 600; color: #fff; margin-bottom: 4px;">Hardware Tinkering</div>
-            <p style="font-size: 13px; color: #b5afbc; line-height: 1.5; margin: 0;">Soldering sensors, configuring microcontroller pinouts, and testing robotics circuits.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. Formal Declaration -->
-      <section style="margin-top: 40px; padding-top: 25px; border-top: 1px solid rgba(194, 164, 255, 0.25);">
-        <h3 class="doc-section-title" style="margin-top: 0;">Declaration</h3>
-        <p style="font-size: 14px; color: #c9c4cf; line-height: 1.7; font-style: italic; margin-bottom: 25px;">
-          "I hereby solemnly declare that all the information and particulars provided in this bio-data sheet are true, complete, and correct to the best of my knowledge and belief."
-        </p>
-
-        <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 20px; font-size: 14px;">
-          <div>
-            <div style="color: #b5afbc;">Place: <strong>Kasaragod, Kerala, India</strong></div>
-            <div style="color: #b5afbc; margin-top: 4px;">Date: <strong>09 November 2026</strong></div>
-          </div>
-          <div style="text-align: right;">
-            <div style="font-family: 'Geist', sans-serif; font-size: 18px; font-weight: 700; color: var(--accentColor); letter-spacing: 1px;">Sahla Sharmeen E.K</div>
-            <div style="color: #b5afbc; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px;">(Candidate Signature)</div>
-          </div>
-        </div>
-      </section>
-
-    </article>
-
-    <!-- Contact & Action Footer -->
-    <footer class="contact-section" id="contact" role="contentinfo">
-      <div class="contact-container">
-        <h3>Sahla Sharmeen E.K</h3>
-        <div class="contact-flex">
-          <div class="contact-box">
-            <h4>Email</h4>
-            <p><a href="mailto:shahalasharmeen@gmail.com" data-cursor="disable">shahalasharmeen@gmail.com</a></p>
-            <h4>Location</h4>
-            <p><span>Kasaragod, Kerala, India</span></p>
-          </div>
-          <div class="contact-box">
-            <h4>Social &amp; Profiles</h4>
-            <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener noreferrer" data-cursor="disable" class="contact-social">
-              Github <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
-            </a>
-            <a href="https://linkedin.com/in/sahla-sharmeen" target="_blank" rel="noopener noreferrer" data-cursor="disable" class="contact-social">
-              Linkedin <svg viewBox="0 0 24 24" width="1em" height="1em" fill="currentColor"><path d="M6 6v2h8.59L5 17.59 6.41 19 16 9.41V18h2V6z"/></svg>
-            </a>
-          </div>
-          <div class="contact-box">
-            <h4>Quick Navigation</h4>
-            <a href="index.html" data-cursor="disable" class="contact-social">Home</a>
-            <a href="resume.html" data-cursor="disable" class="contact-social">Resume</a>
-            <a href="projects.html" data-cursor="disable" class="contact-social">Projects Archive</a>
-            <a href="contact.html" data-cursor="disable" class="contact-social">Contact Form</a>
-          </div>
-        </div>
       </div>
-    </footer>
-
+    </div>
   </main>
 
-  <!-- jQuery & Global Script with Cache Busting -->
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="js/main.js?v=redoyan_20261109_v8"></script>
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-container">
+      <div class="footer-copy">
+        &copy; 2026 Sahla Sharmeen E.K &bull; Kasaragod, Kerala, India &bull; Built with Hallmark, Emil Kowalski Physics &amp; Taste-Skill
+      </div>
+      <div class="footer-links">
+        <a href="index.html">Overview</a>
+        <a href="projects.html">Works</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/shahalasharmeen" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
 
+  <script src="js/main.js"></script>
 </body>
 </html>

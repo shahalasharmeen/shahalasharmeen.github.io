@@ -1,45 +1,40 @@
 /**
- * Projects Interactive Filter & Search - Powered by jQuery & Emil Kowalski physics
+ * Projects Showcase Category Filter Controller - Pure Vanilla JS
+ * Snappy Emil Kowalski transitions and Hallmark accessibility
  */
 
-$(document).ready(function () {
+document.addEventListener('DOMContentLoaded', function () {
   'use strict';
 
-  function filterProjects() {
-    const filter = $('.filter-btn.active').data('filter') || 'all';
-    const query = ($('#project-search-input').val() || '').toLowerCase().trim();
-    const $cards = $('.myworks-card');
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const projectCards = document.querySelectorAll('.work-card');
+  const countBadge = document.getElementById('project-result-count');
 
-    let visibleCount = 0;
+  if (!filterButtons.length || !projectCards.length) return;
 
-    $cards.each(function () {
-      const $card = $(this);
-      const category = ($card.attr('data-category') || '').toLowerCase();
-      const cardText = $card.text().toLowerCase();
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const category = this.getAttribute('data-filter');
 
-      const matchesCategory = filter === 'all' || category.indexOf(filter) !== -1;
-      const matchesSearch = !query || cardText.indexOf(query) !== -1;
+      // Update active state
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
 
-      if (matchesCategory && matchesSearch) {
-        $card.stop(true, true).fadeIn(180);
-        visibleCount++;
-      } else {
-        $card.stop(true, true).fadeOut(120);
+      let visibleCount = 0;
+
+      projectCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (category === 'all' || cardCategory === category) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (countBadge) {
+        countBadge.textContent = `${visibleCount} System${visibleCount === 1 ? '' : 's'}`;
       }
     });
-
-    $('#project-result-count').text(`Showing ${visibleCount} of ${$cards.length} projects`);
-  }
-
-  // Category Filtering
-  $('.filter-btn').on('click', function () {
-    $('.filter-btn').removeClass('active');
-    $(this).addClass('active');
-    filterProjects();
-  });
-
-  // Search input filter
-  $('#project-search-input').on('input', function () {
-    filterProjects();
   });
 });
