@@ -1,262 +1,277 @@
 <!DOCTYPE html>
-<html lang="en" data-type="software">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="site-kind" content="tech">
-  <meta name="description" content="Official Engineering Resume of Sahla Sharmeen E.K - Computer Science Engineer, VTU Class of 2024, 8.9 CGPA.">
-  <title>Official Resume — Sahla Sharmeen E.K</title>
-  
-  <link rel="stylesheet" href="css/tokens.css?v=20261111_v2">
-  <link rel="stylesheet" href="css/style.css?v=20261111_v2">
-  <link rel="stylesheet" href="css/print.css?v=20261111_v2" media="print">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official Resume &amp; Curriculum Vitae — Sahla Sharmeen E.K</title>
+  <meta name="description" content="Verified curriculum vitae of Sahla Sharmeen E.K. Computer Science Engineer (VTU Class of 2024, 8.9 CGPA) specializing in IoT embedded systems and cloud platforms.">
+  <meta name="theme-color" content="#090b0e">
+  <meta name="author" content="Sahla Sharmeen E.K">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css?v=20261111_scratch">
+  <link rel="stylesheet" href="css/style.css?v=20261111_scratch">
+  <link rel="stylesheet" href="css/print.css?v=20261111_scratch" media="print">
 </head>
 <body>
 
-  <!-- Site Navigation -->
-  <header class="site-header" role="banner">
-    <div class="container nav-container">
-      <a href="index.html" class="brand-link" aria-label="Sahla Sharmeen Homepage">
-        <span class="brand-mark">SS</span>
-        <span>Sahla Sharmeen</span>
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Sahla Sharmeen Home">
+        <span class="brand-name">SAHLA SHARMEEN</span>
+        <span class="brand-tag">B.E CSE 2024</span>
       </a>
 
-      <nav aria-label="Primary Navigation">
-        <ul class="nav-links">
-          <li class="nav-item"><a href="index.html">Overview</a></li>
-          <li class="nav-item"><a href="projects.html">Works &amp; Systems</a></li>
-          <li class="nav-item"><a href="resume.html" class="active">Resume</a></li>
-          <li class="nav-item"><a href="biodata.html">Bio-Data</a></li>
-          <li class="nav-item"><a href="contact.html">Contact</a></li>
-        </ul>
+      <nav class="nav-desktop" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="resume.html" class="nav-link active">Resume</a>
+        <a href="biodata.html" class="nav-link">Bio-Data</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
-      <div class="nav-actions">
-        <a href="Resume.pdf" class="btn btn-secondary btn-sm" download>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          <span>PDF Resume</span>
-        </a>
-        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Open mobile navigation menu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <div class="header-actions">
+        <button type="button" class="btn btn-primary btn-sm" id="btnPrintResume">Print / PDF</button>
+        <button type="button" class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
-    <div class="mobile-drawer-panel">
-      <div>
-        <div class="mobile-drawer-header">
-          <div class="brand-link">
-            <span class="brand-mark">SS</span>
-            <span>Sahla Sharmeen</span>
-          </div>
-          <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close menu">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-          </button>
-        </div>
-        <ul class="mobile-drawer-nav">
-          <li><a href="index.html">Overview</a></li>
-          <li><a href="projects.html">Works &amp; Systems</a></li>
-          <li><a href="resume.html" class="active">Resume</a></li>
-          <li><a href="biodata.html">Bio-Data</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div style="padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle);">
-        <a href="Resume.pdf" class="btn btn-primary" style="width: 100%;" download>Download Resume PDF</a>
-      </div>
-    </div>
-  </aside>
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileNavDrawer" aria-hidden="true">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="projects.html" class="mobile-nav-link">Projects Index</a>
+    <a href="resume.html" class="mobile-nav-link active">Official Resume</a>
+    <a href="biodata.html" class="mobile-nav-link">Bio-Data</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+  </div>
 
-  <main class="section-padding">
-    <div class="container" style="max-width: 900px;">
-      
-      <!-- Action Controls Bar -->
-      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-8); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border-subtle);">
-        <div>
-          <span style="font-size: var(--text-xs); color: var(--color-emerald); font-weight: var(--weight-medium);">&#x25cf; Verified Engineering Profile</span>
-          <h1 style="font-size: var(--text-3xl); font-weight: var(--weight-bold); letter-spacing: -0.02em;">Curriculum Vitae</h1>
-        </div>
-        <div style="display: flex; gap: var(--space-2);">
-          <button id="btn-print-resume" class="btn btn-secondary btn-sm">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-            <span>Print / Save PDF</span>
-          </button>
-          <button id="btn-copy-ats" class="btn btn-secondary btn-sm">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            <span>Copy ATS Text</span>
-          </button>
-          <a href="Resume.pdf" class="btn btn-primary btn-sm" download>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-            <span>Download PDF</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Resume Paper Container -->
-      <div style="background-color: var(--color-bg-elevated); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-xl); padding: var(--space-10); box-shadow: var(--shadow-lg);">
+  <main id="main">
+    <section class="section">
+      <div class="container container-narrow">
         
-        <!-- Header -->
-        <div style="padding-bottom: var(--space-8); border-bottom: 1px solid var(--color-border-subtle); margin-bottom: var(--space-8);">
-          <h2 style="font-size: var(--text-3xl); font-weight: var(--weight-bold); letter-spacing: -0.02em; color: var(--color-text-primary);">SAHLA SHARMEEN E.K</h2>
-          <p style="font-size: var(--text-lg); color: var(--color-accent); font-weight: var(--weight-medium); margin-top: var(--space-1);">Computer Science &amp; Embedded Systems Engineer</p>
-          
-          <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: var(--space-4); font-size: var(--text-xs); color: var(--color-text-secondary);">
-            <div style="display: flex; align-items: center; gap: var(--space-2);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-              <span>Bendichal North, Kasaragod, Kerala</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: var(--space-2);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              <a href="mailto:sahlasharmeen@email.com" style="color: var(--color-text-primary);">sahlasharmeen@email.com</a>
-            </div>
-            <div style="display: flex; align-items: center; gap: var(--space-2);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-              <span>+91 9946753050</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: var(--space-2);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-              <a href="https://linkedin.com/in/shahalasharmeen" target="_blank" rel="noopener" style="color: var(--color-accent);">linkedin.com/in/shahalasharmeen</a>
-            </div>
+        <!-- Controls Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-8);">
+          <a href="index.html" class="btn btn-ghost btn-sm">&larr; Back to Portfolio</a>
+          <div style="display: flex; gap: var(--space-2); flex-wrap: wrap;">
+            <button type="button" id="btnCopyAts" class="btn btn-secondary btn-sm">Copy Plain ATS Text</button>
+            <a href="assets/Resume.pdf" download="Sahla_Sharmeen_EK_Resume.pdf" class="btn btn-secondary btn-sm" target="_blank" rel="noopener">Download PDF</a>
           </div>
         </div>
 
-        <!-- Section: Education -->
-        <div style="margin-bottom: var(--space-8);">
-          <h3 style="font-size: var(--text-lg); font-weight: var(--weight-bold); color: var(--color-text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4); border-bottom: 1px solid var(--color-border-subtle); padding-bottom: var(--space-2);">Education</h3>
+        <!-- Document Sheet -->
+        <article style="background: var(--bg-surface); border: 1px solid var(--border-medium); border-radius: var(--radius-lg); padding: clamp(1.5rem, 4vw, 3rem); box-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);">
           
-          <div style="display: flex; flex-direction: column; gap: var(--space-4);">
+          <!-- Resume Header Block -->
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: var(--space-6); padding-bottom: var(--space-6); border-bottom: 1px solid var(--border-subtle); margin-bottom: var(--space-8);">
             <div>
-              <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                <h4 style="font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--color-text-primary);">Bachelor of Computer Science &amp; Engineering (CSE)</h4>
-                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent);">2020 &mdash; 2024</span>
+              <h1 style="font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: var(--weight-bold); color: var(--text-primary); letter-spacing: -0.025em; margin-bottom: var(--space-1);">
+                SAHLA SHARMEEN E.K
+              </h1>
+              <div style="font-size: var(--text-base); color: var(--accent); font-weight: var(--weight-medium); margin-bottom: var(--space-3);">
+                Computer Science &amp; Embedded Systems Engineer
               </div>
-              <div style="display: flex; justify-content: space-between; font-size: var(--text-xs); color: var(--color-text-secondary); margin-top: 2px;">
-                <span>P.A. College of Engineering, Mangalore (VTU Affiliated)</span>
-                <span style="font-weight: var(--weight-semibold); color: var(--color-emerald);">CGPA: 8.9 / 10.0</span>
+              <div style="display: flex; flex-wrap: wrap; gap: var(--space-4); font-size: var(--text-xs); color: var(--text-muted);">
+                <span style="display: inline-flex; align-items: center; gap: 4px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                  Kasaragod, Kerala, India
+                </span>
+                <span style="display: inline-flex; align-items: center; gap: 4px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                  <a href="mailto:sahlasharmeen@email.com" style="color: inherit;">sahlasharmeen@email.com</a>
+                </span>
+                <span style="display: inline-flex; align-items: center; gap: 4px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                  <a href="https://linkedin.com/in/shahalasharmeen" target="_blank" rel="noopener" style="color: inherit;">linkedin.com/in/shahalasharmeen</a>
+                </span>
+              </div>
+            </div>
+
+            <div style="width: 72px; height: 72px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-medium);">
+              <img src="assets/images/Passport Size.jpeg" alt="Sahla Sharmeen E.K" style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+          </div>
+
+          <!-- Section: Professional Summary -->
+          <div style="margin-bottom: var(--space-8);">
+            <h2 style="font-size: var(--text-sm); font-weight: var(--weight-bold); letter-spacing: 0.05em; color: var(--accent); text-transform: uppercase; margin-bottom: var(--space-2);">
+              Executive Summary
+            </h2>
+            <p style="font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.7;">
+              Computer Science and Engineering graduate from P.A. College of Engineering (Class of 2024, VTU Belagavi) with a cumulative CGPA of 8.9 / 10.0. Demonstrated track record fabricating working IoT hardware, piezoelectric kinetic energy harvesters, and biomedical telemetry prototypes. Experience in Salesforce platform data architecture, process automation flows, and responsive client-side web interfaces.
+            </p>
+          </div>
+
+          <!-- Section: Education -->
+          <div style="margin-bottom: var(--space-8);">
+            <h2 style="font-size: var(--text-sm); font-weight: var(--weight-bold); letter-spacing: 0.05em; color: var(--accent); text-transform: uppercase; margin-bottom: var(--space-4);">
+              Education
+            </h2>
+            
+            <div style="margin-bottom: var(--space-5);">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                <h3 style="font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--text-primary);">
+                  Bachelor of Engineering (B.E) in Computer Science &amp; Engineering
+                </h3>
+                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent);">Class of 2024</span>
+              </div>
+              <div style="font-size: var(--text-xs); color: var(--text-muted); margin-top: 2px;">
+                P.A. College of Engineering, Mangalore &bull; VTU Belagavi &bull; <strong>CGPA: 8.9 / 10.0</strong>
+              </div>
+              <p style="font-size: var(--text-xs); color: var(--text-secondary); margin-top: var(--space-2); line-height: 1.6;">
+                Core Curricula: Data Structures &amp; Algorithms, Embedded Systems, Microprocessors, Operating Systems, Database Management Systems, Computer Networks, and Object-Oriented Software Design.
+              </p>
+            </div>
+
+            <div style="margin-bottom: var(--space-5);">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                <h3 style="font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--text-primary);">
+                  Pre-University Course (PCMB — Physics, Chemistry, Mathematics, Biology)
+                </h3>
+                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted);">2021 — 2023</span>
+              </div>
+              <div style="font-size: var(--text-xs); color: var(--text-muted); margin-top: 2px;">
+                Apsara Public School, Kasaragod, Kerala
               </div>
             </div>
 
             <div>
-              <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                <h4 style="font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--color-text-primary);">Pre-University Course (PCMB)</h4>
-                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent);">2021 &mdash; 2023</span>
+              <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                <h3 style="font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--text-primary);">
+                  Secondary School Leaving Certificate (SSLC / 10th)
+                </h3>
+                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted);">2020 — 2021</span>
               </div>
-              <div style="font-size: var(--text-xs); color: var(--color-text-secondary); margin-top: 2px;">
-                <span>Apsara Public School, Kasaragod</span>
-              </div>
-            </div>
-
-            <div>
-              <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                <h4 style="font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--color-text-primary);">Secondary School Examination (SSLC / 10th)</h4>
-                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent);">2021</span>
-              </div>
-              <div style="font-size: var(--text-xs); color: var(--color-text-secondary); margin-top: 2px;">
-                <span>Apsara Public School, Kasaragod</span>
+              <div style="font-size: var(--text-xs); color: var(--text-muted); margin-top: 2px;">
+                Apsara Public School, Kasaragod, Kerala &bull; <strong>96.8% Academic Distinction</strong>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- Section: Technical Skills -->
-        <div style="margin-bottom: var(--space-8);">
-          <h3 style="font-size: var(--text-lg); font-weight: var(--weight-bold); color: var(--color-text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4); border-bottom: 1px solid var(--color-border-subtle); padding-bottom: var(--space-2);">Technical Proficiencies</h3>
-          
-          <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4); font-size: var(--text-sm);">
-            <div>
-              <strong style="color: var(--color-text-primary); display: block; margin-bottom: var(--space-1);">Hardware &amp; Embedded Systems:</strong>
-              <p style="color: var(--color-text-secondary);">Arduino Uno, ESP32, Piezoelectric Harvesting, EMG Bio-Sensors, HC-05 Bluetooth, Motor Shields, Embedded C, Circuit Prototyping.</p>
+          <!-- Section: Featured Projects -->
+          <div style="margin-bottom: var(--space-8);">
+            <h2 style="font-size: var(--text-sm); font-weight: var(--weight-bold); letter-spacing: 0.05em; color: var(--accent); text-transform: uppercase; margin-bottom: var(--space-4);">
+              Featured Engineering Projects
+            </h2>
+
+            <div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid var(--border-subtle);">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                <h3 style="font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--text-primary);">
+                  Footstep Power Generation &amp; Storage Prototype
+                </h3>
+                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted);">Hardware Lead</span>
+              </div>
+              <p style="font-size: var(--text-xs); color: var(--text-secondary); margin-top: 4px; line-height: 1.6;">
+                Engineered an energy harvesting tile prototype utilizing a series-parallel piezoelectric transducer array to convert kinetic foot pressure into electrical current, routed via full-wave bridge rectifiers into battery storage with live 16x2 LCD telemetry.
+              </p>
             </div>
-            <div>
-              <strong style="color: var(--color-text-primary); display: block; margin-bottom: var(--space-1);">Programming &amp; Web Technologies:</strong>
-              <p style="color: var(--color-text-secondary);">Python, C, Java, Modern JavaScript (ES6+), HTML5/CSS3, SQL, Git &amp; GitHub Version Control.</p>
+
+            <div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid var(--border-subtle);">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                <h3 style="font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--text-primary);">
+                  ComedKares Bluetooth Autonomous RC Car
+                </h3>
+                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted);">Team Lead &bull; 2024</span>
+              </div>
+              <p style="font-size: var(--text-xs); color: var(--text-secondary); margin-top: 4px; line-height: 1.6;">
+                Constructed a 4-wheel mobile rover paired over HC-05 Bluetooth with an Android serial interface, driving dual DC motors through an L298N H-Bridge with variable PWM speed regulation and ultrasonic distance sensing.
+              </p>
             </div>
-            <div>
-              <strong style="color: var(--color-text-primary); display: block; margin-bottom: var(--space-1);">Cloud &amp; Enterprise Platforms:</strong>
-              <p style="color: var(--color-text-secondary);">Salesforce CRM, Custom Objects, Automated Approval Flows, Data Validation, Analytics Dashboards.</p>
+
+            <div style="margin-bottom: var(--space-4); padding-bottom: var(--space-4); border-bottom: 1px solid var(--border-subtle);">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                <h3 style="font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--text-primary);">
+                  Volunteer Program Tracker Using Salesforce
+                </h3>
+                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted);">Architect &bull; 2026</span>
+              </div>
+              <p style="font-size: var(--text-xs); color: var(--text-secondary); margin-top: 4px; line-height: 1.6;">
+                Designed an end-to-end non-profit volunteer coordination CRM. Automated shift dispatch and status confirmations with Record-Triggered Lightning Flows, custom objects, and analytics dashboards.
+              </p>
             </div>
+
             <div>
-              <strong style="color: var(--color-text-primary); display: block; margin-bottom: var(--space-1);">UI/UX &amp; Creative Tools:</strong>
-              <p style="color: var(--color-text-secondary);">Figma Design Systems, Component Tokens, Wireframing, Canva, Visual Balance, Creative Direction.</p>
+              <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;">
+                <h3 style="font-size: var(--text-sm); font-weight: var(--weight-semibold); color: var(--text-primary);">
+                  Muscle Flex Detection &amp; EMG Telemetry Monitor
+                </h3>
+                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted);">Biomedical IoT</span>
+              </div>
+              <p style="font-size: var(--text-xs); color: var(--text-secondary); margin-top: 4px; line-height: 1.6;">
+                Constructed an electromyography (EMG) signal acquisition circuit reading micro-volt activation potentials during muscle contractions with analog filtering and thresholded serial output.
+              </p>
             </div>
           </div>
-        </div>
 
-        <!-- Section: Key Engineering Projects -->
-        <div style="margin-bottom: var(--space-8);">
-          <h3 style="font-size: var(--text-lg); font-weight: var(--weight-bold); color: var(--color-text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4); border-bottom: 1px solid var(--color-border-subtle); padding-bottom: var(--space-2);">Key Engineering Projects</h3>
-          
-          <div style="display: flex; flex-direction: column; gap: var(--space-5);">
-            <div>
-              <div style="display: flex; justify-content: space-between;">
-                <h4 style="font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--color-text-primary);">Footstep Power Generation Using Arduino</h4>
-                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent);">Team Member &bull; 2024</span>
+          <!-- Section: Technical Skills -->
+          <div style="margin-bottom: var(--space-8);">
+            <h2 style="font-size: var(--text-sm); font-weight: var(--weight-bold); letter-spacing: 0.05em; color: var(--accent); text-transform: uppercase; margin-bottom: var(--space-4);">
+              Technical Skills &amp; Competencies
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-4); font-size: var(--text-xs);">
+              <div>
+                <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;">Languages &amp; Core:</strong>
+                <span style="color: var(--text-secondary);">Python, C, Java, JavaScript (ES6+), Embedded C, SQL</span>
               </div>
-              <p style="font-size: var(--text-xs); color: var(--color-text-secondary); margin-top: var(--space-1);">Engineered a kinetic energy transducer floor tile harvesting pedestrian steps into electric charge with bridge rectifiers and LCD telemetry.</p>
-            </div>
-
-            <div>
-              <div style="display: flex; justify-content: space-between;">
-                <h4 style="font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--color-text-primary);">ComedKares RC Car Workshop</h4>
-                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent);">Team Leader &bull; 2024</span>
+              <div>
+                <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;">Hardware &amp; IoT:</strong>
+                <span style="color: var(--text-secondary);">Arduino Uno, ESP32, Piezo Transducers, HC-05, EMG Sensors</span>
               </div>
-              <p style="font-size: var(--text-xs); color: var(--color-text-secondary); margin-top: var(--space-1);">Led engineering build of a robotic rover vehicle using Arduino Uno, HC-05 Bluetooth transceiver, and obstacle avoidance ultrasonic sensors.</p>
-            </div>
-
-            <div>
-              <div style="display: flex; justify-content: space-between;">
-                <h4 style="font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--color-text-primary);">Volunteer Program Tracker on Salesforce</h4>
-                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent);">Lead Architect &bull; 2024</span>
+              <div>
+                <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;">Cloud &amp; Toolchain:</strong>
+                <span style="color: var(--text-secondary);">Salesforce Platform, Process Flows, Git, GitHub, Linux, VS Code</span>
               </div>
-              <p style="font-size: var(--text-xs); color: var(--color-text-secondary); margin-top: var(--space-1);">Designed relational data architecture and record-triggered automation flows to streamline volunteer participation, hour tracking, and reporting.</p>
-            </div>
-
-            <div>
-              <div style="display: flex; justify-content: space-between;">
-                <h4 style="font-size: var(--text-base); font-weight: var(--weight-semibold); color: var(--color-text-primary);">Muscle Flex Detection &amp; IoT Monitoring System</h4>
-                <span style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent);">Engineering Lead &bull; 2024</span>
+              <div>
+                <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;">Design &amp; Creative:</strong>
+                <span style="color: var(--text-secondary);">Figma (UI/UX), Design Tokens, Wireframing, Photography, Fine Art</span>
               </div>
-              <p style="font-size: var(--text-xs); color: var(--color-text-secondary); margin-top: var(--space-1);">Biomedical electromyography (EMG) monitoring hardware converting physiological micro-volt signals into clinical monitoring telemetry.</p>
             </div>
           </div>
-        </div>
 
-        <!-- Section: Certifications -->
-        <div>
-          <h3 style="font-size: var(--text-lg); font-weight: var(--weight-bold); color: var(--color-text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: var(--space-4); border-bottom: 1px solid var(--color-border-subtle); padding-bottom: var(--space-2);">Certifications &amp; Honors</h3>
-          <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--space-2); font-size: var(--text-xs); color: var(--color-text-secondary);">
-            <li>&bull; <strong style="color: var(--color-text-primary);">Salesforce Essentials &amp; CRM Foundations</strong> &mdash; Trailhead Accreditation</li>
-            <li>&bull; <strong style="color: var(--color-text-primary);">NPTEL Certification</strong> &mdash; Artificial Intelligence for Economics</li>
-            <li>&bull; <strong style="color: var(--color-text-primary);">ComedKares RC Car Workshop</strong> &mdash; Lead Certification of Excellence</li>
-            <li>&bull; <strong style="color: var(--color-text-primary);">Cisco Networking Academy</strong> &mdash; Network Protocols &amp; Fundamentals</li>
-          </ul>
-        </div>
+          <!-- Section: Languages -->
+          <div>
+            <h2 style="font-size: var(--text-sm); font-weight: var(--weight-bold); letter-spacing: 0.05em; color: var(--accent); text-transform: uppercase; margin-bottom: var(--space-3);">
+              Languages
+            </h2>
+            <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); font-size: var(--text-xs);">
+              <span class="tech-tag">English (Fluent)</span>
+              <span class="tech-tag">Malayalam (Native)</span>
+              <span class="tech-tag">Hindi (Proficient)</span>
+              <span class="tech-tag">Urdu (Conversational)</span>
+              <span class="tech-tag">Kannada (Working)</span>
+            </div>
+          </div>
+
+        </article>
 
       </div>
-    </div>
+    </section>
   </main>
 
   <!-- Site Footer -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-container">
-      <div class="footer-copy">
-        &copy; 2026 Sahla Sharmeen E.K &bull; Kasaragod, Kerala, India &bull; Built with Hallmark, Emil Kowalski Physics &amp; Taste-Skill
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        &copy; 2026 Sahla Sharmeen E.K. Crafted under Hallmark, Emil Kowalski Physics, Taste-Skill &amp; Impeccable standards.
       </div>
       <div class="footer-links">
-        <a href="index.html">Overview</a>
-        <a href="projects.html">Works</a>
-        <a href="biodata.html">Bio-Data</a>
-        <a href="contact.html">Contact</a>
-        <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/shahalasharmeen" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="projects.html" class="footer-link">Projects</a>
+        <a href="resume.html" class="footer-link">Resume</a>
+        <a href="biodata.html" class="footer-link">Bio-Data</a>
+        <a href="contact.html" class="footer-link">Contact</a>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script src="js/resume.js"></script>
+  <!-- Vanilla JavaScript -->
+  <script src="js/main.js?v=20261111_scratch"></script>
 </body>
 </html>

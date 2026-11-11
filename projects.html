@@ -1,241 +1,272 @@
 <!DOCTYPE html>
-<html lang="en" data-type="software">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="site-kind" content="tech">
-  <meta name="description" content="Engineering projects and hardware systems built by Sahla Sharmeen E.K - Arduino IoT, Salesforce CRM, Embedded C, and Web Platforms.">
-  <title>Engineering Works &amp; Systems — Sahla Sharmeen E.K</title>
-  
-  <link rel="stylesheet" href="css/tokens.css?v=20261111_v2">
-  <link rel="stylesheet" href="css/style.css?v=20261111_v2">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Projects &amp; Systems Index — Sahla Sharmeen E.K</title>
+  <meta name="description" content="Technical systems index by Sahla Sharmeen E.K. Physical computing hardware, piezoelectric kinetic harvesters, Salesforce cloud platforms, and full-stack web applications.">
+  <meta name="theme-color" content="#090b0e">
+  <meta name="author" content="Sahla Sharmeen E.K">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/tokens.css?v=20261111_scratch">
+  <link rel="stylesheet" href="css/style.css?v=20261111_scratch">
 </head>
 <body>
 
-  <!-- Site Navigation -->
-  <header class="site-header" role="banner">
-    <div class="container nav-container">
-      <a href="index.html" class="brand-link" aria-label="Sahla Sharmeen Homepage">
-        <span class="brand-mark">SS</span>
-        <span>Sahla Sharmeen</span>
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Sahla Sharmeen Home">
+        <span class="brand-name">SAHLA SHARMEEN</span>
+        <span class="brand-tag">B.E CSE 2024</span>
       </a>
 
-      <nav aria-label="Primary Navigation">
-        <ul class="nav-links">
-          <li class="nav-item"><a href="index.html">Overview</a></li>
-          <li class="nav-item"><a href="projects.html" class="active">Works &amp; Systems</a></li>
-          <li class="nav-item"><a href="resume.html">Resume</a></li>
-          <li class="nav-item"><a href="biodata.html">Bio-Data</a></li>
-          <li class="nav-item"><a href="contact.html">Contact</a></li>
-        </ul>
+      <nav class="nav-desktop" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="projects.html" class="nav-link active">Projects Index</a>
+        <a href="resume.html" class="nav-link">Resume</a>
+        <a href="biodata.html" class="nav-link">Bio-Data</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
 
-      <div class="nav-actions">
-        <a href="Resume.pdf" class="btn btn-secondary btn-sm" download>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-          <span>PDF Resume</span>
-        </a>
-        <button class="mobile-nav-toggle" id="mobile-nav-toggle" aria-label="Open mobile navigation menu">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <div class="header-actions">
+        <a href="resume.html" class="btn btn-secondary btn-sm">Official Resume</a>
+        <button type="button" class="mobile-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Drawer -->
-  <aside class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
-    <div class="mobile-drawer-panel">
-      <div>
-        <div class="mobile-drawer-header">
-          <div class="brand-link">
-            <span class="brand-mark">SS</span>
-            <span>Sahla Sharmeen</span>
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobileNavDrawer" aria-hidden="true">
+    <a href="index.html" class="mobile-nav-link">Home</a>
+    <a href="projects.html" class="mobile-nav-link active">Projects Index</a>
+    <a href="resume.html" class="mobile-nav-link">Official Resume</a>
+    <a href="biodata.html" class="mobile-nav-link">Bio-Data</a>
+    <a href="contact.html" class="mobile-nav-link">Contact</a>
+  </div>
+
+  <main id="main">
+    <section class="section">
+      <div class="container">
+        
+        <div class="section-header" style="text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+          <h1 class="section-title" style="font-size: clamp(2rem, 4vw, 3rem);">Engineering Systems Index</h1>
+          <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">
+            A complete catalogue of physical computing prototypes, enterprise cloud schemas, robotics telemetry, and web platforms built with verified hardware and software outcomes.
+          </p>
+
+          <!-- Search & Filter Controls -->
+          <div style="margin-top: var(--space-8); display: flex; flex-direction: column; align-items: center; gap: var(--space-4);">
+            <input type="text" id="projectSearch" placeholder="Filter by keyword, hardware, or language..." style="width: 100%; max-width: 480px; padding: 12px 18px; background: var(--bg-surface); border: 1px solid var(--border-medium); border-radius: var(--radius-sm); color: var(--text-primary); font-size: var(--text-sm); outline: none;">
+            
+            <div style="display: flex; gap: var(--space-2); flex-wrap: wrap; justify-content: center;">
+              <button type="button" class="btn btn-ghost btn-sm project-filter-btn active" data-filter="all">All Systems (7)</button>
+              <button type="button" class="btn btn-ghost btn-sm project-filter-btn" data-filter="hardware">Hardware &amp; IoT</button>
+              <button type="button" class="btn btn-ghost btn-sm project-filter-btn" data-filter="cloud">Cloud &amp; CRM</button>
+              <button type="button" class="btn btn-ghost btn-sm project-filter-btn" data-filter="web">Web &amp; Software</button>
+            </div>
+
+            <div id="projectCount" style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent); margin-top: var(--space-2);">
+              Showing 7 of 7 systems
+            </div>
           </div>
-          <button class="mobile-drawer-close" id="mobile-drawer-close" aria-label="Close menu">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-          </button>
         </div>
-        <ul class="mobile-drawer-nav">
-          <li><a href="index.html">Overview</a></li>
-          <li><a href="projects.html" class="active">Works &amp; Systems</a></li>
-          <li><a href="resume.html">Resume</a></li>
-          <li><a href="biodata.html">Bio-Data</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div style="padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle);">
-        <a href="Resume.pdf" class="btn btn-primary" style="width: 100%;" download>Download Resume PDF</a>
-      </div>
-    </div>
-  </aside>
 
-  <main class="section-padding">
-    <div class="container">
-      <div class="section-header" style="margin-bottom: var(--space-8);">
-        <h1 class="section-title">Works &amp; Systems Portfolio</h1>
-        <p class="section-desc">Physical hardware prototypes, cloud platforms, and modern web architectures fabricated by Sahla.</p>
-      </div>
+        <!-- Projects Grid -->
+        <div class="works-grid" style="margin-top: var(--space-8);">
 
-      <!-- Category Filter Tabs -->
-      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-4); margin-bottom: var(--space-10); padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-border-subtle);">
-        <div style="display: flex; flex-wrap: wrap; gap: var(--space-2);">
-          <button class="btn btn-secondary btn-sm filter-btn active" data-filter="all">All Systems</button>
-          <button class="btn btn-secondary btn-sm filter-btn" data-filter="iot">IoT &amp; Hardware</button>
-          <button class="btn btn-secondary btn-sm filter-btn" data-filter="cloud">Cloud &amp; Salesforce</button>
-          <button class="btn btn-secondary btn-sm filter-btn" data-filter="web">Web &amp; Software</button>
+          <!-- Project 1 -->
+          <article class="work-card" data-category="hardware iot" id="footstep-power">
+            <div class="work-thumbnail-wrap">
+              <img src="assets/images/projects/footstep-power.jpg" alt="Footstep Power Generation Using Piezoelectric Sensors" class="work-img" loading="lazy">
+            </div>
+            <div class="work-body">
+              <div class="work-category-row">
+                <span class="work-category">Hardware / Clean Energy IoT</span>
+                <span class="work-role">Team Member</span>
+              </div>
+              <h2 class="work-title">Footstep Power Generation Using Arduino</h2>
+              <p class="work-desc">
+                Kinetic floor tile matrix converting mechanical compressive footstep pressure into electrical energy. AC output from series-parallel piezoelectric discs is rectified through full-wave bridge circuitry to charge a 12V battery, monitored via Arduino Uno with live 16x2 LCD voltage telemetry.
+              </p>
+              <div class="work-specs">
+                <span class="tech-tag">Arduino Uno</span>
+                <span class="tech-tag">Piezo Transducers</span>
+                <span class="tech-tag">12V Storage</span>
+                <span class="tech-tag">Embedded C</span>
+                <span class="tech-tag">16x2 LCD</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="work-card" data-category="hardware robotics" id="rc-car">
+            <div class="work-thumbnail-wrap">
+              <img src="assets/images/projects/bluetooth-rc-car.jpg" alt="ComedKares Bluetooth Autonomous RC Car" class="work-img" loading="lazy">
+            </div>
+            <div class="work-body">
+              <div class="work-category-row">
+                <span class="work-category">Robotics &amp; Telemetry</span>
+                <span class="work-role">Team Lead</span>
+              </div>
+              <h2 class="work-title">ComedKares Bluetooth RC Car Workshop Rover</h2>
+              <p class="work-desc">
+                Four-wheel autonomous robotics chassis developed during the ComedKares innovation workshop. Controlled over Bluetooth with HC-05 serial pairing from an Android device, driving dual DC motors via an L298N H-Bridge with variable PWM speed regulation and ultrasonic obstacle avoidance arbitration.
+              </p>
+              <div class="work-specs">
+                <span class="tech-tag">Arduino Uno</span>
+                <span class="tech-tag">HC-05 Bluetooth</span>
+                <span class="tech-tag">L298N Driver</span>
+                <span class="tech-tag">PWM Control</span>
+                <span class="tech-tag">Android Serial</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="work-card" data-category="cloud crm" id="salesforce-tracker">
+            <div class="work-thumbnail-wrap">
+              <img src="assets/images/projects/salesforce-tracker.jpg" alt="Salesforce Volunteer Program Tracker CRM" class="work-img" loading="lazy">
+            </div>
+            <div class="work-body">
+              <div class="work-category-row">
+                <span class="work-category">Cloud Platform / CRM</span>
+                <span class="work-role">System Architect</span>
+              </div>
+              <h2 class="work-title">Volunteer Program Tracker Using Salesforce</h2>
+              <p class="work-desc">
+                Enterprise cloud-based volunteer coordination system. Built on Salesforce Cloud with custom Data Objects, master-detail relationships, automated record-triggered approval flows, volunteer shift check-in matrices, and analytical Lightning dashboards tracking operational metrics.
+              </p>
+              <div class="work-specs">
+                <span class="tech-tag">Salesforce CRM</span>
+                <span class="tech-tag">Lightning Flows</span>
+                <span class="tech-tag">Data Architecture</span>
+                <span class="tech-tag">Dashboards</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4 -->
+          <article class="work-card" data-category="hardware biomedical" id="emg-sensor">
+            <div class="work-thumbnail-wrap">
+              <img src="assets/images/projects/emg-sensor.jpg" alt="EMG Biomedical Muscle Flex Health Sensor" class="work-img" loading="lazy">
+            </div>
+            <div class="work-body">
+              <div class="work-category-row">
+                <span class="work-category">Biomedical IoT &amp; Signals</span>
+                <span class="work-role">Developer</span>
+              </div>
+              <h2 class="work-title">Muscle Flex Detection &amp; EMG Monitoring</h2>
+              <p class="work-desc">
+                Biomedical signal acquisition and processing interface capturing electromyographic potential changes during voluntary muscle flexion. Signals pass through differential amplification, active low-pass filtering, and thresholding algorithms on Arduino for real-time biometric telemetry.
+              </p>
+              <div class="work-specs">
+                <span class="tech-tag">MyoWare EMG</span>
+                <span class="tech-tag">Arduino Uno</span>
+                <span class="tech-tag">Signal Filtering</span>
+                <span class="tech-tag">Biometric Thresholds</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 5 -->
+          <article class="work-card" data-category="hardware iot" id="drone">
+            <div class="work-thumbnail-wrap">
+              <img src="assets/images/projects/surveillance-drone.jpg" alt="Autonomous Surveillance Quadcopter Drone using ESP32" class="work-img" loading="lazy">
+            </div>
+            <div class="work-body">
+              <div class="work-category-row">
+                <span class="work-category">Aeronautics &amp; Wireless IoT</span>
+                <span class="work-role">Developer</span>
+              </div>
+              <h2 class="work-title">Surveillance Drone Using ESP32 Board</h2>
+              <p class="work-desc">
+                Compact UAV flight experimental controller driven by an ESP32 dual-core micro-controller board handling Wi-Fi UDP packet telemetry broadcasting, MPU6050 gyroscope stabilization routines, and electronic speed controller (ESC) brushless motor calibration.
+              </p>
+              <div class="work-specs">
+                <span class="tech-tag">ESP32 Dual-Core</span>
+                <span class="tech-tag">MPU6050 Gyro</span>
+                <span class="tech-tag">UDP Broadcast</span>
+                <span class="tech-tag">ESC PWM</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 6 -->
+          <article class="work-card" data-category="web software" id="recipe-portal">
+            <div class="work-thumbnail-wrap">
+              <img src="assets/images/projects/recipe-portal.jpg" alt="Interactive Cooking Recipe Portal" class="work-img" loading="lazy">
+            </div>
+            <div class="work-body">
+              <div class="work-category-row">
+                <span class="work-category">Web Applications / UI</span>
+                <span class="work-role">Full-Stack Developer</span>
+              </div>
+              <h2 class="work-title">Interactive Cooking Recipe Portal</h2>
+              <p class="work-desc">
+                High-speed responsive culinary portal with ingredient-based dynamic recipe discovery. Features instant autocomplete query search, dietary restriction filters (vegan, gluten-free, low-carb), browser LocalStorage bookmarking, and an accessible, high-contrast user interface.
+              </p>
+              <div class="work-specs">
+                <span class="tech-tag">HTML5 / CSS3</span>
+                <span class="tech-tag">JavaScript (ES6+)</span>
+                <span class="tech-tag">LocalStorage</span>
+                <span class="tech-tag">Responsive UI</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 7 -->
+          <article class="work-card" data-category="web software hardware" id="telemetry-dashboard">
+            <div class="work-thumbnail-wrap">
+              <img src="assets/images/projects/emg-sensor.jpg" alt="Real-Time Bio-Signal Visualizer" class="work-img" loading="lazy">
+            </div>
+            <div class="work-body">
+              <div class="work-category-row">
+                <span class="work-category">Data Visualization</span>
+                <span class="work-role">Developer</span>
+              </div>
+              <h2 class="work-title">Real-Time Bio-Signal Visualizer</h2>
+              <p class="work-desc">
+                Web-based real-time telemetry dashboard using HTML5 Canvas API. Renders live analog sensor feeds from microcontrollers with rolling moving-average filters, dynamic waveform scaling, and threshold alert flags.
+              </p>
+              <div class="work-specs">
+                <span class="tech-tag">HTML5 Canvas</span>
+                <span class="tech-tag">JavaScript (ES6+)</span>
+                <span class="tech-tag">Signal Smoothing</span>
+                <span class="tech-tag">Telemetry</span>
+              </div>
+            </div>
+          </article>
+
         </div>
-        <span id="project-result-count" style="font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-accent);">6 Systems</span>
       </div>
-
-      <!-- Works Grid -->
-      <div class="works-grid">
-        <!-- 1. Footstep Power Generation -->
-        <article class="work-card" data-category="iot">
-          <div class="work-image-frame">
-            <img src="assets/images/projects/footstep-power.jpg" alt="Footstep Power Generation Using Arduino" loading="lazy">
-          </div>
-          <div class="work-content">
-            <div class="work-meta">
-              <span class="work-category">IoT &amp; Energy Harvesting</span>
-              <span class="work-year">2024</span>
-            </div>
-            <h2 class="work-title">Footstep Power Generation Using Arduino</h2>
-            <p class="work-description">Kinetic energy harvesting system converting human pedestrian footsteps into clean electrical energy. Features arrayed piezoelectric transducers, AC-DC bridge rectifier filters, rechargeable 12V battery banks, and a 16x2 LCD telemetry monitor displaying real-time voltage output.</p>
-            <div class="work-specs">
-              <span class="tag-badge">Arduino Uno</span>
-              <span class="tag-badge">Piezo Sensors</span>
-              <span class="tag-badge">Energy Storage</span>
-              <span class="tag-badge">LCD Telemetry</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- 2. RC Car Workshop -->
-        <article class="work-card" data-category="iot">
-          <div class="work-image-frame">
-            <img src="assets/images/projects/bluetooth-rc-car.jpg" alt="ComedKares RC Car Workshop" loading="lazy">
-          </div>
-          <div class="work-content">
-            <div class="work-meta">
-              <span class="work-category">Robotics &amp; Telemetry</span>
-              <span class="work-year">2024</span>
-            </div>
-            <h2 class="work-title">ComedKares RC Car Workshop</h2>
-            <p class="work-description">Led a team to construct an intelligent robotic rover vehicle. Integrated HC-05 serial Bluetooth modules for wireless telemetry, dual L298N H-Bridge motor drivers for pulse-width modulation speed control, and front ultrasonic sensors for automated collision avoidance.</p>
-            <div class="work-specs">
-              <span class="tag-badge">Role: Team Leader</span>
-              <span class="tag-badge">HC-05 Bluetooth</span>
-              <span class="tag-badge">L298N Driver</span>
-              <span class="tag-badge">Obstacle Avoidance</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- 3. Salesforce Volunteer Tracker -->
-        <article class="work-card" data-category="cloud">
-          <div class="work-image-frame">
-            <img src="assets/images/projects/salesforce-tracker.jpg" alt="Salesforce Volunteer Program Tracker" loading="lazy">
-          </div>
-          <div class="work-content">
-            <div class="work-meta">
-              <span class="work-category">Cloud Enterprise Platform</span>
-              <span class="work-year">2024</span>
-            </div>
-            <h2 class="work-title">Volunteer Program Tracker</h2>
-            <p class="work-description">Comprehensive Salesforce CRM application managing community outreach programs. Designed custom data schemas, automated record-triggered validation flows, milestone certificate generators, and interactive executive reporting dashboards.</p>
-            <div class="work-specs">
-              <span class="tag-badge">Role: Lead Architect</span>
-              <span class="tag-badge">Salesforce Cloud</span>
-              <span class="tag-badge">Process Flows</span>
-              <span class="tag-badge">Analytics</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- 4. EMG Sensor System -->
-        <article class="work-card" data-category="iot">
-          <div class="work-image-frame">
-            <img src="assets/images/projects/emg-sensor.jpg" alt="Muscle Flex Detection System" loading="lazy">
-          </div>
-          <div class="work-content">
-            <div class="work-meta">
-              <span class="work-category">Biomedical IoT</span>
-              <span class="work-year">2024</span>
-            </div>
-            <h2 class="work-title">Muscle Flex Detection &amp; IoT System</h2>
-            <p class="work-description">Biomedical instrumentation system utilizing electromyography (EMG) skin electrodes to detect muscle contractions. Implemented bandpass analog filtering to isolate physiological micro-volt signals, streaming telemetry alerts to connected monitors.</p>
-            <div class="work-specs">
-              <span class="tag-badge">EMG Electrodes</span>
-              <span class="tag-badge">Micro-Volt Amplification</span>
-              <span class="tag-badge">ESP32</span>
-              <span class="tag-badge">Health-Tech</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- 5. Surveillance Drone -->
-        <article class="work-card" data-category="iot">
-          <div class="work-image-frame">
-            <img src="assets/images/projects/surveillance-drone.jpg" alt="Surveillance Drone Using ESP32" loading="lazy">
-          </div>
-          <div class="work-content">
-            <div class="work-meta">
-              <span class="work-category">Autonomous Aerospace IoT</span>
-              <span class="work-year">2023</span>
-            </div>
-            <h2 class="work-title">Surveillance Drone Using ESP32</h2>
-            <p class="work-description">Quad-rotor flight hardware utilizing an ESP32 micro-controller board. Configured MPU-6050 six-axis gyroscope/accelerometer feedback loops, PID flight stability algorithms, and 2.4GHz Wi-Fi telemetry video links.</p>
-            <div class="work-specs">
-              <span class="tag-badge">ESP32</span>
-              <span class="tag-badge">MPU-6050 Gyro</span>
-              <span class="tag-badge">PID Tuning</span>
-              <span class="tag-badge">Telemetry</span>
-            </div>
-          </div>
-        </article>
-
-        <!-- 6. Recipe Portal -->
-        <article class="work-card" data-category="web">
-          <div class="work-image-frame">
-            <img src="assets/images/projects/recipe-portal.jpg" alt="Interactive Culinary Recipe Portal" loading="lazy">
-          </div>
-          <div class="work-content">
-            <div class="work-meta">
-              <span class="work-category">Web Development &amp; UI/UX</span>
-              <span class="work-year">2023</span>
-            </div>
-            <h2 class="work-title">Culinary Recipe Platform</h2>
-            <p class="work-description">Interactive culinary web application featuring dynamic dietary taxonomy filters, real-time recipe search, responsive image galleries, and structured semantic HTML5 markup for fast indexing.</p>
-            <div class="work-specs">
-              <span class="tag-badge">HTML5/CSS3</span>
-              <span class="tag-badge">JavaScript (ES6+)</span>
-              <span class="tag-badge">UI/UX Design</span>
-              <span class="tag-badge">Responsive</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
+    </section>
   </main>
 
   <!-- Site Footer -->
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-container">
-      <div class="footer-copy">
-        &copy; 2026 Sahla Sharmeen E.K &bull; Kasaragod, Kerala, India &bull; Built with Hallmark, Emil Kowalski Physics &amp; Taste-Skill
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        &copy; 2026 Sahla Sharmeen E.K. Crafted under Hallmark, Emil Kowalski Physics, Taste-Skill &amp; Impeccable standards.
       </div>
       <div class="footer-links">
-        <a href="index.html">Overview</a>
-        <a href="resume.html">Resume</a>
-        <a href="biodata.html">Bio-Data</a>
-        <a href="contact.html">Contact</a>
-        <a href="https://github.com/shahalasharmeen" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com/in/shahalasharmeen" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="projects.html" class="footer-link">Projects</a>
+        <a href="resume.html" class="footer-link">Resume</a>
+        <a href="biodata.html" class="footer-link">Bio-Data</a>
+        <a href="contact.html" class="footer-link">Contact</a>
       </div>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script src="js/projects.js"></script>
+  <!-- Vanilla JavaScript -->
+  <script src="js/main.js?v=20261111_scratch"></script>
 </body>
 </html>
